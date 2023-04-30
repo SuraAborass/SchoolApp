@@ -9,6 +9,7 @@ import '../../Widgets/Public/bottom_navigation_bar.dart';
 import '../../Widgets/Public/drawer.dart';
 import 'package:get/get.dart';
 
+import '../../Widgets/Public/home_item.dart';
 import '../../Widgets/Subjects/Subject_item.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -18,7 +19,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: UIColors.white,
-      appBar: customAppBar(context),
+      appBar: customAppBar(),
       drawer: const CustomDrawer(),
       bottomNavigationBar: const CustomBottomNavigationBar(),
       body: Column(
@@ -35,6 +36,7 @@ class HomeScreen extends StatelessWidget {
                color: UIColors.primary,
                borderRadius: radiusbottomright,
              ),
+             child: Image.asset('assets/images/Image 2.png',fit: BoxFit.cover,),
            ),
            Row(
              mainAxisAlignment: MainAxisAlignment.start,
@@ -44,16 +46,6 @@ class HomeScreen extends StatelessWidget {
                  flex: 2,
                   child: Padding(
                     padding:  EdgeInsets.only(top: 20.0,right: 20,),
-                    //child:
-                    // Container(
-                    //   decoration: const BoxDecoration(
-                    //       image: DecorationImage(image: AssetImage("assets/images/user-default.png"),
-                    //           fit: BoxFit.cover),
-                    //       color: UIColors.white,
-                    //       borderRadius:  BorderRadius.all(Radius.circular(200.0))),
-                    //   height: 90,
-                    //   width: 90 ,
-                    // ),
                     child: CircleAvatar(
                      radius: 40,
                      backgroundImage: AssetImage("assets/images/user-default.png",),
@@ -93,18 +85,19 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBoxHeight(),
             Expanded(
-              child: SizedBox(
-                width: Get.width,
-                child: GridView.builder(
-                  itemCount: 8,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  child: GridView.builder(
+                    itemCount: 8,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,crossAxisSpacing: 20),
+                    physics: const BouncingScrollPhysics(),
+                    itemBuilder: (context, i){
+                      return   HomeItem();
+                    },
                 ),
-                  itemBuilder: (context, i){
-                    return  Container(
-                        margin: const EdgeInsets.only(right: 20,left: 20),
-                        child:  const SubjectItem());
-                  },
-              ),
+                ),
               ),
             )
           ],

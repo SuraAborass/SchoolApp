@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import '../../../Constants/ui_colors.dart';
 
-PreferredSizeWidget customAppBar(BuildContext context) {
+
+PreferredSizeWidget customAppBar({Widget? bool }) {
   return AppBar(
-    // leadingWidth: 200,
     backgroundColor: UIColors.primary,
     elevation: 0.0,
+    // shape: const RoundedRectangleBorder(
+    //   borderRadius: BorderRadius.only(
+    //     bottomRight: Radius.circular(24),
+    //   ),
+    // ),
+    flexibleSpace: Container(decoration: const BoxDecoration(
+        image:DecorationImage(image: AssetImage('assets/images/Image 2.png'),fit: BoxFit.cover)),),
     leading:   Builder(builder: (context) {
       return IconButton(
           onPressed: () {
@@ -24,7 +31,7 @@ PreferredSizeWidget customAppBar(BuildContext context) {
     //   width: 119,
     // ),
     actions: [
-      Align(
+    Align(
         alignment: Alignment.centerLeft,
         child: Padding(
           padding: const EdgeInsets.only(top: 14.0,left: 14),
@@ -32,7 +39,7 @@ PreferredSizeWidget customAppBar(BuildContext context) {
             'assets/images/logo.png',
           ),
         ),
-      ),
+      )
     ],
   );
 }

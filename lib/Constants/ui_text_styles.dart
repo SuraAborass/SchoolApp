@@ -10,6 +10,6 @@ class UITextStyle{
   fontWeight: FontWeight.normal,
      color: UIColors.gray,
      fontSize: 14,
-     fontFamily: "Hacen Tunisia Lt");
+     fontFamily: "Hacen");
 
 }
