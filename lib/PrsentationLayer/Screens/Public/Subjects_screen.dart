@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../Widgets/Public/AppBar.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';
+import '../../Widgets/Public/school_appbar.dart';
 import '../../Widgets/Subjects/Subject_item.dart';
 
 class SubjectsScreen extends StatelessWidget {
@@ -11,7 +10,7 @@ class SubjectsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       bottomNavigationBar: const CustomBottomNavigationBar(),
-      appBar: customAppBar(),
+      appBar: schoolAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(

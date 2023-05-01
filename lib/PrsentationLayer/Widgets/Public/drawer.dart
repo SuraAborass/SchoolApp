@@ -55,7 +55,7 @@ class CustomDrawer extends StatelessWidget {
                 color: UIColors.primary,
               ),
               title: Text('الباص',style: UITextStyle.titleBold.copyWith(color: UIColors.primary)),
-              onTap: () {}
+              onTap: () => Get.toNamed(AppRoutes.busScreen)
           ),
         ],
       ),

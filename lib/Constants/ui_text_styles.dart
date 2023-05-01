@@ -11,5 +11,10 @@ class UITextStyle{
      color: UIColors.gray,
      fontSize: 14,
      fontFamily: "Hacen");
+ static const smallBodyNormal = TextStyle(
+     fontWeight: FontWeight.normal,
+     color: UIColors.gray,
+     fontSize: 14,
+     fontFamily: "Hacen Tunisia Lt");
 
 }
