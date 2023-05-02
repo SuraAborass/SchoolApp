@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:school_app/PrsentationLayer/Widgets/Public/SizedBoxHeight.dart';
 import 'package:school_app/PrsentationLayer/Widgets/Public/SizedBoxWidth.dart';
-import '../../../Constants/ui_colors.dart';
+import '../../../Constants/colors.dart';
 import '../../../Constants/ui_styles.dart';
-import '../../../Constants/ui_text_styles.dart';
+import '../../../Constants/text_styles.dart';
+import '../../Widgets/Home/Alerts_item.dart';
+import '../../Widgets/Home/Bus_item.dart';
+import '../../Widgets/Home/Holidays_item.dart';
+import '../../Widgets/Home/HomeWorks_item.dart';
+import '../../Widgets/Home/Installments_item.dart';
+import '../../Widgets/Home/ResultsItem_item.dart';
+import '../../Widgets/Home/StudentTime_item.dart';
+import '../../Widgets/Home/Subjects_item.dart';
 import '../../Widgets/Public/AppBar.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';
 import '../../Widgets/Public/drawer.dart';
 import 'package:get/get.dart';
-
-import '../../Widgets/Public/home_item.dart';
-import '../../Widgets/Subjects/Subject_item.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -19,9 +24,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: UIColors.white,
-      appBar: customAppBar(context),
+      appBar: mainAppBar(context),
       drawer: const CustomDrawer(),
-      bottomNavigationBar: const CustomBottomNavigationBar(),
+      bottomNavigationBar: const SchoolBottomNavigationBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -86,16 +91,22 @@ class HomeScreen extends StatelessWidget {
             const SizedBoxHeight(),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(right: 14.0,left: 14.0),
                 child: SizedBox(
-                  child: GridView.builder(
-                    itemCount: 8,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,crossAxisSpacing: 20),
+                  child: GridView(
                     physics: const BouncingScrollPhysics(),
-                    itemBuilder: (context, i){
-                      return   HomeItem();
-                    },
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,crossAxisSpacing: 30,mainAxisSpacing: 0),
+                   children: const [
+                      SubjectsItem(),
+                     HomeWorksItem(),
+                     HolidaysItem(),
+                     ResultsItem(),
+                     StudentTimeItem(),
+                     BusItem(),
+                     AlertsItem(),
+                     InstallmentsItem()
+                   ],
                 ),
                 ),
               ),

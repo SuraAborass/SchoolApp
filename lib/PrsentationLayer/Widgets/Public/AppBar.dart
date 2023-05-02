@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../../Constants/ui_colors.dart';
+import '../../../Constants/colors.dart';
 
 
-PreferredSizeWidget customAppBar(BuildContext context) {
+PreferredSizeWidget mainAppBar(BuildContext context) {
   return AppBar(
     backgroundColor: UIColors.primary,
     elevation: 0.0,
-    // shape: const RoundedRectangleBorder(
-    //   borderRadius: BorderRadius.only(
-    //     bottomRight: Radius.circular(24),
-    //   ),
-    // ),
     flexibleSpace: Container(decoration: const BoxDecoration(
         image:DecorationImage(image: AssetImage('assets/images/Image 2.png'),fit: BoxFit.cover)),),
     leading:   Builder(builder: (context) {
@@ -24,12 +19,6 @@ PreferredSizeWidget customAppBar(BuildContext context) {
             color: UIColors.white,
           ));
     }),
-
-    // title: Image.asset(
-    //   'assets/images/logo.png',
-    //   height: 22,
-    //   width: 119,
-    // ),
     actions: [
     Align(
         alignment: Alignment.centerLeft,

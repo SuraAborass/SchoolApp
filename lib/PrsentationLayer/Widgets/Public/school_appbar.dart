@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import '../../../Constants/ui_colors.dart';
-import '../../../Constants/ui_text_styles.dart';
+import '../../../Constants/colors.dart';
+import '../../../Constants/text_styles.dart';
 
 
 PreferredSizeWidget schoolAppBar(
-    {Widget? leading, List<Widget> actions = const []}) {
+    {Widget? leading, List<Widget> actions = const [],title}) {
   return AppBar(
     elevation: 0.0,
     centerTitle: true,
+    title: title,
     backgroundColor: UIColors.primary,
-    title:  Text("المواد",style: UITextStyle.titleBold.copyWith(fontSize: 25),),
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
         bottomRight: Radius.circular(24),

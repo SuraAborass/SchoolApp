@@ -78,11 +78,11 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Hacen
+    - family: Hacen Tunisia Bd
       fonts:
         - asset: assets/fonts/Hacen Tunisia Bd.ttf
     #         style: italic
-    - family: Hacen
+    - family: Hacen Tunisia Lt
       fonts:
         - asset: assets/fonts/Hacen Tunisia Lt.ttf
   #         weight: 700

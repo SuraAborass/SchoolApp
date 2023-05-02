@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:school_app/Constants/ui_colors.dart';
+import 'package:school_app/Constants/colors.dart';
+import 'package:school_app/Constants/text_styles.dart';
+import '../../../Constants/get_routes.dart';
 import '../../../main.dart';
+import 'package:get/get.dart';
 
-class CustomBottomNavigationBar extends StatelessWidget {
-  const CustomBottomNavigationBar({Key? key}) : super(key: key);
+class SchoolBottomNavigationBar extends StatelessWidget {
+  const SchoolBottomNavigationBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,28 +14,30 @@ class CustomBottomNavigationBar extends StatelessWidget {
       currentIndex: MyApp.currentPage,
       onTap: (index) {
         MyApp.currentPage = index;
-        // switch (index) {
-        //   case 0:
-        //     Get.toNamed(AppRoutes.homepage);
-        //     break;
-        //   case 1:
-        //     Get.toNamed(AppRoutes.notifications);
-        //     break;
-        //   case 2:
-        //     Get.toNamed(AppRoutes.myBag);
-        //     break;
-        //   case 3:
-        //     Get.toNamed(AppRoutes.favorites);
-        //     break;
-        //   case 4:
-        //
-        //     break;
-        //   default:
-        // }
+        switch (index) {
+          case 0:
+            Get.toNamed(AppRoutes.homeScreen);
+            break;
+          case 1:
+            //Get.toNamed(AppRoutes.);
+            break;
+          case 2:
+            //Get.toNamed(AppRoutes.);
+            break;
+          case 3:
+            Get.toNamed(AppRoutes.profileScreen);
+            break;
+          default:
+        }
       },
       backgroundColor: UIColors.navBarColor,
       selectedItemColor: UIColors.navBarSelectedItem,
-      unselectedItemColor:UIColors.iconColor.withOpacity(.5),
+      unselectedItemColor:UIColors.iconColor,
+      selectedFontSize: 16,
+      unselectedFontSize: 16,
+      type: BottomNavigationBarType.fixed,
+      selectedLabelStyle: UITextStyle.boldSmall,
+      unselectedLabelStyle: UITextStyle.normalSmall,
       items: const <BottomNavigationBarItem> [
         BottomNavigationBarItem(
           icon: Icon(Icons.home,size: 35,),

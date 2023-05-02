@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:school_app/Constants/ui_colors.dart';
-import 'package:school_app/Constants/ui_text_styles.dart';
+import 'package:school_app/Constants/colors.dart';
+import 'package:school_app/Constants/text_styles.dart';
 
 class SubjectItem extends StatelessWidget {
   const SubjectItem({Key? key}) : super(key: key);

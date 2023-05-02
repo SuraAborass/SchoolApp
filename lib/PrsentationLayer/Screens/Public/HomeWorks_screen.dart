@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../Constants/text_styles.dart';
 import '../../Widgets/HomeWorks/home_work_item.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';
 import '../../Widgets/Public/school_appbar.dart';
@@ -9,8 +10,8 @@ class HomeWorkScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const CustomBottomNavigationBar(),
-      appBar: schoolAppBar(),
+      bottomNavigationBar: const SchoolBottomNavigationBar(),
+      appBar: schoolAppBar(title: Text("الوظائف",style: UITextStyle.titleBold.copyWith(fontSize: 25))),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
