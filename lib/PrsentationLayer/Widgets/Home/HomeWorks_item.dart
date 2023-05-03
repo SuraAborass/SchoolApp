@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:school_app/Constants/get_routes.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
+import 'package:ionicons/ionicons.dart';
 
 class HomeWorksItem extends StatelessWidget {
   const HomeWorksItem({Key? key}) : super(key: key);
@@ -24,15 +25,15 @@ class HomeWorksItem extends StatelessWidget {
           Positioned( top: 15,right:20,
             child: Text('الوظائف',
               style: UITextStyle.bodyNormal.copyWith(color: UIColors.white,fontSize: 25),),),
-          Positioned(top: 60,right: 90,
-              child: Container(height: 60, width: 100,
+          Positioned(top: 50,right: 80,
+              child: Container(height: 80, width: 110,
                 decoration: const BoxDecoration(
                     color: UIColors.lightWhite,
-                    borderRadius: BorderRadius. only(topRight: Radius.circular(20))
+                    borderRadius: BorderRadius. only(topRight: Radius.circular(25))
                 ),
               )),
           const Positioned(top: 65,right:100,
-              child: Icon(Icons.calendar_month,size: 45,color: UIColors.iconColor,))
+              child: Icon(Ionicons.alarm_outline,size: 43,color: UIColors.white,))
         ],
       ),
     );

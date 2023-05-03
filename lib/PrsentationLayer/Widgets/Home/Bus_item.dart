@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/get_routes.dart';
 import '../../../Constants/text_styles.dart';
+import 'package:ionicons/ionicons.dart';
 
 class BusItem extends StatelessWidget {
   const BusItem({Key? key}) : super(key: key);
@@ -24,15 +25,15 @@ class BusItem extends StatelessWidget {
           Positioned( top: 15,right:20,
             child: Text('الباص',
               style: UITextStyle.bodyNormal.copyWith(color: UIColors.white,fontSize: 25),),),
-          Positioned(top: 60,right: 90,
-              child: Container(height: 60, width: 100,
+          Positioned(top: 50,right: 80,
+              child: Container(height: 80, width: 110,
                 decoration: const BoxDecoration(
                     color: UIColors.lightWhite,
-                    borderRadius: BorderRadius. only(topRight: Radius.circular(20))
+                    borderRadius: BorderRadius. only(topRight: Radius.circular(25))
                 ),
               )),
           const Positioned(top: 65,right:100,
-              child: Icon(Icons.calendar_month,size: 45,color: UIColors.iconColor,))
+              child: Icon(Icons.bus_alert,size: 35,color: UIColors.white,))
         ],
       ),
     );

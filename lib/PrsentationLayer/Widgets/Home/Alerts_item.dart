@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ionicons/ionicons.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
 
@@ -23,15 +24,15 @@ class AlertsItem extends StatelessWidget {
           Positioned( top: 15,right:20,
             child: Text('التنبيهات',
               style: UITextStyle.bodyNormal.copyWith(color: UIColors.white,fontSize: 25),),),
-          Positioned(top: 60,right: 90,
-              child: Container(height: 60, width: 100,
+          Positioned(top: 50,right: 80,
+              child: Container(height: 80, width: 110,
                 decoration: const BoxDecoration(
                     color: UIColors.lightWhite,
-                    borderRadius: BorderRadius. only(topRight: Radius.circular(20))
+                    borderRadius: BorderRadius. only(topRight: Radius.circular(25))
                 ),
               )),
           const Positioned(top: 65,right:100,
-              child: Icon(Icons.calendar_month,size: 45,color: UIColors.iconColor,))
+              child: Icon(Ionicons.alert_circle_sharp,size: 38,color: UIColors.white,))
         ],
       ),
     );

@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                color: UIColors.primary,
                borderRadius: radiusbottomright,
              ),
-             child: Image.asset('assets/images/Image 2.png',fit: BoxFit.cover,),
+             child: Image.asset('assets/images/school-elements.png',fit: BoxFit.cover,opacity: const AlwaysStoppedAnimation(.20),),
            ),
            Row(
              mainAxisAlignment: MainAxisAlignment.start,
@@ -52,8 +52,8 @@ class HomeScreen extends StatelessWidget {
                   child: Padding(
                     padding:  EdgeInsets.only(top: 20.0,right: 20,),
                     child: CircleAvatar(
-                     radius: 40,
-                     backgroundImage: AssetImage("assets/images/user-default.png",),
+                     radius: 45,
+                     backgroundImage: AssetImage("assets/images/studentschool.png",),
                ),
                   ),
                 ),
@@ -116,7 +116,6 @@ class HomeScreen extends StatelessWidget {
       )
         ],
       ),
-
     );
   }
 }

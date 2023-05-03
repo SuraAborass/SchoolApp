@@ -16,7 +16,7 @@ class UITextStyle{
  static const smallBodyNormal = TextStyle(
      fontWeight: FontWeight.normal,
      color: UIColors.lightBlack,
-     fontSize: 14,
+     fontSize: 18,
      fontFamily: "Hacen Tunisia Lt");
 
  static const boldSmall = TextStyle(
