@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import '../BussinessLayer/Bindings/init_bindings.dart';
+import '../PrsentationLayer/Screens/Auth/login_screen.dart';
 import '../PrsentationLayer/Screens/Public/Bus_screen.dart';
 import '../PrsentationLayer/Screens/Public/HomeWorks_screen.dart';
 import '../PrsentationLayer/Screens/Public/Subjects_screen.dart';
@@ -8,10 +10,15 @@ import '../PrsentationLayer/Screens/Public/splash_screen.dart';
 import 'get_routes.dart';
 
 List<GetPage<dynamic>> getPages = [
-  // GetPage(
-  //     name: AppRoutes.splashScreen,
-  //     page: () => SplashScreen(),
-  //     transition: Transition.leftToRightWithFade),
+  GetPage(
+      name: AppRoutes.splashScreen,
+      page: () => SplashScreen(),
+      transition: Transition.leftToRightWithFade),
+  GetPage(
+      name: AppRoutes.loginScreen,
+      page: () =>  LoginScreen(),
+      transition: Transition.zoom,
+      binding: InitBinding()),
   GetPage(
       name: AppRoutes.homeScreen,
       page: () => const HomeScreen(),

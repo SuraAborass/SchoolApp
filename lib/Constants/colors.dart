@@ -33,6 +33,10 @@ static const circleAvatarBackground = Color(0xffD5D5D5);
 static const navBarColor = Color(0xffF9F9F9);
 static const navBarSelectedItem = Color(0xff1B75FF);
 
+//snackbars
+  static const success = Color.fromARGB(255, 99, 184, 91);
+  static const warning = Color.fromARGB(255, 233, 196, 73);
+  static const error = Color.fromARGB(255, 226, 102, 102);
 
 
 }

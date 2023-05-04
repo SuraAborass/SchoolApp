@@ -4,8 +4,8 @@ import '../../../BussinessLayer/Controllers/splash_controller.dart';
 import 'package:get/get.dart';
 
 class SplashScreen extends StatelessWidget {
-   const SplashScreen({Key? key}) : super(key: key);
-  //final SplashController splashController = Get.put(SplashController());
+    SplashScreen({Key? key}) : super(key: key);
+  final SplashController splashController = Get.put(SplashController());
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +17,10 @@ class SplashScreen extends StatelessWidget {
         ),
         body: Center(
           child: Image.asset(
-            'assets/images/logo_of_the_school.png',
-            height: 150 ,
-            width: 245,
+            'assets/images/sura.png',
+            height: 290,
+            width: 345,
           ),
-
         ));
   }
 }

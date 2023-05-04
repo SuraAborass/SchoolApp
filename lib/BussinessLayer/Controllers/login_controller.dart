@@ -1,0 +1,40 @@
+import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
+import 'package:school_app/BussinessLayer/Controllers/user_controller.dart';
+
+import '../../DataAcessLayer/Models/user.dart';
+import '../../DataAcessLayer/Repositories/user_repo.dart';
+import '../../PrsentationLayer/Widgets/Public/snackbars.dart';
+import '../../main.dart';
+
+class LoginController extends GetxController{
+  var phoneTextController = TextEditingController();
+  var passwordTextController = TextEditingController();
+  var passwordVisible = false.obs;
+  var sending = false.obs;
+  final UserController userController = Get.find();
+  var repo = UserRepo();
+
+  @override
+  void onInit() async {
+    super.onInit();
+  }
+
+  Future<void> login() async {
+    sending.value = true;
+    User? user = await repo.login(
+        phoneTextController.value.text, passwordTextController.value.text);
+    if (user != null) {
+      MyApp.AppUser = user;
+      await userController.saveAuthState(user);
+      SnackBars.showSuccess("Welcome" + MyApp.AppUser!.phone);
+    } else {
+      SnackBars.showError("Please check the entered data");
+    }
+    sending.value = false;
+  }
+
+  void togglePasswordVisible() {
+    passwordVisible.value = !passwordVisible.value;
+  }
+}
