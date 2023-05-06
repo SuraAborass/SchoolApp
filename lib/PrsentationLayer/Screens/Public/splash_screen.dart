@@ -15,12 +15,13 @@ class SplashScreen extends StatelessWidget {
           height : 20,
           color: UIColors.white,
         ),
-        body: Center(
-          child: Image.asset(
-            'assets/images/sura.png',
-            height: 290,
-            width: 345,
-          ),
-        ));
+        // body: Center(
+        //   child: Image.asset(
+        //     'assets/images/sura.png',
+        //     height: 290,
+        //     width: 345,
+        //   ),
+        // )
+    );
   }
 }

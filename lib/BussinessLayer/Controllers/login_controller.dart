@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:school_app/BussinessLayer/Controllers/user_controller.dart';
-
 import '../../DataAcessLayer/Models/user.dart';
 import '../../DataAcessLayer/Repositories/user_repo.dart';
 import '../../PrsentationLayer/Widgets/Public/snackbars.dart';
@@ -25,9 +24,9 @@ class LoginController extends GetxController{
     User? user = await repo.login(
         phoneTextController.value.text, passwordTextController.value.text);
     if (user != null) {
-      MyApp.AppUser = user;
+      MyApp.appUser = user;
       await userController.saveAuthState(user);
-      SnackBars.showSuccess("Welcome" + MyApp.AppUser!.phone);
+      SnackBars.showSuccess("Welcome" + MyApp.appUser!.phone);
     } else {
       SnackBars.showError("Please check the entered data");
     }

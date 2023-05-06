@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: UIColors.white,
       appBar: mainAppBar(context),
-      drawer: const CustomDrawer(),
+      drawer:  CustomDrawer(),
       bottomNavigationBar: const SchoolBottomNavigationBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

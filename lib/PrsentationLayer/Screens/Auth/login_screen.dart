@@ -17,7 +17,20 @@ final LoginController loginController = Get.put(LoginController());
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 200,),
+            Container(
+              margin: const EdgeInsets.only(top: 100),
+              alignment: Alignment.center,
+              child:  Text("مرحباً بعودتك!", style: UITextStyle.titleBold.copyWith(fontSize: 25 )),
+            ),
+           const SizedBox(height: 30,),
+           const Center(
+             child:  CircleAvatar(
+                radius: 90,
+               backgroundColor: UIColors.primary,
+                backgroundImage: AssetImage("assets/images/—Pngtree—cartoon schoolchildren go to school_4579672.png"),
+              ),
+           ),
+            const SizedBox(height: 20,),
             TextFormField(
               style: UITextStyle.titleBold.copyWith(color: Colors.black),
               controller: loginController.phoneTextController,

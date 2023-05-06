@@ -7,14 +7,13 @@ import 'DataAcessLayer/Models/user.dart';
 import 'PrsentationLayer/Screens/Auth/login_screen.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  static User? AppUser;
+  static User? appUser;
   static int currentPage = 0;
 
   @override

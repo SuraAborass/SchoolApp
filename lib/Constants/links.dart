@@ -1,2 +1,2 @@
-const baseLink = "https://matjary2.brain.sy/api/v1/";
-
+const baseLink = "http://school.brain.sy/api/v1/";
+const loginLink = "login";

@@ -32,7 +32,7 @@ class UserController extends GetxController{
 
   Future<void> logout() async {
     await boxClient.removeUserData();
-    MyApp.AppUser = null;
+    MyApp.appUser = null;
     Get.toNamed(AppRoutes.loginScreen);
   }
 

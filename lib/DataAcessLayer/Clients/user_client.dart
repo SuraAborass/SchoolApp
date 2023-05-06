@@ -5,7 +5,7 @@ import '../../Constants/links.dart';
 
 class UserClient {
   Future<dynamic> login(phone, password) async {
-    var response = await http.post(Uri.parse(baseLink + "login"),
+    var response = await http.post(Uri.parse(baseLink + loginLink),
         body:
             jsonEncode(<String, dynamic>{"phone": phone, "password": password}),
         headers: <String, String>{
