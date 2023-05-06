@@ -27,7 +27,7 @@ final LoginController loginController = Get.put(LoginController());
              child:  CircleAvatar(
                 radius: 90,
                backgroundColor: UIColors.primary,
-                backgroundImage: AssetImage("assets/images/—Pngtree—cartoon schoolchildren go to school_4579672.png"),
+                backgroundImage: AssetImage("assets/images/schoolchildren.png"),
               ),
            ),
             const SizedBox(height: 20,),
