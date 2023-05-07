@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../BussinessLayer/Bindings/home_bindings.dart';
 import '../BussinessLayer/Bindings/init_bindings.dart';
 import '../PrsentationLayer/Screens/Auth/login_screen.dart';
 import '../PrsentationLayer/Screens/Public/Bus_screen.dart';
@@ -22,10 +23,11 @@ List<GetPage<dynamic>> getPages = [
   GetPage(
       name: AppRoutes.homeScreen,
       page: () => const HomeScreen(),
+    binding: HomeBinding()
   ),
   GetPage(
     name: AppRoutes.subjectsScreen,
-    page: () => const SubjectsScreen(),
+    page: () =>  SubjectsScreen(),
   ),
   GetPage(
     name: AppRoutes.homeWorksScreen,

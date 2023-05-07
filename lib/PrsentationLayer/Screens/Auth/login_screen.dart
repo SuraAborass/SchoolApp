@@ -38,7 +38,7 @@ final LoginController loginController = Get.put(LoginController());
                 filled: true,
                 fillColor: UIColors.white,
                 border: const OutlineInputBorder(),
-                hintText: 'Enter your mobile number',
+                hintText: 'أدخل رقم هاتفك',
                 hintStyle: UITextStyle.normalSmall,
                 enabledBorder: OutlineInputBorder(
                   borderSide: const BorderSide(
@@ -69,7 +69,7 @@ final LoginController loginController = Get.put(LoginController());
                     },
                   ),
                   border: const OutlineInputBorder(),
-                  hintText: 'Enter your password',
+                  hintText: 'أدخل كلمة المرور الخاصة بك',
                   hintStyle: UITextStyle.normalSmall,
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
@@ -99,7 +99,7 @@ final LoginController loginController = Get.put(LoginController());
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: const [
-                     Text('Login', style: UITextStyle.titleBold)
+                     Text('تسجيل الدخول', style: UITextStyle.titleBold)
                   ],
                 ),
               onPressed: () async{
