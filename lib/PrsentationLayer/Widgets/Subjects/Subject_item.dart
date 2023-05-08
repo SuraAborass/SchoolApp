@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:school_app/Constants/colors.dart';
+import 'package:school_app/Constants/get_routes.dart';
 import 'package:school_app/Constants/text_styles.dart';
-
+import 'package:get/get.dart';
 import '../../../DataAcessLayer/Models/subject.dart';
 
 class SubjectItem extends StatelessWidget {
@@ -10,7 +11,7 @@ final Subject subject;
   @override
   Widget build(BuildContext context) {
     return  InkWell(
-      onTap: (){},
+      onTap: ()=> Get.toNamed(AppRoutes.subjectHomeWorks,arguments: [subject]),
       child: Stack(
         children: [
           Container(
@@ -29,8 +30,9 @@ final Subject subject;
          Positioned(right: 120,top: 15,
             child: CircleAvatar(
               backgroundColor: UIColors.iconColor,
-          radius: 15,
-          child: Text(subject.homeworks.length as String , style:UITextStyle.bodyNormal.copyWith(color: UIColors.white),),
+              radius: 15,
+              child: Text("1", style:UITextStyle.bodyNormal.copyWith(color: UIColors.white),),
+
         ))
         ],
       ),

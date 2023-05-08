@@ -6,6 +6,7 @@ import '../PrsentationLayer/Screens/Public/Bus_screen.dart';
 import '../PrsentationLayer/Screens/Public/HomeWorks_screen.dart';
 import '../PrsentationLayer/Screens/Public/Subjects_screen.dart';
 import '../PrsentationLayer/Screens/Public/home_screen.dart';
+import '../PrsentationLayer/Screens/Public/subject_homeworks_screen.dart';
 import '../PrsentationLayer/Screens/Public/profile_screen.dart';
 import '../PrsentationLayer/Screens/Public/splash_screen.dart';
 import 'get_routes.dart';
@@ -40,5 +41,9 @@ List<GetPage<dynamic>> getPages = [
   GetPage(
     name: AppRoutes.profileScreen,
     page: () => const ProfileScreen(),
+  ),
+  GetPage(
+    name: AppRoutes.subjectHomeWorks,
+    page: () =>  SubjectHomeworksScreen(),
   ),
 ];

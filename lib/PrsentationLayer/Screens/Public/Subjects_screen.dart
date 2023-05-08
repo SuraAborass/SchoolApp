@@ -15,7 +15,7 @@ final SubjectsController subjectsController = Get.find();
       bottomNavigationBar: const SchoolBottomNavigationBar(),
       appBar: schoolAppBar(title: Text("المواد",style: UITextStyle.titleBold.copyWith(fontSize: 25))),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(15.0),
         child: GetBuilder(
           init: subjectsController,
           builder: (context) {
