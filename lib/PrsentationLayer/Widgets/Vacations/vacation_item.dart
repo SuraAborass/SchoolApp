@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:school_app/Constants/text_styles.dart';
-import '../../../Constants/colors.dart';
-import '../../../DataAccessLayer/Models/homework.dart';
 
-class SubjectHomeworksItem extends StatelessWidget {
-   const SubjectHomeworksItem({Key? key,required this.homeWork}) : super(key: key);
- final HomeWork homeWork;
+import '../../../Constants/colors.dart';
+import '../../../Constants/text_styles.dart';
+import '../../../DataAccessLayer/Models/vacation.dart';
+
+class VacationItem extends StatelessWidget {
+  const VacationItem({Key? key,required this.vacation}) : super(key: key);
+  final Vacation vacation;
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return  Padding(
       padding: const EdgeInsets.all(10.0),
       child: Container(
         width: 200,
         height: 79,
         decoration:  BoxDecoration(
-          color: UIColors.studentTime,
-          border: Border.all(color: UIColors.lightBlack,width: 1),
-          borderRadius: BorderRadius.circular(25)
+            color: UIColors.vacation,
+            border: Border.all(color: UIColors.lightBlack,width: 1),
+            borderRadius: BorderRadius.circular(25)
         ),
 
         child: Row(
@@ -47,10 +48,10 @@ class SubjectHomeworksItem extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            homeWork.title,
+                            vacation.title,
                             style: UITextStyle.titleBold.copyWith(color: UIColors.primary),
                           ),
-                          Text(homeWork.description,
+                          Text(vacation.date,
                               style: UITextStyle.titleBold.copyWith(color: UIColors.primary)),
                         ])
                 )),

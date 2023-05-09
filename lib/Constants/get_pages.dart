@@ -5,6 +5,7 @@ import '../PrsentationLayer/Screens/Auth/login_screen.dart';
 import '../PrsentationLayer/Screens/Public/Bus_screen.dart';
 import '../PrsentationLayer/Screens/Public/HomeWorks_screen.dart';
 import '../PrsentationLayer/Screens/Public/Subjects_screen.dart';
+import '../PrsentationLayer/Screens/Public/vacation_screen.dart';
 import '../PrsentationLayer/Screens/Public/home_screen.dart';
 import '../PrsentationLayer/Screens/Public/subject_homeworks_screen.dart';
 import '../PrsentationLayer/Screens/Public/profile_screen.dart';
@@ -45,5 +46,9 @@ List<GetPage<dynamic>> getPages = [
   GetPage(
     name: AppRoutes.subjectHomeWorks,
     page: () =>  SubjectHomeworksScreen(),
+  ),
+  GetPage(
+    name: AppRoutes.vacations,
+    page: () =>  VacationsScreen(),
   ),
 ];

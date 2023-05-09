@@ -3,7 +3,7 @@ import 'package:school_app/Constants/colors.dart';
 import 'package:school_app/Constants/get_routes.dart';
 import 'package:school_app/Constants/text_styles.dart';
 import 'package:get/get.dart';
-import '../../../DataAcessLayer/Models/subject.dart';
+import '../../../DataAccessLayer/Models/subject.dart';
 
 class SubjectItem extends StatelessWidget {
   const SubjectItem({Key? key,required this.subject}) : super(key: key);

@@ -7,4 +7,5 @@ class AppRoutes {
   static const busScreen = "/home/busScreen";
   static const profileScreen = "/home/profileScreen";
   static const subjectHomeWorks = "/home/subjectsScreen/SubjectHomeWorks";
+  static const vacations = "/home/vacationsScreen/vacations";
 }

@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import '../../Constants/get_routes.dart';
-import '../../DataAcessLayer/Clients/box_client.dart';
-import '../../DataAcessLayer/Models/user.dart';
+import '../../DataAccessLayer/Clients/box_client.dart';
+import '../../DataAccessLayer/Models/user.dart';
 import '../../main.dart';
 
 class UserController extends GetxController{

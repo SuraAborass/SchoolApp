@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:school_app/BussinessLayer/Controllers/user_controller.dart';
-import '../../DataAcessLayer/Models/user.dart';
-import '../../DataAcessLayer/Repositories/user_repo.dart';
+import '../../DataAccessLayer/Models/user.dart';
+import '../../DataAccessLayer/Repositories/user_repo.dart';
 import '../../PrsentationLayer/Widgets/Public/snackbars.dart';
 import '../../main.dart';
 

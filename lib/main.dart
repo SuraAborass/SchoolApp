@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'BussinessLayer/Bindings/init_bindings.dart';
 import 'Constants/get_pages.dart';
-import 'DataAcessLayer/Models/user.dart';
-import 'PrsentationLayer/Screens/Auth/login_screen.dart';
+import 'DataAccessLayer/Models/user.dart';
+
 
 void main() async {
   await GetStorage.init();

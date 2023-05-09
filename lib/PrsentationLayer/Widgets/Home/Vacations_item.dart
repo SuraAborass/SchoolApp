@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:school_app/Constants/get_routes.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
+import 'package:get/get.dart';
 
-
-class HolidaysItem extends StatelessWidget {
-  const HolidaysItem({Key? key}) : super(key: key);
+class VacationsItem extends StatelessWidget {
+  const VacationsItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: ()=> Get.toNamed(AppRoutes.vacations),
       child: Stack(
         children: [
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: UIColors.holiday,
+              color: UIColors.vacation,
             ),
             width: 163,
             height: 114,

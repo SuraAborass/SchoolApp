@@ -14,7 +14,7 @@ static const yellow = Color(0xffEBBE2B);
 //home widgets
   static const subject = Color(0xff433DC8);
   static const homework = Color(0xffF65E5E);
-  static const holiday = Color(0xff68D464);
+  static const vacation = Color(0xff68D464);
   static const result = Color(0xffFC6238);
   static const studentTime = Color(0xff8985F8);
   static const bus = Color(0xffEBBE2B);
