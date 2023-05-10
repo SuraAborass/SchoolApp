@@ -1,15 +1,15 @@
 import 'package:get/get.dart';
-import '../BussinessLayer/Bindings/home_bindings.dart';
-import '../BussinessLayer/Bindings/init_bindings.dart';
-import '../PrsentationLayer/Screens/Auth/login_screen.dart';
-import '../PrsentationLayer/Screens/Public/Bus_screen.dart';
-import '../PrsentationLayer/Screens/Public/HomeWorks_screen.dart';
-import '../PrsentationLayer/Screens/Public/Subjects_screen.dart';
-import '../PrsentationLayer/Screens/Public/vacation_screen.dart';
-import '../PrsentationLayer/Screens/Public/home_screen.dart';
-import '../PrsentationLayer/Screens/Public/subject_homeworks_screen.dart';
-import '../PrsentationLayer/Screens/Public/profile_screen.dart';
-import '../PrsentationLayer/Screens/Public/splash_screen.dart';
+import '../BusinessLayer/Bindings/home_bindings.dart';
+import '../BusinessLayer/Bindings/init_bindings.dart';
+import '../PresentationLayer/Screens/Auth/login_screen.dart';
+import '../PresentationLayer/Screens/Public/Bus_screen.dart';
+import '../PresentationLayer/Screens/Public/HomeWorks_screen.dart';
+import '../PresentationLayer/Screens/Public/Subjects_screen.dart';
+import '../PresentationLayer/Screens/Public/vacation_screen.dart';
+import '../PresentationLayer/Screens/Public/home_screen.dart';
+import '../PresentationLayer/Screens/Public/subject_homeworks_screen.dart';
+import '../PresentationLayer/Screens/Public/profile_screen.dart';
+import '../PresentationLayer/Screens/Public/splash_screen.dart';
 import 'get_routes.dart';
 
 List<GetPage<dynamic>> getPages = [
@@ -50,5 +50,9 @@ List<GetPage<dynamic>> getPages = [
   GetPage(
     name: AppRoutes.vacations,
     page: () =>  VacationsScreen(),
+  ),
+  GetPage(
+    name: AppRoutes.profileScreen,
+    page: () => const ProfileScreen(),
   ),
 ];

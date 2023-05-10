@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:school_app/PrsentationLayer/Widgets/Public/SizedBoxHeight.dart';
-import 'package:school_app/PrsentationLayer/Widgets/Public/SizedBoxWidth.dart';
+import 'package:school_app/PresentationLayer/Widgets/Public/SizedBoxHeight.dart';
+import 'package:school_app/PresentationLayer/Widgets/Public/SizedBoxWidth.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/ui_styles.dart';
 import '../../../Constants/text_styles.dart';
@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: UIColors.white,
       appBar: mainAppBar(context),
-      drawer:  CustomDrawer(),
+      drawer:  SchoolDrawer(),
       bottomNavigationBar: const SchoolBottomNavigationBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                color: UIColors.primary,
                borderRadius: radiusbottomright,
              ),
-             child: Image.asset('assets/images/school-elements.png',fit: BoxFit.cover,opacity: const AlwaysStoppedAnimation(.20),),
+             //child: Image.asset('assets/images/school-elements.png',fit: BoxFit.cover,opacity: const AlwaysStoppedAnimation(.20),),
            ),
            Row(
              mainAxisAlignment: MainAxisAlignment.start,

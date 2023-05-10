@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'BussinessLayer/Bindings/init_bindings.dart';
+import 'BusinessLayer/Bindings/init_bindings.dart';
 import 'Constants/get_pages.dart';
 import 'DataAccessLayer/Models/user.dart';
 

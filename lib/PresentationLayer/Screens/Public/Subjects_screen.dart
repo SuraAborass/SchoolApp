@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../BussinessLayer/Controllers/subjects_controller.dart';
+import '../../../BusinessLayer/Controllers/subjects_controller.dart';
 import '../../../Constants/text_styles.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';
+import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
 import '../../Widgets/Subjects/Subject_item.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,7 @@ final SubjectsController subjectsController = Get.find();
     return  Scaffold(
       bottomNavigationBar: const SchoolBottomNavigationBar(),
       appBar: schoolAppBar(title: Text("المواد",style: UITextStyle.titleBold.copyWith(fontSize: 25))),
+      drawer: SchoolDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: GetBuilder(

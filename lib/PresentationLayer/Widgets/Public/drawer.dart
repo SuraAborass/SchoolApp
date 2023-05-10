@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:school_app/Constants/colors.dart';
 import 'package:get/get.dart';
-import '../../../BussinessLayer/Controllers/user_controller.dart';
+import '../../../BusinessLayer/Controllers/user_controller.dart';
 import '../../../Constants/get_routes.dart';
 import '../../../Constants/text_styles.dart';
 import '../../../main.dart';
 
-class CustomDrawer extends StatelessWidget {
-   CustomDrawer({Key? key}) : super(key: key);
+class SchoolDrawer extends StatelessWidget {
+  SchoolDrawer({Key? key}) : super(key: key);
 final UserController userController = Get.find();
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ final UserController userController = Get.find();
               color: UIColors.primary,
             ),
             title: Text('الملف الشخصي',style: UITextStyle.titleBold.copyWith(color: UIColors.primary)),
-            onTap: () {}
+            onTap: ()=> Get.toNamed(AppRoutes.profileScreen)
           ),
           if (MyApp.appUser != null)
             ListTile(

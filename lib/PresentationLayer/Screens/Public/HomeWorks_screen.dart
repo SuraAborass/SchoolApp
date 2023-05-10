@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../Constants/text_styles.dart';
 import '../../Widgets/HomeWorks/home_work_item.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';
+import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
 
 class HomeWorkScreen extends StatelessWidget {
@@ -12,6 +13,7 @@ class HomeWorkScreen extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: const SchoolBottomNavigationBar(),
       appBar: schoolAppBar(title: Text("الوظائف",style: UITextStyle.titleBold.copyWith(fontSize: 25))),
+      drawer: SchoolDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(

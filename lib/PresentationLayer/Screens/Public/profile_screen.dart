@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
 import '../../../Constants/ui_styles.dart';
+import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -14,6 +15,7 @@ class ProfileScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: UIColors.primary,
       appBar: schoolAppBar(),
+      drawer: SchoolDrawer(),
       body: SafeArea(
         child: SizedBox(
           width: Get.width,

@@ -6,8 +6,8 @@ PreferredSizeWidget mainAppBar(BuildContext context) {
   return AppBar(
     backgroundColor: UIColors.primary,
     elevation: 0.0,
-    flexibleSpace: Container(decoration: const BoxDecoration(
-        image:DecorationImage(image: AssetImage('assets/images/school-elements.png'),fit: BoxFit.cover,opacity: 205)),),
+    // flexibleSpace: Container(decoration: const BoxDecoration(
+    //     image:DecorationImage(image: AssetImage('assets/images/school-elements.png'),fit: BoxFit.cover,opacity: 205)),),
     leading:   Builder(builder: (context) {
       return IconButton(
           onPressed: () {

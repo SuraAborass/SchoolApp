@@ -3,6 +3,7 @@ import '../../../Constants/colors.dart';
 import '../../../Constants/ui_styles.dart';
 import '../../../Constants/text_styles.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';
+import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
@@ -16,6 +17,7 @@ class BusScreen extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: const SchoolBottomNavigationBar(),
       appBar: schoolAppBar(title: Text("الباص",style: UITextStyle.titleBold.copyWith(fontSize: 25))),
+      drawer: SchoolDrawer(),
       body: Column(
         children: [
           Expanded(

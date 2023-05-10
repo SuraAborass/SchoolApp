@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:school_app/BussinessLayer/Controllers/user_controller.dart';
+import 'package:school_app/BusinessLayer/Controllers/user_controller.dart';
 import '../../Constants/get_routes.dart';
 import '../../main.dart';
 

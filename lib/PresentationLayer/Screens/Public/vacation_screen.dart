@@ -1,34 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../BussinessLayer/Controllers/subjects_controller.dart';
+import '../../../BusinessLayer/Controllers/vacation_controller.dart';
 import '../../../Constants/text_styles.dart';
-import '../../../DataAccessLayer/Models/subject.dart';
-import '../../Widgets/HomeWorks/subject_homeworks_item.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';
+import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
+import '../../Widgets/Vacations/vacation_item.dart';
 
-
-class SubjectHomeworksScreen extends StatelessWidget {
-  SubjectHomeworksScreen({Key? key}) : super(key: key);
-  final SubjectsController subjectsController = Get.find();
-  final Subject  subject = Get.arguments[0];
+class VacationsScreen extends StatelessWidget {
+   VacationsScreen({Key? key}) : super(key: key);
+final VacationController vacationController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const SchoolBottomNavigationBar(),
-      appBar: schoolAppBar(title: Text("وظائف الرياضيات",style: UITextStyle.titleBold.copyWith(fontSize: 20))),
+      appBar: schoolAppBar(title: Text("العطل",style: UITextStyle.titleBold.copyWith(fontSize: 20))),
+      drawer: SchoolDrawer(),
       body: Padding(
         padding: const EdgeInsets.only(top: 15.0),
         child: GetBuilder(
-            init: subjectsController,
+            init: vacationController,
             builder: (context) {
               return SizedBox(
                 height: Get.height-250,
                 child: ListView.builder(
-                  itemCount:subject.homeworks.length,
+                  itemCount: vacationController.vacations.length,
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, i){
-                    return   SubjectHomeworksItem(homeWork: subject.homeworks[i],);
+                    return   VacationItem(vacation: vacationController.vacations[i],);
                   },
                 ),
               );
