@@ -31,7 +31,7 @@ class ResultsItem extends StatelessWidget {
                 ),
               )),
           const Positioned(top: 65,right:100,
-              child: Icon(FontAwesomeIcons.checkDouble,size: 35,color: UIColors.white,))
+              child: Icon(Icons.task_alt ,size: 35,color: UIColors.white,))
         ],
       ),
     );

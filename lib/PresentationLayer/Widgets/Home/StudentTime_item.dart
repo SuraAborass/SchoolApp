@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
+import 'package:school_app/Constants/get_routes.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 
 class StudentTimeItem extends StatelessWidget {
   const StudentTimeItem({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class StudentTimeItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: ()=> Get.toNamed(AppRoutes.studentTime),
       child: Stack(
         children: [
           Container(
@@ -32,7 +32,7 @@ class StudentTimeItem extends StatelessWidget {
                 ),
               )),
            const Positioned(top: 65,right:100,
-              child: Icon(Icons.date_range_outlined,size: 38,color: UIColors.white,))
+              child: Icon(Icons.checklist_rtl,size: 38,color: UIColors.white,))
         ],
       ),
     );

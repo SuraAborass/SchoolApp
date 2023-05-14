@@ -33,7 +33,7 @@ class HomeWorksItem extends StatelessWidget {
                 ),
               )),
           const Positioned(top: 65,right:100,
-              child: Icon(Ionicons.alarm_outline,size: 43,color: UIColors.white,))
+              child: Icon(Icons.chrome_reader_mode_outlined,size: 43,color: UIColors.white,))
         ],
       ),
     );

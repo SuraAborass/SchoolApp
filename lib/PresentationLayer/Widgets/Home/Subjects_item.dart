@@ -33,7 +33,7 @@ class SubjectsItem extends StatelessWidget {
                 ),
               )),
           const Positioned(top: 65,right:100,
-              child: Icon(Ionicons.book,size: 37,color: UIColors.white,))
+              child: Icon(Icons.auto_stories,size: 37,color: UIColors.white,))
         ],
       ),
     );

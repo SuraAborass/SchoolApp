@@ -32,7 +32,7 @@ class InstallmentsItem extends StatelessWidget {
                 ),
               )),
           const Positioned(top: 65,right:100,
-              child: Icon(Icons.paid_outlined,size: 38,color: UIColors.white,))
+              child: Icon(Icons.monetization_on,size: 38,color: UIColors.white,))
         ],
       ),
     );

@@ -8,4 +8,5 @@ class AppRoutes {
   static const profileScreen = "/home/profileScreen";
   static const subjectHomeWorks = "/home/subjectsScreen/SubjectHomeWorks";
   static const vacations = "/home/vacationsScreen/vacations";
+  static const studentTime = "/home/studentTime";
 }
