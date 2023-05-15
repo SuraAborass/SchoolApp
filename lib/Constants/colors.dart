@@ -31,6 +31,11 @@ static const circleAvatarBackground = Color(0xffD5D5D5);
  static const justified = Color(0xff4FBC4B);
  static const unjustified = Color(0xffFF4343);
 
+ //alerts
+  static const alertWarning = Color(0xffFFB300);
+  static const alertDanger = Color(0xffFF4343);
+  static const alertInfo = Color(0xff8985F8);
+
 //bottom_navigation_bar
   static const iconColor = Color(0xffC2C2C2);
   static const labelTextColor = Color(0xffC2C2C2);

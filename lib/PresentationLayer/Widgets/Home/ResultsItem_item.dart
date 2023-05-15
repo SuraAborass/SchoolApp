@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:school_app/Constants/get_routes.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 
 class ResultsItem extends StatelessWidget {
   const ResultsItem({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class ResultsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: ()=> Get.toNamed(AppRoutes.results),
       child: Stack(
         children: [
           Container(

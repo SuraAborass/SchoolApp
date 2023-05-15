@@ -5,6 +5,8 @@ import '../PresentationLayer/Screens/Auth/login_screen.dart';
 import '../PresentationLayer/Screens/Public/Bus_screen.dart';
 import '../PresentationLayer/Screens/Public/HomeWorks_screen.dart';
 import '../PresentationLayer/Screens/Public/Subjects_screen.dart';
+import '../PresentationLayer/Screens/Public/alerts_screen.dart';
+import '../PresentationLayer/Screens/Public/exams_results_screen.dart';
 import '../PresentationLayer/Screens/Public/student_time_screen.dart';
 import '../PresentationLayer/Screens/Public/vacation_screen.dart';
 import '../PresentationLayer/Screens/Public/home_screen.dart';
@@ -55,10 +57,21 @@ List<GetPage<dynamic>> getPages = [
   GetPage(
     name: AppRoutes.profileScreen,
     page: () => const ProfileScreen(),
+    transition: Transition.fadeIn
   ),
   GetPage(
     name: AppRoutes.studentTime,
     page: () =>  StudentTimeScreen(),
     transition: Transition.rightToLeftWithFade
+  ),
+  GetPage(
+      name: AppRoutes.results,
+      page: () => const ExamsResultsScreen(),
+      transition: Transition.cupertino
+  ),
+  GetPage(
+      name: AppRoutes.alerts,
+      page: () =>  AlertsScreen(),
+      transition: Transition.circularReveal
   ),
 ];

@@ -9,4 +9,6 @@ class AppRoutes {
   static const subjectHomeWorks = "/home/subjectsScreen/SubjectHomeWorks";
   static const vacations = "/home/vacationsScreen/vacations";
   static const studentTime = "/home/studentTime";
+  static const results = "/home/results";
+  static const alerts = "/home/alerts";
 }
