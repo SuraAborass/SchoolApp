@@ -27,6 +27,9 @@ static const darkNormalText = Color(0xff6D6D6D);
 static const circleAvatarBorder = Color(0xff707070);
 static const circleAvatarBackground = Color(0xffD5D5D5);
 
+//exam results
+  static const resultColor = Color(0xffEFE8E8);
+
 //student absence
  static const justified = Color(0xff4FBC4B);
  static const unjustified = Color(0xffFF4343);
@@ -39,8 +42,8 @@ static const circleAvatarBackground = Color(0xffD5D5D5);
 //bottom_navigation_bar
   static const iconColor = Color(0xffC2C2C2);
   static const labelTextColor = Color(0xffC2C2C2);
-static const navBarColor = Color(0xffF9F9F9);
-static const navBarSelectedItem = Color(0xff1B75FF);
+  static const navBarColor = Color(0xffF9F9F9);
+  static const navBarSelectedItem = Color(0xff1B75FF);
 
 //snackbars
   static const success = Color.fromARGB(255, 99, 184, 91);

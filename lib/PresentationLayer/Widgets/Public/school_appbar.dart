@@ -4,7 +4,7 @@ import '../../../Constants/text_styles.dart';
 
 
 PreferredSizeWidget schoolAppBar(
-    {Widget? leading, List<Widget> actions = const [],title}) {
+    {Widget? leading, List<Widget> actions = const [],title,backgroundColor}) {
   return AppBar(
     elevation: 0.0,
     centerTitle: true,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../Constants/Helpers/absence_state.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
 import '../../../DataAccessLayer/Models/student_time.dart';
@@ -29,13 +28,9 @@ final StudentTime studentTime;
                 height: 64,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  // image: DecorationImage(
-                  //     image: AssetImage(
-                  //         'assets/images/school icon.png'),
-                  //     fit: BoxFit.cover),
                 ),
                 child: Icon(studentTime.status=="مبرر" ? Icons.done
-                                                    : Icons.clear,
+                                                       : Icons.clear,
                 color: UIColors.white,size: 50,),
               ),
             ),
@@ -53,7 +48,7 @@ final StudentTime studentTime;
                             studentTime.date,
                             style: UITextStyle.titleBold,
                           ),
-                          Text(AbsenceState.getAbsenceState(studentTime.status),
+                          Text(studentTime.status,
                               style: UITextStyle.titleBold),
                         ])
                 )),

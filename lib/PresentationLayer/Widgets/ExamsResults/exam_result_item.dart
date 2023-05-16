@@ -6,23 +6,26 @@ class ExamResultItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: 356,
-        height: 300,
-        decoration:  BoxDecoration(
-        color: UIColors.white,
-        border: Border.all(color: UIColors.primary,width: 1),
-    borderRadius: BorderRadius.circular(25)
-    ),
-      child: Positioned(
-        child: Container(
-      width: 127,
-    height: 28,
-    decoration:  BoxDecoration(
-    color: UIColors.white,
-    border: Border.all(color: UIColors.primary,width: 1),
-    borderRadius: BorderRadius.circular(25)
-    ),)
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Container(
+          width: 356,
+          height: 300,
+          decoration:  BoxDecoration(
+          color: UIColors.white,
+          border: Border.all(color: UIColors.primary,width: 1),
+      borderRadius: BorderRadius.circular(25)
+      ),
+        child: Positioned(
+          child: Container(
+        width: 127,
+      height: 28,
+      decoration:  BoxDecoration(
+      color: UIColors.white,
+      border: Border.all(color: UIColors.primary,width: 1),
+      borderRadius: BorderRadius.circular(25)
+      ),)
+        ),
       ),
     );
   }

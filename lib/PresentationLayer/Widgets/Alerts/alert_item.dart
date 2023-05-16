@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../Constants/Helpers/alert_state.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
 import '../../../DataAccessLayer/Models/alert.dart';
@@ -12,9 +13,9 @@ final Alert alert;
       padding: const EdgeInsets.all(10.0),
       child: Container(
         width: 373,
-        height: 94,
+        height: 84,
         decoration:  BoxDecoration(
-            color: alert.type == "warning" ? UIColors.alertWarning :  UIColors.alertDanger,
+            color: AlertState.getAlertState(alert.type),
             borderRadius: BorderRadius.circular(16)
         ),
         child: Row(
@@ -28,7 +29,7 @@ final Alert alert;
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 ),
-                child:  Icon(alert.type == "warning" ? Icons.warning : Icons.back_hand,
+                child:  Icon(alert.type == "danger" ? Icons.back_hand  : Icons.warning,
                   color: UIColors.white,size: 50,),
               ),
             ),
