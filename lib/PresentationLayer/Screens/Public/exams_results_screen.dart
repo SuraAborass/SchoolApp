@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:school_app/Constants/links.dart';
+import '../../../BusinessLayer/Controllers/exam_result_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
+import '../../Widgets/ExamsResults/exam_result_item.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';
 import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
+import 'package:get/get.dart';
 
 class ExamsResultsScreen extends StatelessWidget {
-  const ExamsResultsScreen({Key? key}) : super(key: key);
-
+   ExamsResultsScreen({Key? key}) : super(key: key);
+final ExamResultsController examResultsController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,52 +22,19 @@ class ExamsResultsScreen extends StatelessWidget {
       drawer: SchoolDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
-        child: Stack(
-          children: [
-            Positioned(
-              top: 10,
-              child: Container(
-                width: 330,
-                height: 300,
-                decoration: BoxDecoration(
-                    color: UIColors.white,
-                    border: Border.all(color: UIColors.primary, width: 1),
-                    borderRadius: BorderRadius.circular(25)),
-              ),
-            ),
-            Positioned(
-              top: 0,
-              right: 12,
-              child: Container(
-                width: 130,
-                height: 28,
-                decoration: BoxDecoration(
-                    color: UIColors.white,
-                    border: Border.all(color: UIColors.primary, width: 1),
-                    borderRadius: BorderRadius.circular(25)),
-                child: Center(
-                    child: Text(
-                  "المذاكرة الأولى",
-                  style: UITextStyle.bodyNormal
-                      .copyWith(color: UIColors.primary, fontSize: 18),
-                )),
-              ),
-            ),
-            Positioned(
-                top: 30,
+        child:GetBuilder(
+            init: examResultsController,
+            builder: (context) {
+              return SizedBox(
+                height: Get.height-170,
                 child: ListView.builder(
-                  itemCount: 4,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      width: 318,
-                      height: 42,
-                      decoration: BoxDecoration(
-                          color: UIColors.resultColor,
-                          borderRadius: BorderRadius.circular(16)),
-                    );
+                  itemCount: examResultsController.examResults.length,
+                  itemBuilder: (context, i){
+                    return  ExamResultItem(examResult: examResultsController.examResults[i],);
                   },
-                ))
-          ],
+                ),
+              );
+            }
         ),
       ),
     );

@@ -36,7 +36,7 @@ List<GetPage<dynamic>> getPages = [
   ),
   GetPage(
     name: AppRoutes.homeWorksScreen,
-    page: () => const HomeWorkScreen(),
+    page: () =>  HomeWorkScreen(),
   ),
   GetPage(
     name: AppRoutes.busScreen,
@@ -66,7 +66,7 @@ List<GetPage<dynamic>> getPages = [
   ),
   GetPage(
       name: AppRoutes.results,
-      page: () => const ExamsResultsScreen(),
+      page: () =>  ExamsResultsScreen(),
       transition: Transition.cupertino
   ),
   GetPage(

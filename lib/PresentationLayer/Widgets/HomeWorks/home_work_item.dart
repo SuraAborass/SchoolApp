@@ -2,36 +2,61 @@ import 'package:flutter/material.dart';
 
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
+import '../../../DataAccessLayer/Models/homework.dart';
 
 class HomeWorkItem extends StatelessWidget {
-  const HomeWorkItem({Key? key}) : super(key: key);
-
+  const HomeWorkItem({Key? key,required this.homeWork}) : super(key: key);
+final HomeWork homeWork;
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: UIColors.pink,
-          ),
-          width: 180,
-          height: 120,
-          // child: Image.asset('assets/images/Capture.png',fit: BoxFit.cover,
-          //   opacity: const AlwaysStoppedAnimation(.10),),
+    return  Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Container(
+        width: 373,
+        height: 72,
+        decoration:  BoxDecoration(
+            color: UIColors.homework,
+            borderRadius: BorderRadius.circular(16)
         ),
-        Positioned( top: 60,right:12,
-          child: Text('اللغة العربية',
-            style: UITextStyle.bodyNormal.copyWith(color: UIColors.white,fontSize: 18,),),),
-        Positioned(right: 75,top: 15,
-            child: CircleAvatar(
-              backgroundColor: UIColors.iconColor,
-              radius: 10,
-              child: Text("1", style:UITextStyle.bodyNormal.copyWith(color: UIColors.white),),
-            )),
-        const Positioned(top: 25,right: 40,
-            child: Icon(Icons.newspaper,size: 30,color: UIColors.white,))
-      ],
+        child: Row(
+          children: [
+            Expanded(
+              flex: 1,
+              child: Container(
+                margin: const EdgeInsets.all(10),
+                width: 66,
+                height: 64,
+                decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                ),
+                child: const Icon(Icons.feed,
+                  color: UIColors.white,size: 50,),
+              ),
+            ),
+            Expanded(
+                flex: 3,
+                child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 10,
+                    ),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                         Row(children: [
+                           Text( homeWork.title,
+                               style: UITextStyle.titleBold),
+                           const SizedBox(width: 10,),
+                           Text( homeWork.title,
+                               style: UITextStyle.titleBold),
+                         ],),
+                          Text( homeWork.description,
+                              style: UITextStyle.titleBold),
+                        ])
+                )),
+          ],
+        ),
+      ),
     );
   }
 }
