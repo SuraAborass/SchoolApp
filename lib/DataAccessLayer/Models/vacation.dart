@@ -2,19 +2,22 @@
 class Vacation {
   final int id;
   final String title;
-  final String date;
+  final String day;
+  final String month;
+
   Vacation({
     required this.id,
     required this.title,
-    required this.date,
-
+    required this.day,
+    required this.month
   });
 
   factory Vacation.fromMap(Map<String, dynamic> map) {
     return Vacation(
         id: map['id'] as int,
-        title: map['title'] as String,
-      date: map['date'] as String,
+        title: map['title'],
+      day: map['day'],
+      month: map['month']
     );
   }
 }

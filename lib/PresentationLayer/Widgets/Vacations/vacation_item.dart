@@ -50,8 +50,15 @@ class VacationItem extends StatelessWidget {
                             vacation.title,
                             style: UITextStyle.titleBold.copyWith(color: UIColors.primary),
                           ),
-                          Text(vacation.date,
-                              style: UITextStyle.titleBold.copyWith(color: UIColors.primary)),
+                          Row(
+                            children: [
+                              Text(vacation.day,
+                                  style: UITextStyle.titleBold.copyWith(color: UIColors.primary)),
+                              const SizedBox(width: 5.0,),
+                              Text(vacation.month,
+                                  style: UITextStyle.titleBold.copyWith(color: UIColors.primary)),
+                            ],
+                          ),
                         ])
                 )),
           ],

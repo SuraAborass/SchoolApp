@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:school_app/Constants/links.dart';
 import '../../../BusinessLayer/Controllers/exam_result_controller.dart';
-import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
 import '../../Widgets/ExamsResults/exam_result_item.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';

@@ -29,8 +29,8 @@ final Alert alert;
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 ),
-                child:  Icon(alert.type == "danger" ? Icons.back_hand  : Icons.warning,
-                  color: UIColors.white,size: 50,),
+                child:  Icon(AlertStateIcon.getAlertState(alert.type),
+                  color: UIColors.white,size: 40,),
               ),
             ),
             Expanded(

@@ -1,5 +1,4 @@
-import 'dart:ui';
-
+import 'package:flutter/material.dart';
 import '../colors.dart';
 
 class AlertState{
@@ -13,6 +12,21 @@ class AlertState{
         return UIColors.alertDanger;
       default:
         return UIColors.unjustified;
+    }
+  }
+}
+
+class AlertStateIcon{
+  static IconData getAlertState(String alertState) {
+    switch (alertState) {
+      case "warning":
+        return Icons.warning;
+      case "info":
+        return Icons.info;
+      case "danger":
+        return Icons.back_hand;
+      default:
+        return Icons.notifications;
     }
   }
 }
