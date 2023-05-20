@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../Controllers/Bus_controller.dart';
 import '../Controllers/alerts_controller.dart';
 import '../Controllers/exam_result_controller.dart';
 import '../Controllers/homeworks_controller.dart';
@@ -15,5 +16,6 @@ class HomeBinding extends Bindings {
     Get.put<AlertsController>(AlertsController());
     Get.put<HomeworksController>(HomeworksController());
     Get.put<ExamResultsController>(ExamResultsController());
+    Get.put<BusController>(BusController());
   }
 }

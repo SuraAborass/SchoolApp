@@ -40,7 +40,7 @@ List<GetPage<dynamic>> getPages = [
   ),
   GetPage(
     name: AppRoutes.busScreen,
-    page: () => const BusScreen(),
+    page: () =>  BusScreen(),
   ),
   GetPage(
     name: AppRoutes.profileScreen,

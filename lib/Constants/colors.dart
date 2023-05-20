@@ -39,6 +39,9 @@ static const circleAvatarBackground = Color(0xffD5D5D5);
   static const alertDanger = Color(0xffFF4343);
   static const alertInfo = Color(0xff8985F8);
 
+//vacations
+  static const calendar = Color(0xffE6E6E6);
+
 //bottom_navigation_bar
   static const iconColor = Color(0xffC2C2C2);
   static const labelTextColor = Color(0xffC2C2C2);
