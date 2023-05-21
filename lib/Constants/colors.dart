@@ -39,6 +39,12 @@ static const circleAvatarBackground = Color(0xffD5D5D5);
   static const alertDanger = Color(0xffFF4343);
   static const alertInfo = Color(0xff8985F8);
 
+  //FinancialTransaction
+  static const financial1 = Color(0xffFF5B5B);
+  static const financial2 = Color(0xff6BC961);
+  static const remainingAmount = Color(0xff8985F8);
+
+
 //vacations
   static const calendar = Color(0xffE6E6E6);
 

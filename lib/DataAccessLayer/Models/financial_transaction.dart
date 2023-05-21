@@ -16,8 +16,8 @@ class FinancialTransaction {
   factory FinancialTransaction.fromMap(Map<String, dynamic> map) {
     return FinancialTransaction(
         id: map['id'] as int,
-        statement: map['statement'] as String,
-        type: map['type'] as String,
+        statement: map['statement'] ,
+        type: map['type'] ,
         amount: map['amount'] as int,
     );
   }

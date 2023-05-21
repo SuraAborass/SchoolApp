@@ -11,4 +11,5 @@ class AppRoutes {
   static const studentTime = "/home/studentTime";
   static const results = "/home/results";
   static const alerts = "/home/alerts";
+  static const installments = "/home/installments";
 }

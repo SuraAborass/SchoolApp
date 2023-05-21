@@ -7,6 +7,7 @@ import '../PresentationLayer/Screens/Public/HomeWorks_screen.dart';
 import '../PresentationLayer/Screens/Public/Subjects_screen.dart';
 import '../PresentationLayer/Screens/Public/alerts_screen.dart';
 import '../PresentationLayer/Screens/Public/exams_results_screen.dart';
+import '../PresentationLayer/Screens/Public/installment_screen.dart';
 import '../PresentationLayer/Screens/Public/student_time_screen.dart';
 import '../PresentationLayer/Screens/Public/vacation_screen.dart';
 import '../PresentationLayer/Screens/Public/home_screen.dart';
@@ -73,5 +74,10 @@ List<GetPage<dynamic>> getPages = [
       name: AppRoutes.alerts,
       page: () =>  AlertsScreen(),
       transition: Transition.circularReveal
+  ),
+  GetPage(
+      name: AppRoutes.installments,
+      page: () =>  InstallmentScreen(),
+      transition: Transition.rightToLeftWithFade
   ),
 ];

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ionicons/ionicons.dart';
+import 'package:school_app/Constants/get_routes.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
+import 'package:get/get.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class InstallmentsItem extends StatelessWidget {
@@ -10,7 +11,7 @@ class InstallmentsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: ()=> Get.toNamed(AppRoutes.installments),
       child: Stack(
         children: [
           Container(
@@ -32,7 +33,7 @@ class InstallmentsItem extends StatelessWidget {
                 ),
               )),
           const Positioned(top: 65,right:100,
-              child: Icon(Icons.monetization_on,size: 38,color: UIColors.white,))
+              child: Icon(FontAwesomeIcons.moneyBill1,size: 38,color: UIColors.white,))
         ],
       ),
     );
