@@ -12,7 +12,7 @@ import '../../Widgets/Public/school_appbar.dart';
 class SubjectHomeworksScreen extends StatelessWidget {
   SubjectHomeworksScreen({Key? key}) : super(key: key);
   final SubjectsController subjectsController = Get.find();
-  final Subject  subject = Get.arguments[0];
+  final Subject subject = Get.arguments[0];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

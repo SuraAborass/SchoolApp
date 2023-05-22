@@ -15,7 +15,6 @@ class HomeBinding extends Bindings {
     Get.put<StudentTimeController>(StudentTimeController());
     Get.put<AlertsController>(AlertsController());
     Get.put<HomeworksController>(HomeworksController());
-    Get.put<ExamResultsController>(ExamResultsController());
     Get.put<BusController>(BusController());
   }
 }

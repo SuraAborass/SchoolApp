@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 
 class ExamsResultsScreen extends StatelessWidget {
    ExamsResultsScreen({Key? key}) : super(key: key);
-final ExamResultsController examResultsController = Get.find();
+final ExamResultsController examResultsController = Get.put(ExamResultsController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(

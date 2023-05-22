@@ -4,8 +4,9 @@ import '../../../Constants/text_styles.dart';
 import '../../../DataAccessLayer/Models/exam_result.dart';
 
 class ExamResultItem extends StatelessWidget {
-  const ExamResultItem({Key? key, required this.examResult}) : super(key: key);
+ const  ExamResultItem({Key? key, required this.examResult}) : super(key: key);
   final ExamResult examResult;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -36,7 +37,7 @@ class ExamResultItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25)),
               child: Center(
                   child: Text(
-                examResult.exam,
+                examResult.name,
                 style: UITextStyle.bodyNormal
                     .copyWith(color: UIColors.primary, fontSize: 18),
               )),
@@ -60,11 +61,19 @@ class ExamResultItem extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
-                            examResult.subject,
+                            examResult.exams[0].subject,
                             style: UITextStyle.titleBold.copyWith(
                                 color: UIColors.primary, fontSize: 20),
                           ),
                         )),
+                    Positioned(right: 120,
+                      top: 10,
+                      child: Text(
+                        examResult.exams[0].score,
+                        style: UITextStyle.titleBold.copyWith(
+                            color: UIColors.primary)
+                            //num.parse(examResult.exams[0].score) <=  num.parse(examResult.exams[0].minimum_score)? UIColors.error : UIColors.success, fontSize: 20),
+                      ),),
                     Positioned(
                       left: 0,
                       child: Container(
@@ -76,11 +85,22 @@ class ExamResultItem extends StatelessWidget {
                                 topLeft: Radius.circular(16),
                                 bottomLeft: Radius.circular(16),
                                 bottomRight: Radius.circular(16))),
-                        child: const Center(
-                          child: Text(
-                            "1200/1000",
-                            style: UITextStyle.titleBold,
-                          ),
+                        child:  Row(
+                          children: [
+                            const SizedBox(width: 40.0,),
+                            Text(
+                              examResult.exams[0].maximum_score,
+                              style: UITextStyle.titleBold,
+                            ),
+                            const Text(
+                              "/",
+                              style: UITextStyle.titleBold,
+                            ),
+                            Text(
+                              examResult.exams[0].minimum_score,
+                              style: UITextStyle.titleBold,
+                            ),
+                          ],
                         ),
                       ),
                     ),

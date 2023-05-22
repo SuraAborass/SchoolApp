@@ -5,5 +5,5 @@ const subjectWithHomework = "subjectWithHomework/1/1";
 const studentTime = "studentAbsenceById/1";
 const alerts = "notesById/1";
 const homeworks = "studentHomework/1";
-const examResults = "studentScoreById/1";
+const examResults = "exams/1";
 const busInfo = "deliveryBusById/1";

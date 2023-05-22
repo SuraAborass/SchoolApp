@@ -21,7 +21,7 @@ class Subject {
       description: map['description'] as String,
       gradeId: map['grade_id'] as int,
       homeworks: List<HomeWork>.from(
-        (map['homework'] as List<dynamic>).map<HomeWork>(
+        (map['homework' ] as List<dynamic>).map<HomeWork>(
               (l) => HomeWork.fromMap(l as Map<String, dynamic>),
         ),
       ),
