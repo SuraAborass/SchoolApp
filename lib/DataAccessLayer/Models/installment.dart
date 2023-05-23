@@ -1,11 +1,11 @@
 
-class FinancialTransaction {
+class Installment {
   final int id;
   final String statement;
   final String type;
   final int amount;
 
-  FinancialTransaction({
+  Installment({
     required this.id,
     required this.statement,
     required this.type,
@@ -13,12 +13,12 @@ class FinancialTransaction {
 
   });
 
-  factory FinancialTransaction.fromMap(Map<String, dynamic> map) {
-    return FinancialTransaction(
+  factory Installment.fromMap(Map<String, dynamic> map) {
+    return Installment(
         id: map['id'] as int,
         statement: map['statement'] ,
         type: map['type'] ,
-        amount: map['amount'] as int,
+        amount: map['amount'],
     );
   }
 }

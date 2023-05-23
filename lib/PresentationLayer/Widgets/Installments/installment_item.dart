@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:school_app/Constants/colors.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../Constants/text_styles.dart';
-import '../../../DataAccessLayer/Models/financial_transaction.dart';
+import '../../../DataAccessLayer/Models/installment.dart';
 
 
 class InstallmentItem extends StatelessWidget {
- const InstallmentItem({Key? key,required this.financialTransaction}) : super(key: key);
-final FinancialTransaction financialTransaction;
+ const InstallmentItem({Key? key,required this.installment}) : super(key: key);
+final Installment installment;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,7 +16,7 @@ final FinancialTransaction financialTransaction;
         width: 373,
         height: 84,
         decoration:  BoxDecoration(
-            color: financialTransaction.type == "تسديد" ? UIColors.financial2 : UIColors.financial1,
+            color: installment.type == "تسديد" ? UIColors.paymentOn : UIColors.paymentOff,
             borderRadius: BorderRadius.circular(16)
         ),
         child: Row(
@@ -45,11 +45,11 @@ final FinancialTransaction financialTransaction;
                         mainAxisAlignment: MainAxisAlignment.center,
                         children:  [
                           Text(
-                            financialTransaction.statement,
+                            installment.statement,
                             style: UITextStyle.titleBold,
                           ),
-                          Text("financialTransaction.amount",
-                              style: UITextStyle.titleBold),
+                          Text(installment.amount.toString(),
+                              style: UITextStyle.titleBold.copyWith(fontSize: 24)),
                         ])
                 )),
           ],

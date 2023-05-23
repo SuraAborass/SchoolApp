@@ -7,3 +7,4 @@ const alerts = "notesById/1";
 const homeworks = "studentHomework/1";
 const examResults = "exams/1";
 const busInfo = "deliveryBusById/1";
+const installments = "financialTransactionById/1";

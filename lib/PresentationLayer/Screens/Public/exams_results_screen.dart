@@ -8,8 +8,9 @@ import '../../Widgets/Public/school_appbar.dart';
 import 'package:get/get.dart';
 
 class ExamsResultsScreen extends StatelessWidget {
-   ExamsResultsScreen({Key? key}) : super(key: key);
-final ExamResultsController examResultsController = Get.put(ExamResultsController());
+  ExamsResultsScreen({Key? key}) : super(key: key);
+  final ExamResultsController examResultsController =
+      Get.put(ExamResultsController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,20 +21,21 @@ final ExamResultsController examResultsController = Get.put(ExamResultsControlle
       drawer: SchoolDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
-        child:GetBuilder(
+        child: GetBuilder(
             init: examResultsController,
             builder: (context) {
               return SizedBox(
-                height: Get.height-170,
+                height: Get.height - 170,
                 child: ListView.builder(
                   itemCount: examResultsController.examResults.length,
-                  itemBuilder: (context, i){
-                    return  ExamResultItem(examResult: examResultsController.examResults[i],);
+                  itemBuilder: (context, i) {
+                    return ExamResultItem(
+                      examResult: examResultsController.examResults[i],
+                    );
                   },
                 ),
               );
-            }
-        ),
+            }),
       ),
     );
   }
