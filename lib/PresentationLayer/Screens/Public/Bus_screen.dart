@@ -27,9 +27,10 @@ final BusController busController =  Get.find();
               height: Get.height - 170,
               child: ListView.builder(
                 itemCount: busController.busInfo.length,
-                itemBuilder: (context, i) {
+                itemBuilder: (context, index) {
                   return BusItem(
-                    busInfo: busController.busInfo[i],
+                    busInfo: busController.busInfo[index],
+                    index: index,
                   );
                 },
               ),

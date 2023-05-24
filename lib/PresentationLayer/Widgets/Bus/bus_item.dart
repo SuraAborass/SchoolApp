@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import '../../../BusinessLayer/Controllers/complaint_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
 import '../../../Constants/ui_styles.dart';
@@ -7,8 +8,10 @@ import '../../../DataAccessLayer/Models/bus.dart';
 import 'package:get/get.dart';
 
 class BusItem extends StatelessWidget {
-  const BusItem({Key? key, required this.busInfo}) : super(key: key);
+   BusItem({Key? key, required this.busInfo,required this.index}) : super(key: key);
   final BusInfo busInfo;
+  final int index;
+  final ComplaintController complaintController = Get.put(ComplaintController());
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -118,7 +121,9 @@ class BusItem extends StatelessWidget {
                     padding: const EdgeInsets.only(
                         top: 10.0, bottom: 10, right: 40, left: 40),
                     child: MaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        complaintController.showEditDialog(index);
+                      },
                       height: 50,
                       minWidth: 250,
                       color: UIColors.yellow,

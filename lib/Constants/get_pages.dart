@@ -12,7 +12,7 @@ import '../PresentationLayer/Screens/Public/student_time_screen.dart';
 import '../PresentationLayer/Screens/Public/vacation_screen.dart';
 import '../PresentationLayer/Screens/Public/home_screen.dart';
 import '../PresentationLayer/Screens/Public/subject_homeworks_screen.dart';
-import '../PresentationLayer/Screens/Public/profile_screen.dart';
+import '../PresentationLayer/Screens/Private/profile_screen.dart';
 import '../PresentationLayer/Screens/Public/splash_screen.dart';
 import 'get_routes.dart';
 

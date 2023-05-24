@@ -43,18 +43,22 @@ class ExamResultItem extends StatelessWidget {
               )),
             ),
           ),
-          SizedBox(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                ListView.builder(
-                  padding: const EdgeInsets.all(8.0),
-                    shrinkWrap: true,
-                    itemCount: examResult.exams.length,
-                    itemBuilder: (context,index) =>subjects(context,index)
-                )
-              ],
-            ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              ListView.builder(
+                padding: const EdgeInsets.all(8.0),
+                  shrinkWrap: true,
+                  itemCount: examResult.exams.length,
+                  itemBuilder: (context,index){
+                  return Container(
+                   // padding: EdgeInsets.all(10),
+                      margin: const EdgeInsets.only(top: 23),
+                      height: 42,
+                      child: subjects(context,index));
+                  }
+              )
+            ],
           )
         ],
       ),
@@ -81,22 +85,16 @@ class ExamResultItem extends StatelessWidget {
                    color: UIColors.primary, fontSize: 20),
              ),
            )),
-       Positioned(right: 120,
-         top: 10,
-         child: Text(
-             examResult.exams[index].score,
-             style: UITextStyle.titleBold.copyWith(
-                 color: UIColors.primary)
-           //num.parse(examResult.exams[0].score) <=  num.parse(examResult.exams[0].minimum_score)? UIColors.error : UIColors.success, fontSize: 20),
-         ),),
        Positioned(
          left: 0,
          child: Container(
            width: 134,
            height: 42,
            decoration: const BoxDecoration(
-               color: UIColors.primary,
-               borderRadius: BorderRadius.only(
+               color:
+               //examResult.exams[index].score < examResult.exams[index].minimum_score? UIColors.error :
+               UIColors.primary,
+               borderRadius:  BorderRadius.only(
                    topLeft: Radius.circular(16),
                    bottomLeft: Radius.circular(16),
                    bottomRight: Radius.circular(16))),
@@ -112,7 +110,7 @@ class ExamResultItem extends StatelessWidget {
                  style: UITextStyle.titleBold,
                ),
                Text(
-                 examResult.exams[index].minimum_score,
+                 examResult.exams[index].score,
                  style: UITextStyle.titleBold,
                ),
              ],
