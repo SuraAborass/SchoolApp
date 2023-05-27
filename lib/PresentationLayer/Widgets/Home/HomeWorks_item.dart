@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:school_app/Constants/get_routes.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
-import 'package:ionicons/ionicons.dart';
 
 class HomeWorksItem extends StatelessWidget {
   const HomeWorksItem({Key? key}) : super(key: key);

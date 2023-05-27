@@ -19,10 +19,10 @@ class SchoolBottomNavigationBar extends StatelessWidget {
             Get.toNamed(AppRoutes.homeScreen);
             break;
           case 1:
-            //Get.toNamed(AppRoutes.);
+            Get.toNamed(AppRoutes.notificationsScreen);
             break;
           case 2:
-            //Get.toNamed(AppRoutes.);
+            Get.toNamed(AppRoutes.messages);
             break;
           case 3:
             Get.toNamed(AppRoutes.profileScreen);

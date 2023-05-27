@@ -2,6 +2,8 @@ class AppRoutes {
   static const splashScreen = "/";
   static const loginScreen = "/login";
   static const homeScreen = "/home";
+  static const messages = "/home/messages";
+  static const notificationsScreen = "/home/notificationsScreen";
   static const subjectsScreen = "/home/subjectsScreen";
   static const homeWorksScreen = "/home/homeWorksScreen";
   static const busScreen = "/home/busScreen";
