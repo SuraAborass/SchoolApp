@@ -1,10 +1,15 @@
- class UserNotification{
+ import 'complaint.dart';
+import 'homework.dart';
+
+class UserNotification{
   final int id;
   final String title;
   final String description;
   final dynamic data;
   final String type;
-  //final String time;
+  final String time;
+  Complaint? complaint;
+  HomeWork? homeWork;
 
   UserNotification({
    required this.id,
@@ -12,7 +17,7 @@
    required this.description,
    required this.data,
    required this.type,
-  // required this.time,
+   required this.time,
   });
 
   factory UserNotification.fromMap(Map<String, dynamic> map) {
@@ -21,7 +26,9 @@
        title: map['title'] as String,
        description: map['description'] as String,
        data: map['data'],
-       type: map['type']);
-       //time: map['time'] as String);
+       type: map['type'],
+       time: map['time'],
+
+   );
   }
  }

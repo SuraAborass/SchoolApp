@@ -23,16 +23,38 @@ class AlertsScreen extends StatelessWidget {
         child: GetBuilder(
             init: alertsController,
             builder: (context) {
-              return SizedBox(
-                height: Get.height - 170,
-                child: ListView.builder(
-                  itemCount: alertsController.alerts.length,
-                  itemBuilder: (context, i) {
-                    return AlertItem(
-                      alert: alertsController.alerts[i],
-                    );
-                  },
-                ),
+              return RefreshIndicator(
+                onRefresh: () async {
+                  alertsController.getAlerts();
+                },
+                child: alertsController.alerts.isEmpty
+                    ? SizedBox(
+                        height: Get.height - 200,
+                        child: Center(
+                          child: ListView(
+                            shrinkWrap: true,
+                            children: [
+                              Text(
+                                "لايوجد تنبيهات",
+                                style: UITextStyle.titleBold
+                                    .copyWith(fontSize: 16),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    : SizedBox(
+                        height: Get.height - 170,
+                        child: ListView.builder(
+                          itemCount: alertsController.alerts.length,
+                          itemBuilder: (context, i) {
+                            return AlertItem(
+                              alert: alertsController.alerts[i],
+                            );
+                          },
+                        ),
+                      ),
               );
             }),
       ),

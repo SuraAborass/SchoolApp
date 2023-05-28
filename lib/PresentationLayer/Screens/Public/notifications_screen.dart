@@ -26,40 +26,50 @@ class NotificationsScreen extends StatelessWidget {
               top: 10,
               bottom: 10,
             ),
-            child: RefreshIndicator(
-              onRefresh: () async {
-                userNotificationsController.getNotifications();
-              },
-              child: userNotificationsController.userNotifications.isEmpty
-                  ? SizedBox(
-                      height: Get.height - 250,
-                      child: Center(
-                        child: ListView(
-                          shrinkWrap: true,
-                          children: [
-                            Text(
-                              "لايوجد إشعارات",
-                              style:
-                                  UITextStyle.titleBold.copyWith(fontSize: 16),
-                              textAlign: TextAlign.center,
+            child: GetBuilder(
+              init: userNotificationsController,
+              builder: (context) {
+                return RefreshIndicator(
+                  onRefresh: () async {
+                    userNotificationsController.getNotifications();
+                  },
+                  child: userNotificationsController.userNotifications.isEmpty
+                      ? SizedBox(
+                          height: Get.height - 200,
+                          child: Center(
+                            child: ListView(
+                              shrinkWrap: true,
+                              children: [
+                                Text(
+                                  "لايوجد إشعارات",
+                                  style:
+                                      UITextStyle.titleBold.copyWith(fontSize: 16),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
+                        )
+                      : SizedBox(
+                          height: Get.height - 170,
+                          child: ListView.builder(
+                            itemCount: userNotificationsController
+                                .userNotifications.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return InkWell(
+                                onTap: () {
+                                  userNotificationsController.gotoPayload(userNotificationsController.userNotifications[index]);
+                                },
+                                child: NotificationItem(
+                                  userNotification: userNotificationsController
+                                      .userNotifications[index],
+                                ),
+                              );
+                            },
+                          ),
                         ),
-                      ),
-                    )
-                  : SizedBox(
-                      height: Get.height - 250,
-                      child: ListView.builder(
-                        itemCount: userNotificationsController
-                            .userNotifications.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return NotificationItem(
-                            userNotification: userNotificationsController
-                                .userNotifications[index],
-                          );
-                        },
-                      ),
-                    ),
+                );
+              }
             ),
           ),
         ));

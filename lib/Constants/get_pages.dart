@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import '../BusinessLayer/Bindings/home_bindings.dart';
 import '../BusinessLayer/Bindings/init_bindings.dart';
 import '../PresentationLayer/Screens/Auth/login_screen.dart';
+import '../PresentationLayer/Screens/Private/complaints_screen.dart';
 import '../PresentationLayer/Screens/Private/messages_screen.dart';
 import '../PresentationLayer/Screens/Public/Bus_screen.dart';
 import '../PresentationLayer/Screens/Public/HomeWorks_screen.dart';
@@ -84,6 +85,11 @@ List<GetPage<dynamic>> getPages = [
   GetPage(
       name: AppRoutes.installments,
       page: () =>  InstallmentScreen(),
+      transition: Transition.rightToLeftWithFade
+  ),
+  GetPage(
+      name: AppRoutes.complaints,
+      page: () =>  ComplaintsScreen(),
       transition: Transition.rightToLeftWithFade
   ),
 ];

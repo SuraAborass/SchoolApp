@@ -9,7 +9,7 @@ import '../../PresentationLayer/Widgets/Public/snackbars.dart';
 import '../../main.dart';
 
 class ComplaintController extends GetxController {
-  ComplaintRepo wareRepo = ComplaintRepo();
+  ComplaintRepo complaintRepo = ComplaintRepo();
   List<Complaint> complaints = [];
   var adding = false.obs;
   TextEditingController typeController = TextEditingController();
@@ -17,68 +17,66 @@ class ComplaintController extends GetxController {
 
   Future<void> addComplaint(index) async {
     adding.value = true;
-    Complaint? complaint = await wareRepo.addComplaint(
-        MyApp.appUser!.id,
-        typeController.value.text,
-        descriptionController.value.text);
-    adding.value = false;
+    Complaint? complaint = await complaintRepo.addComplaint(MyApp.appUser!.id,
+        typeController.value.text, descriptionController.value.text);
     update();
     if (complaint == null) {
       SnackBars.showError('حدث خطأ لم يتم إرسال الشكوى');
     } else {
       SnackBars.showSuccess('تم إرسال الشكوى، سيتم مراجعتها في أقرب وقت ممكن ');
     }
+    adding.value = false;
   }
 
   void showEditDialog(index) {
-   // descriptionController.value = const TextEditingValue(text: "الوصف");
-    Get.bottomSheet(
-        Expanded(
-          child: Container(
-      padding: const EdgeInsets.all(20),
-      height: 280,
-      decoration: const BoxDecoration(
+    Get.bottomSheet(Expanded(
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        height: 270,
+        decoration: const BoxDecoration(
             color: UIColors.primary,
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(40), topRight: Radius.circular(40))),
-      child: Center(
-          child: Column(
-            children: [
-              const Text(
-                "إرسال شكوى",
-                style: UITextStyle.titleBold,
-              ),
-              const Spacer(),
-              TextFormField(
-                keyboardType: TextInputType.text,
-                controller: typeController,
-                decoration: profileInputStyle.copyWith(
-                  hintText: 'نوع الشكوى',
-              ),),
-                const Spacer(),
+        child: Center(
+          child: Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const Text(
+                  "إرسال شكوى",
+                  style: UITextStyle.titleBold,
+                ),
+                const SizedBox(height: 10,),
                 TextFormField(
-                  keyboardType: TextInputType.multiline,
+                  keyboardType: TextInputType.text,
+                  controller: typeController,
+                  decoration: profileInputStyle.copyWith(
+                      hintText: 'نوع الشكوى',
+                      hintStyle: UITextStyle.smallBodyNormal),
+                ),
+                const SizedBox(height: 10,),
+                TextFormField(
+                  keyboardType: TextInputType.text,
                   controller: descriptionController,
                   decoration: profileInputStyle.copyWith(
-                    hintText: 'الوصف',
-                  ),),
-              const Spacer(),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20))),
-                      minimumSize: Size(Get.width, 50),
-                      backgroundColor: UIColors.resultColor,
-                      textStyle: UITextStyle.titleBold),
-                  onPressed: () async {
-                    await addComplaint(index);
-                    Get.back();
-                  },
-                  child:  Text("إرسال",style: UITextStyle.titleBold.copyWith(color: UIColors.lightBlack),))
-            ],
+                      hintText: 'الوصف', hintStyle: UITextStyle.smallBodyNormal),
+                ),
+                const SizedBox(height: 10,),
+                ElevatedButton(
+                    style: profileButtonStyle,
+                    onPressed: () async {
+                      await addComplaint(index);
+                      Get.back();
+                    },
+                    child: const Text(
+                      "إرسال",
+                      style: UITextStyle.titleBold,
+                    ))
+              ],
+            ),
           ),
+        ),
       ),
-    ),
-        ));
+    ));
   }
 }

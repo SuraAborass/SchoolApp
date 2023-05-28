@@ -13,7 +13,6 @@ class InstallmentScreen extends StatelessWidget {
   InstallmentScreen({Key? key}) : super(key: key);
   final InstallmentsController installmentsController =
       Get.put(InstallmentsController());
-  //final Installment installment = Get.arguments[0];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,15 +28,20 @@ class InstallmentScreen extends StatelessWidget {
             child: GetBuilder(
                 init: installmentsController,
                 builder: (context) {
-                  return SizedBox(
-                    height: Get.height - 270,
-                    child: ListView.builder(
-                      itemCount: installmentsController.installments.length,
-                      itemBuilder: (context, i) {
-                        return InstallmentItem(
-                          installment: installmentsController.installments[i],
-                        );
-                      },
+                  return RefreshIndicator(
+                    onRefresh: () async{
+                      installmentsController.getInstallments();
+                    },
+                    child: SizedBox(
+                      height: Get.height - 270,
+                      child: ListView.builder(
+                        itemCount: installmentsController.installments.length,
+                        itemBuilder: (context, i) {
+                          return InstallmentItem(
+                            installment: installmentsController.installments[i],
+                          );
+                        },
+                      ),
                     ),
                   );
                 }),

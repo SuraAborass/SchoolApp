@@ -7,31 +7,55 @@ import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
 import 'package:get/get.dart';
 
-
 class HomeWorkScreen extends StatelessWidget {
-   HomeWorkScreen({Key? key}) : super(key: key);
-final HomeworksController homeworksController = Get.find();
+  HomeWorkScreen({Key? key}) : super(key: key);
+  final HomeworksController homeworksController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const SchoolBottomNavigationBar(),
-      appBar: schoolAppBar(title: Text("الوظائف",style: UITextStyle.titleBold.copyWith(fontSize: 25))),
+      appBar: schoolAppBar(
+          title: Text("الوظائف",
+              style: UITextStyle.titleBold.copyWith(fontSize: 25))),
       drawer: SchoolDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: GetBuilder(
-          init: homeworksController,
-          builder: (context) {
-            return SizedBox(
-              child: ListView.builder(
-                itemCount: homeworksController.homeworks.length,
-                itemBuilder: (context, i){
-                  return   HomeWorkItem(homeWork: homeworksController.homeworks[i],);
+            init: homeworksController,
+            builder: (context) {
+              return RefreshIndicator(
+                onRefresh: () async {
+                  homeworksController.getHomeworks();
                 },
-              ),
-            );
-          }
-        ),
+                child: homeworksController.homeworks.isEmpty
+                    ? SizedBox(
+                        height: Get.height - 200,
+                        child: Center(
+                          child: ListView(
+                            shrinkWrap: true,
+                            children: [
+                              Text(
+                                "لايوجد وظائف",
+                                style: UITextStyle.titleBold
+                                    .copyWith(fontSize: 16),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    : SizedBox(
+                        child: ListView.builder(
+                          itemCount: homeworksController.homeworks.length,
+                          itemBuilder: (context, i) {
+                            return HomeWorkItem(
+                              homeWork: homeworksController.homeworks[i],
+                            );
+                          },
+                        ),
+                      ),
+              );
+            }),
       ),
     );
   }

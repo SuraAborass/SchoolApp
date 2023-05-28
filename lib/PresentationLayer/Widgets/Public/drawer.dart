@@ -30,6 +30,15 @@ final UserController userController = Get.find();
 
           ),
           ListTile(
+              leading: const Icon(
+                Icons.feedback,
+                color: UIColors.primary,
+                size: 30,
+              ),
+              title: Text('الشكاوى',style: UITextStyle.titleBold.copyWith(fontSize: 20,color: UIColors.primary)),
+              onTap: ()=> Get.toNamed(AppRoutes.complaints)
+          ),
+          ListTile(
             leading: const Icon(
               Icons.auto_stories,
               color: UIColors.primary,
