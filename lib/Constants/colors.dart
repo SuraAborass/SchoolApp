@@ -20,6 +20,9 @@ static const yellow = Color(0xffEBBE2B);
   static const bus = Color(0xffEBBE2B);
   static const alert = Color(0xffFF4343);
   static const installment = Color(0xff91EB2B);
+  static const complaint = Color(0xff00c1b6);
+  //static const teacherNotes = Color(0xfffc4f00);
+  static const teacherNotes = Color(0xffE0B0FF);
 
 
 static const normalText = Color(0xff707070);
@@ -38,6 +41,11 @@ static const circleAvatarBackground = Color(0xffD5D5D5);
   static const alertWarning = Color(0xffFFB300);
   static const alertDanger = Color(0xffFF4343);
   static const alertInfo = Color(0xff8985F8);
+
+  //notes
+  static const noteWarning = Color(0xffFFB300);
+  static const noteDanger = Color(0xffFF4343);
+  static const noteInfo = Color(0xff8985F8);
 
   //FinancialTransaction
   static const paymentOff = Color(0xffFF5B5B);

@@ -1,34 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../BusinessLayer/Controllers/complaint_controller.dart';
+import '../../../BusinessLayer/Controllers/teacher_note_controller.dart';
 import '../../../Constants/text_styles.dart';
-import '../../Widgets/Complaints/complaint_item.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';
 import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
+import '../../Widgets/TeacherNotes/teacher_note_item.dart';
 
-class ComplaintsScreen extends StatelessWidget {
-  ComplaintsScreen({Key? key}) : super(key: key);
-  final ComplaintController complaintController =
-      Get.put(ComplaintController());
+
+class TeacherNotesScreen extends StatelessWidget {
+  TeacherNotesScreen({Key? key}) : super(key: key);
+  final TeacherNoteController teacherNoteController =
+      Get.put(TeacherNoteController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const SchoolBottomNavigationBar(),
       appBar: schoolAppBar(
-          title: Text("الشكاوى",
-              style: UITextStyle.titleBold.copyWith(fontSize: 25))),
+          title: Text("ملاحظات المعلم",
+              style: UITextStyle.titleBold.copyWith(fontSize: 20))),
       drawer: SchoolDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: GetBuilder(
-            init: complaintController,
+            init: teacherNoteController,
             builder: (context) {
               return RefreshIndicator(
                 onRefresh: () async {
-                  complaintController.getComplaints();
+                  teacherNoteController.getTeacherNotes();
                 },
-                child: complaintController.complaints.isEmpty
+                child: teacherNoteController.teacherNotes.isEmpty
                     ? SizedBox(
                         height: Get.height - 200,
                         child: Center(
@@ -36,7 +37,7 @@ class ComplaintsScreen extends StatelessWidget {
                             shrinkWrap: true,
                             children: [
                               Text(
-                                "لايوجد شكاوى",
+                                "لايوجد ملاحظات",
                                 style: UITextStyle.titleBold
                                     .copyWith(fontSize: 16),
                                 textAlign: TextAlign.center,
@@ -48,10 +49,10 @@ class ComplaintsScreen extends StatelessWidget {
                     : SizedBox(
                         height: Get.height - 170,
                         child: ListView.builder(
-                          itemCount: complaintController.complaints.length,
+                          itemCount: teacherNoteController.teacherNotes.length,
                           itemBuilder: (context, i) {
-                            return ComplaintItem(
-                              complaint: complaintController.complaints[i],
+                            return TeacherNoteItem(
+                              teacherNote: teacherNoteController.teacherNotes[i],
                             );
                           },
                         ),

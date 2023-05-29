@@ -6,6 +6,8 @@ import '../../../Constants/ui_styles.dart';
 import '../../../Constants/text_styles.dart';
 import '../../Widgets/Home/Alerts_item.dart';
 import '../../Widgets/Home/Bus_item.dart';
+import '../../Widgets/Home/Complaints_item.dart';
+import '../../Widgets/Home/TeacherNotes_item.dart';
 import '../../Widgets/Home/Vacations_item.dart';
 import '../../Widgets/Home/HomeWorks_item.dart';
 import '../../Widgets/Home/Installments_item.dart';
@@ -105,7 +107,9 @@ class HomeScreen extends StatelessWidget {
                      StudentTimeItem(),
                      BusItem(),
                      AlertsItem(),
-                     InstallmentsItem()
+                     InstallmentsItem(),
+                     ComplaintsItem(),
+                     TeacherNotesItem()
                    ],
                 ),
                 ),

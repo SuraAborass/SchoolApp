@@ -12,6 +12,7 @@ import '../PresentationLayer/Screens/Public/exams_results_screen.dart';
 import '../PresentationLayer/Screens/Public/installment_screen.dart';
 import '../PresentationLayer/Screens/Public/notifications_screen.dart';
 import '../PresentationLayer/Screens/Public/student_time_screen.dart';
+import '../PresentationLayer/Screens/Public/teacher_notes_screen.dart';
 import '../PresentationLayer/Screens/Public/vacation_screen.dart';
 import '../PresentationLayer/Screens/Public/home_screen.dart';
 import '../PresentationLayer/Screens/Public/subject_homeworks_screen.dart';
@@ -91,5 +92,10 @@ List<GetPage<dynamic>> getPages = [
       name: AppRoutes.complaints,
       page: () =>  ComplaintsScreen(),
       transition: Transition.rightToLeftWithFade
+  ),
+  GetPage(
+      name: AppRoutes.teacherNotes,
+      page: () =>  TeacherNotesScreen(),
+      transition: Transition.fadeIn
   ),
 ];

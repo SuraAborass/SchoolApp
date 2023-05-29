@@ -12,8 +12,22 @@ class ComplaintController extends GetxController {
   ComplaintRepo complaintRepo = ComplaintRepo();
   List<Complaint> complaints = [];
   var adding = false.obs;
+  var loading = false.obs;
   TextEditingController typeController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
+
+  @override
+  void onInit() async {
+    await getComplaints();
+    super.onInit();
+  }
+
+  Future<void> getComplaints() async {
+    loading.value = true;
+    complaints = await complaintRepo.getComplaints();
+    update();
+    loading.value = false;
+  }
 
   Future<void> addComplaint(index) async {
     adding.value = true;
@@ -32,7 +46,7 @@ class ComplaintController extends GetxController {
     Get.bottomSheet(Expanded(
       child: Container(
         padding: const EdgeInsets.all(20),
-        height: 270,
+        height: 210,
         decoration: const BoxDecoration(
             color: UIColors.primary,
             borderRadius: BorderRadius.only(
@@ -46,22 +60,20 @@ class ComplaintController extends GetxController {
                   "إرسال شكوى",
                   style: UITextStyle.titleBold,
                 ),
-                const SizedBox(height: 10,),
-                TextFormField(
-                  keyboardType: TextInputType.text,
-                  controller: typeController,
-                  decoration: profileInputStyle.copyWith(
-                      hintText: 'نوع الشكوى',
-                      hintStyle: UITextStyle.smallBodyNormal),
+                const SizedBox(
+                  height: 10,
                 ),
-                const SizedBox(height: 10,),
                 TextFormField(
                   keyboardType: TextInputType.text,
                   controller: descriptionController,
                   decoration: profileInputStyle.copyWith(
-                      hintText: 'الوصف', hintStyle: UITextStyle.smallBodyNormal),
+                      //contentPadding: const EdgeInsets.symmetric(vertical: ),
+                      hintText: 'ماهي المشكلة التي تواجهك، اكتبها هنا',
+                      hintStyle: UITextStyle.smallBodyNormal),
                 ),
-                const SizedBox(height: 10,),
+                const SizedBox(
+                  height: 20,
+                ),
                 ElevatedButton(
                     style: profileButtonStyle,
                     onPressed: () async {

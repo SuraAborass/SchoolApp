@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+
 import '../../../Constants/Helpers/alert_state.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
-import '../../../DataAccessLayer/Models/alert.dart';
+import '../../../DataAccessLayer/Models/TeacherNote.dart';
 
-class AlertItem extends StatelessWidget {
-  const AlertItem({Key? key,required this.alert}) : super(key: key);
-final Alert alert;
+
+class TeacherNoteItem extends StatelessWidget {
+  const TeacherNoteItem({Key? key,required this.teacherNote}) : super(key: key);
+final TeacherNote teacherNote;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,7 +17,7 @@ final Alert alert;
         width: 373,
         height: 84,
         decoration:  BoxDecoration(
-            color: AlertState.getAlertState(alert.type),
+            color: AlertState.getAlertState(teacherNote.type),
             borderRadius: BorderRadius.circular(16)
         ),
         child: Row(
@@ -29,7 +31,7 @@ final Alert alert;
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 ),
-                child:  Icon(AlertStateIcon.getAlertState(alert.type),
+                child:  Icon(AlertStateIcon.getAlertState(teacherNote.type),
                   color: UIColors.white,size: 40,),
               ),
             ),
@@ -44,10 +46,10 @@ final Alert alert;
                         mainAxisAlignment: MainAxisAlignment.center,
                         children:  [
                           Text(
-                            alert.title,
+                            teacherNote.teacher,
                             style: UITextStyle.titleBold,
                           ),
-                          Text(alert.description,
+                          Text(teacherNote.text,
                               style: UITextStyle.titleBold),
                         ])
                 )),
