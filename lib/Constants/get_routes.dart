@@ -15,5 +15,6 @@ class AppRoutes {
   static const alerts = "/home/alerts";
   static const installments = "/home/installments";
   static const complaints = "/home/complaints";
+  static const complaint = "/home/complaints/complaint";
   static const teacherNotes = "/home/teacherNotes";
 }

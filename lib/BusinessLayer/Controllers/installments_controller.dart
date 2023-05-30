@@ -24,6 +24,7 @@ class InstallmentsController extends GetxController {
       } else {
         netValue.value -= element.amount;
       }
+      update();
     });
   }
 

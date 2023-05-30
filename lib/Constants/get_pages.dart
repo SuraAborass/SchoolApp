@@ -2,17 +2,18 @@ import 'package:get/get.dart';
 import '../BusinessLayer/Bindings/home_bindings.dart';
 import '../BusinessLayer/Bindings/init_bindings.dart';
 import '../PresentationLayer/Screens/Auth/login_screen.dart';
+import '../PresentationLayer/Screens/Private/complaint_screen.dart';
 import '../PresentationLayer/Screens/Private/complaints_screen.dart';
 import '../PresentationLayer/Screens/Private/messages_screen.dart';
 import '../PresentationLayer/Screens/Public/Bus_screen.dart';
 import '../PresentationLayer/Screens/Public/HomeWorks_screen.dart';
 import '../PresentationLayer/Screens/Public/Subjects_screen.dart';
-import '../PresentationLayer/Screens/Public/alerts_screen.dart';
+import '../PresentationLayer/Screens/Private/alerts_screen.dart';
 import '../PresentationLayer/Screens/Public/exams_results_screen.dart';
 import '../PresentationLayer/Screens/Public/installment_screen.dart';
 import '../PresentationLayer/Screens/Public/notifications_screen.dart';
 import '../PresentationLayer/Screens/Public/student_time_screen.dart';
-import '../PresentationLayer/Screens/Public/teacher_notes_screen.dart';
+import '../PresentationLayer/Screens/Private/teacher_notes_screen.dart';
 import '../PresentationLayer/Screens/Public/vacation_screen.dart';
 import '../PresentationLayer/Screens/Public/home_screen.dart';
 import '../PresentationLayer/Screens/Public/subject_homeworks_screen.dart';
@@ -92,6 +93,11 @@ List<GetPage<dynamic>> getPages = [
       name: AppRoutes.complaints,
       page: () =>  ComplaintsScreen(),
       transition: Transition.rightToLeftWithFade
+  ),
+  GetPage(
+      name: AppRoutes.complaint,
+      page: () =>  ComplaintScreen(),
+      transition: Transition.leftToRight
   ),
   GetPage(
       name: AppRoutes.teacherNotes,
