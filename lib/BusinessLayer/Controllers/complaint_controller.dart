@@ -11,6 +11,7 @@ import '../../main.dart';
 class ComplaintController extends GetxController {
   ComplaintRepo complaintRepo = ComplaintRepo();
   List<Complaint> complaints = [];
+  late Complaint? complaint;
   var adding = false.obs;
   var loading = false.obs;
   TextEditingController typeController = TextEditingController();

@@ -90,7 +90,7 @@ class ProfileScreen extends StatelessWidget {
                                     TextFormField(
                                       keyboardType: TextInputType.emailAddress,
                                       decoration: profileInputStyle.copyWith(
-                                        hintText: 'أدخل بريدك الإلكتروني'.tr,
+                                        hintText: 'أدخل بريدك الإلكتروني',
                                       ),
                                     ),
                                     const SizedBox(height: 14),
@@ -98,7 +98,7 @@ class ProfileScreen extends StatelessWidget {
                                       keyboardType:
                                       TextInputType.visiblePassword,
                                       decoration: profileInputStyle.copyWith(
-                                        hintText: 'اتركه فارغاً لتجنب المشاكل'.tr,
+                                        hintText: 'اتركه فارغاً لتجنب المشاكل',
                                       ),
                                     ),
                                     const SizedBox(height: 14),
@@ -112,7 +112,7 @@ class ProfileScreen extends StatelessWidget {
                                     TextFormField(
                                       keyboardType: TextInputType.phone,
                                       decoration: profileInputStyle.copyWith(
-                                        hintText: 'أدخل رقم هاتفك'.tr,
+                                        hintText: 'أدخل رقم هاتفك',
                                       ),
                                     ),
                                   ],
