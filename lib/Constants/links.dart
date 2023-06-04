@@ -11,4 +11,4 @@ const examResults = "exams/1";
 const busInfo = "deliveryBusById/1";
 const installments = "financialTransactionById/1";
 const newComplaint = "complaint";
-const complaints = "complaints";
+const complaints = "complaintByStudentId/1";

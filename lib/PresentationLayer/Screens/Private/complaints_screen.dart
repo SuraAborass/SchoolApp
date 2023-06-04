@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../BusinessLayer/Controllers/complaint_controller.dart';
+import '../../../Constants/colors.dart';
+import '../../../Constants/get_routes.dart';
 import '../../../Constants/text_styles.dart';
 import '../../Widgets/Complaints/complaint_item.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';
@@ -58,6 +60,17 @@ class ComplaintsScreen extends StatelessWidget {
                       ),
               );
             }),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          complaintController.showBusDialog();
+        },
+        backgroundColor: UIColors.white,
+        child: const Icon(
+          Icons.add,
+          color: UIColors.complaint,
+          size: 40,
+        ),
       ),
     );
   }

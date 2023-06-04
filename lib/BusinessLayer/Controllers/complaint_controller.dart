@@ -11,7 +11,7 @@ import '../../main.dart';
 class ComplaintController extends GetxController {
   ComplaintRepo complaintRepo = ComplaintRepo();
   List<Complaint> complaints = [];
-  late Complaint? complaint;
+   late Complaint complaint;
   var adding = false.obs;
   var loading = false.obs;
   TextEditingController typeController = TextEditingController();
@@ -30,24 +30,24 @@ class ComplaintController extends GetxController {
     loading.value = false;
   }
 
-  Future<void> addComplaint(index) async {
+  Future<void> addBusComplaint() async {
     adding.value = true;
-    Complaint? complaint = await complaintRepo.addComplaint(MyApp.appUser!.id,
-        typeController.value.text, descriptionController.value.text);
-    update();
+    Complaint? complaint = await complaintRepo.addComplaint(1,
+        "Bus", descriptionController.value.text);
     if (complaint == null) {
       SnackBars.showError('حدث خطأ لم يتم إرسال الشكوى');
     } else {
       SnackBars.showSuccess('تم إرسال الشكوى، سيتم مراجعتها في أقرب وقت ممكن ');
     }
+    update();
     adding.value = false;
   }
 
-  void showEditDialog(index) {
+  void showBusDialog() {
     Get.bottomSheet(Expanded(
       child: Container(
         padding: const EdgeInsets.all(20),
-        height: 210,
+        height: 250,
         decoration: const BoxDecoration(
             color: UIColors.primary,
             borderRadius: BorderRadius.only(
@@ -68,17 +68,17 @@ class ComplaintController extends GetxController {
                   keyboardType: TextInputType.text,
                   controller: descriptionController,
                   decoration: profileInputStyle.copyWith(
-                      //contentPadding: const EdgeInsets.symmetric(vertical: ),
                       hintText: 'ماهي المشكلة التي تواجهك، اكتبها هنا',
                       hintStyle: UITextStyle.smallBodyNormal),
+                  maxLines: 2,
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 15,
                 ),
                 ElevatedButton(
                     style: profileButtonStyle,
                     onPressed: () async {
-                      await addComplaint(index);
+                      await addBusComplaint();
                       Get.back();
                     },
                     child: const Text(

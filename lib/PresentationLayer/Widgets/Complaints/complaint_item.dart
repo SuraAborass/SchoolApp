@@ -14,7 +14,7 @@ final Complaint complaint;
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: InkWell(
-        onTap: ()=> Get.toNamed(AppRoutes.complaint),
+        onTap: ()=> Get.toNamed(AppRoutes.complaint,arguments: [complaint]),
         child: Container(
           width: 373,
           height: 84,

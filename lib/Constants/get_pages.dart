@@ -42,7 +42,7 @@ List<GetPage<dynamic>> getPages = [
   ),
   GetPage(
     name: AppRoutes.messages,
-    page: () => const MessagesScreen(),
+    page: () =>  MessagesScreen(),
   ),
   GetPage(
     name: AppRoutes.subjectsScreen,

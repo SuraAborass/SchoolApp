@@ -122,7 +122,7 @@ class BusItem extends StatelessWidget {
                         top: 10.0, bottom: 10, right: 40, left: 40),
                     child: MaterialButton(
                       onPressed: () {
-                        complaintController.showEditDialog(index);
+                        complaintController.showBusDialog();
                       },
                       height: 50,
                       minWidth: 250,
