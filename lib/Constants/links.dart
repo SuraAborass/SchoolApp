@@ -12,3 +12,4 @@ const busInfo = "deliveryBusById/1";
 const installments = "financialTransactionById/1";
 const newComplaint = "complaint";
 const complaints = "complaintByStudentId/1";
+const program = "weekProgram/1";

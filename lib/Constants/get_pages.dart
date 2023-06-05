@@ -4,14 +4,15 @@ import '../BusinessLayer/Bindings/init_bindings.dart';
 import '../PresentationLayer/Screens/Auth/login_screen.dart';
 import '../PresentationLayer/Screens/Private/complaint_screen.dart';
 import '../PresentationLayer/Screens/Private/complaints_screen.dart';
-import '../PresentationLayer/Screens/Private/messages_screen.dart';
 import '../PresentationLayer/Screens/Public/Bus_screen.dart';
 import '../PresentationLayer/Screens/Public/HomeWorks_screen.dart';
 import '../PresentationLayer/Screens/Public/Subjects_screen.dart';
 import '../PresentationLayer/Screens/Private/alerts_screen.dart';
+import '../PresentationLayer/Screens/Public/classes_screen.dart';
 import '../PresentationLayer/Screens/Public/exams_results_screen.dart';
 import '../PresentationLayer/Screens/Public/installment_screen.dart';
 import '../PresentationLayer/Screens/Public/notifications_screen.dart';
+import '../PresentationLayer/Screens/Public/program_screen.dart';
 import '../PresentationLayer/Screens/Public/student_time_screen.dart';
 import '../PresentationLayer/Screens/Private/teacher_notes_screen.dart';
 import '../PresentationLayer/Screens/Public/vacation_screen.dart';
@@ -28,80 +29,73 @@ List<GetPage<dynamic>> getPages = [
       transition: Transition.leftToRightWithFade),
   GetPage(
       name: AppRoutes.loginScreen,
-      page: () =>  LoginScreen(),
+      page: () => LoginScreen(),
       transition: Transition.zoom,
       binding: InitBinding()),
   GetPage(
       name: AppRoutes.homeScreen,
       page: () => const HomeScreen(),
-    binding: HomeBinding()
-  ),
+      binding: HomeBinding()),
   GetPage(
     name: AppRoutes.notificationsScreen,
-    page: () =>  NotificationsScreen(),
+    page: () => NotificationsScreen(),
   ),
-  GetPage(
-    name: AppRoutes.messages,
-    page: () =>  MessagesScreen(),
+  GetPage(name: AppRoutes.program,
+      page: () => ProgramScreen()
+  ),
+  GetPage(name: AppRoutes.classes,
+      page: () => ClassesScreen()
   ),
   GetPage(
     name: AppRoutes.subjectsScreen,
-    page: () =>  SubjectsScreen(),
+    page: () => SubjectsScreen(),
   ),
   GetPage(
     name: AppRoutes.homeWorksScreen,
-    page: () =>  HomeWorkScreen(),
+    page: () => HomeWorkScreen(),
   ),
   GetPage(
     name: AppRoutes.busScreen,
-    page: () =>  BusScreen(),
+    page: () => BusScreen(),
   ),
   GetPage(
     name: AppRoutes.subjectHomeWorks,
-    page: () =>  SubjectHomeworksScreen(),
+    page: () => SubjectHomeworksScreen(),
   ),
   GetPage(
     name: AppRoutes.vacations,
-    page: () =>  VacationsScreen(),
+    page: () => VacationsScreen(),
   ),
   GetPage(
-    name: AppRoutes.profileScreen,
-    page: () => const ProfileScreen(),
-    transition: Transition.fadeIn
-  ),
+      name: AppRoutes.profileScreen,
+      page: () => const ProfileScreen(),
+      transition: Transition.fadeIn),
   GetPage(
-    name: AppRoutes.studentTime,
-    page: () =>  StudentTimeScreen(),
-    transition: Transition.rightToLeftWithFade
-  ),
+      name: AppRoutes.studentTime,
+      page: () => StudentTimeScreen(),
+      transition: Transition.rightToLeftWithFade),
   GetPage(
       name: AppRoutes.results,
-      page: () =>  ExamsResultsScreen(),
-      transition: Transition.cupertino
-  ),
+      page: () => ExamsResultsScreen(),
+      transition: Transition.cupertino),
   GetPage(
       name: AppRoutes.alerts,
-      page: () =>  AlertsScreen(),
-      transition: Transition.circularReveal
-  ),
+      page: () => AlertsScreen(),
+      transition: Transition.circularReveal),
   GetPage(
       name: AppRoutes.installments,
-      page: () =>  InstallmentScreen(),
-      transition: Transition.rightToLeftWithFade
-  ),
+      page: () => InstallmentScreen(),
+      transition: Transition.rightToLeftWithFade),
   GetPage(
       name: AppRoutes.complaints,
-      page: () =>  ComplaintsScreen(),
-      transition: Transition.rightToLeftWithFade
-  ),
+      page: () => ComplaintsScreen(),
+      transition: Transition.rightToLeftWithFade),
   GetPage(
       name: AppRoutes.complaint,
-      page: () =>  ComplaintScreen(),
-      transition: Transition.leftToRight
-  ),
+      page: () => ComplaintScreen(),
+      transition: Transition.leftToRight),
   GetPage(
       name: AppRoutes.teacherNotes,
-      page: () =>  TeacherNotesScreen(),
-      transition: Transition.fadeIn
-  ),
+      page: () => TeacherNotesScreen(),
+      transition: Transition.fadeIn),
 ];

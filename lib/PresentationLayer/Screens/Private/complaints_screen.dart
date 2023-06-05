@@ -63,7 +63,7 @@ class ComplaintsScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          complaintController.showBusDialog();
+          complaintController.showAddComplaintDialog();
         },
         backgroundColor: UIColors.white,
         child: const Icon(

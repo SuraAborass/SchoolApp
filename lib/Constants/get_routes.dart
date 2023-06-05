@@ -2,7 +2,7 @@ class AppRoutes {
   static const splashScreen = "/";
   static const loginScreen = "/login";
   static const homeScreen = "/home";
-  static const messages = "/home/messages";
+  static const program = "/home/program";
   static const notificationsScreen = "/home/notificationsScreen";
   static const subjectsScreen = "/home/subjectsScreen";
   static const homeWorksScreen = "/home/homeWorksScreen";
@@ -17,4 +17,5 @@ class AppRoutes {
   static const complaints = "/home/complaints";
   static const complaint = "/home/complaints/complaint";
   static const teacherNotes = "/home/teacherNotes";
+  static const classes = "/home/classes";
 }

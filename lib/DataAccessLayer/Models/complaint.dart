@@ -20,7 +20,7 @@ class Complaint {
       //studentId: map['student_id'],
       description: map['description'] ,
       type: map['type'],
-      reply: map['reply']
+      reply: map['reply'] ?? ""
     );
   }
 }

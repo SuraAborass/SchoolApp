@@ -7,6 +7,7 @@ import '../../../Constants/colors.dart';
 class SnackBars {
   static void showSuccess(message) {
     Get.rawSnackbar(
+      snackPosition: SnackPosition.TOP,
         padding: const EdgeInsets.symmetric(vertical: 15),
         messageText: Text(
           message,
@@ -18,6 +19,7 @@ class SnackBars {
 
   static void showError(message) {
     Get.rawSnackbar(
+        snackPosition: SnackPosition.TOP,
         padding: const EdgeInsets.symmetric(vertical: 15),
         messageText: Text(
           message,

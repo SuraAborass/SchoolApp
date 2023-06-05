@@ -17,7 +17,7 @@ class SubjectHomeworksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const SchoolBottomNavigationBar(),
-      appBar: schoolAppBar(title: Text("وظائف الرياضيات",style: UITextStyle.titleBold.copyWith(fontSize: 20))),
+      appBar: schoolAppBar(title: Text(" وظائف ${subject.name}",style: UITextStyle.titleBold.copyWith(fontSize: 20))),
       drawer: SchoolDrawer(),
       body: Padding(
         padding: const EdgeInsets.only(top: 15.0),
@@ -25,12 +25,12 @@ class SubjectHomeworksScreen extends StatelessWidget {
             init: subjectsController,
             builder: (context) {
               return SizedBox(
-                height: Get.height-250,
+                height: Get.height-170,
                 child: ListView.builder(
                   itemCount:subject.homeworks.length,
                   physics: const BouncingScrollPhysics(),
                   itemBuilder: (context, i){
-                    return   SubjectHomeworksItem(homeWork: subject.homeworks[i],);
+                    return  SubjectHomeworksItem(homeWork: subject.homeworks[i],);
                   },
                 ),
               );
