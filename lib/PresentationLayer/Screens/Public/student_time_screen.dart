@@ -14,28 +14,31 @@ class StudentTimeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: const SchoolBottomNavigationBar(),
-      appBar: schoolAppBar(title: Text("دوام الطالب",style: UITextStyle.titleBold.copyWith(fontSize: 20))),
-      drawer: SchoolDrawer(),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: GetBuilder(
-            init: studentTimeController,
-            builder: (context) {
-              return SizedBox(
-                height: Get.height-170,
-                child: ListView.builder(
-                  itemCount: studentTimeController.absences.length,
-                  itemBuilder: (context, i){
-                    return  StudentTimeItem(studentTime: studentTimeController.absences[i],);
-                  },
-                ),
-              );
-            }
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        bottomNavigationBar: const SchoolBottomNavigationBar(),
+        appBar: schoolAppBar(title: Text("دوام الطالب",style: UITextStyle.titleBold.copyWith(fontSize: 20))),
+        drawer: SchoolDrawer(),
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: GetBuilder(
+              init: studentTimeController,
+              builder: (context) {
+                return SizedBox(
+                  height: Get.height-170,
+                  child: ListView.builder(
+                    itemCount: studentTimeController.absences.length,
+                    itemBuilder: (context, i){
+                      return  StudentTimeItem(studentTime: studentTimeController.absences[i],);
+                    },
+                  ),
+                );
+              }
+          ),
         ),
-      ),
 
+      ),
     );
   }
 }

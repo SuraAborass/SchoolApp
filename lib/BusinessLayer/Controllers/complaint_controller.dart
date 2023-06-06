@@ -6,12 +6,10 @@ import '../../Constants/ui_styles.dart';
 import '../../DataAccessLayer/Models/complaint.dart';
 import '../../DataAccessLayer/Repositories/complaint_repo.dart';
 import '../../PresentationLayer/Widgets/Public/snackbars.dart';
-import '../../main.dart';
 
 class ComplaintController extends GetxController {
   ComplaintRepo complaintRepo = ComplaintRepo();
   List<Complaint> complaints = [];
-  late Complaint complaint;
   var adding = false.obs;
   var loading = false.obs;
   TextEditingController typeController = TextEditingController();
@@ -43,6 +41,7 @@ class ComplaintController extends GetxController {
     }
     update();
     adding.value = false;
+
   }
 
   Future<void> addBusComplaint() async {
@@ -58,8 +57,9 @@ class ComplaintController extends GetxController {
     adding.value = false;
   }
 
-  void showAddComplaintDialog() {
-    Get.bottomSheet(Expanded(
+  void showAddComplaintDialog()async {
+   await Get.bottomSheet(Directionality(
+      textDirection: TextDirection.rtl,
       child: Container(
         padding: const EdgeInsets.all(20),
         height: 300,
@@ -108,7 +108,11 @@ class ComplaintController extends GetxController {
                             UIColors.complaint)),
                     onPressed: () async {
                       await addComplaint();
-                      Get.back();
+                      await Future.delayed(const Duration(seconds: 2),(){
+                        typeController.clear();
+                        descriptionController.clear();
+                      });
+
                     },
                     child: const Text(
                       "إرسال",
@@ -124,7 +128,8 @@ class ComplaintController extends GetxController {
   }
 
   void showBusDialog() {
-    Get.bottomSheet(Expanded(
+    Get.bottomSheet(Directionality(
+      textDirection: TextDirection.rtl,
       child: Container(
         padding: const EdgeInsets.all(20),
         height: 250,
@@ -159,7 +164,10 @@ class ComplaintController extends GetxController {
                     style: profileButtonStyle,
                     onPressed: () async {
                       await addBusComplaint();
-                      Get.back();
+                      await Future.delayed(const Duration(seconds: 2),(){
+                        descriptionController.clear();
+                        Get.back();
+                      });
                     },
                     child: const Text(
                       "إرسال",

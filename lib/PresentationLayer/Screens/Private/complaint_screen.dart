@@ -17,19 +17,22 @@ class ComplaintScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: const SchoolBottomNavigationBar(),
-      appBar: schoolAppBar(),
-      drawer: SchoolDrawer(),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: GetBuilder(
-            init: complaintController,
-            builder: (context) {
-              return ComplaintDetailsItem(
-                complaint: complaint,
-              );
-            }),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        bottomNavigationBar: const SchoolBottomNavigationBar(),
+        appBar: schoolAppBar(),
+        drawer: SchoolDrawer(),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GetBuilder(
+              init: complaintController,
+              builder: (context) {
+                return ComplaintDetailsItem(
+                  complaint: complaint,
+                );
+              }),
+        ),
       ),
     );
   }

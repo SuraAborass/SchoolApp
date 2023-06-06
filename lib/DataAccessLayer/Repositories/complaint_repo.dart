@@ -18,6 +18,7 @@ class ComplaintRepo {
     var data = await client.addComplaint(studentId,type,description);
     if (data != null) {
       final parsed = json.decode(data);
+      print(parsed);
       return Complaint.fromMap(parsed);
     }
     return null;

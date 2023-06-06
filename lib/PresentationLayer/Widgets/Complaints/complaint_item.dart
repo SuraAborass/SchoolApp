@@ -51,8 +51,14 @@ final Complaint complaint;
                               complaint.type,
                               style: UITextStyle.titleBold,
                             ),
-                            Text(complaint.description,
-                                style: UITextStyle.titleBold),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(complaint.description,
+                                    style: UITextStyle.titleBold),
+                              ],
+                            ),
                           ])
                   )),
             ],

@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      locale: Get.deviceLocale,
+      //locale: Get.deviceLocale,
       title: 'School',
       initialBinding: InitBinding(),
       getPages: getPages,

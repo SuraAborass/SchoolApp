@@ -6,15 +6,15 @@ import '../../../DataAccessLayer/Models/program.dart';
 import 'package:get/get.dart';
 
 class DayItem extends StatelessWidget {
-  const DayItem({Key? key, required this.day}) : super(key: key);
-  final Program day;
+  const DayItem({Key? key, required this.program}) : super(key: key);
+  final Program program;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: InkWell(
         onTap: () {
-          Get.toNamed(AppRoutes.classes,arguments: [day]);
+          Get.toNamed(AppRoutes.classes,arguments: [program]);
         },
         child: Container(
           width: 373,
@@ -25,7 +25,7 @@ class DayItem extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(day.day, style: UITextStyle.titleBold),
+              Text(program.day, style: UITextStyle.titleBold.copyWith(fontSize: 25)),
             ],
           ),
         ),
