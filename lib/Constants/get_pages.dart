@@ -68,7 +68,7 @@ List<GetPage<dynamic>> getPages = [
   ),
   GetPage(
       name: AppRoutes.profileScreen,
-      page: () => const ProfileScreen(),
+      page: () =>  ProfileScreen(),
       transition: Transition.fadeIn),
   GetPage(
       name: AppRoutes.studentTime,

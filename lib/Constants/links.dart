@@ -13,3 +13,4 @@ const installments = "financialTransactionById/1";
 const newComplaint = "complaint";
 const complaints = "complaintByStudentId/1";
 const program = "weekProgram/1";
+const updateProfile = "updateProfile/1";

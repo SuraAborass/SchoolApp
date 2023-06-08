@@ -15,4 +15,12 @@ class UserRepo {
     return null;
   }
 
+  Future<User?> updateInfo(id, password,address,phone) async {
+    var data = await client.updateInfo(id, password,address,phone);
+    if (data != null) {
+      return User.fromMap(jsonDecode(data));
+    }
+    return null;
+  }
+
 }

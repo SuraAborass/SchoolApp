@@ -111,6 +111,7 @@ class ComplaintController extends GetxController {
                       await Future.delayed(const Duration(seconds: 2),(){
                         typeController.clear();
                         descriptionController.clear();
+                        Get.back();
                       });
 
                     },

@@ -44,7 +44,7 @@ class NotificationsScreen extends StatelessWidget {
                                 shrinkWrap: true,
                                 children: [
                                   Text(
-                                    "لايوجد إشعارات",
+                                    "لايوجد إشعارات!",
                                     style:
                                         UITextStyle.titleBold.copyWith(fontSize: 16,color: UIColors.lightBlack),
                                     textAlign: TextAlign.center,

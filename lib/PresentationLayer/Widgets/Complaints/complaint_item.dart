@@ -55,8 +55,10 @@ final Complaint complaint;
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(complaint.description,
-                                    style: UITextStyle.titleBold),
+                                Expanded(
+                                  child: Text(complaint.description,
+                                      style: UITextStyle.titleBold),
+                                ),
                               ],
                             ),
                           ])
