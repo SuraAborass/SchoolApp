@@ -1,7 +1,8 @@
 import 'dart:convert';
-import 'package:http/http.dart' as http;
-import '../../Constants/links.dart';
 
+import 'package:http/http.dart' as http;
+
+import '../../Constants/links.dart';
 
 class UserClient {
   Future<dynamic> login(phone, password) async {
@@ -18,5 +19,4 @@ class UserClient {
       return null;
     }
   }
-
 }

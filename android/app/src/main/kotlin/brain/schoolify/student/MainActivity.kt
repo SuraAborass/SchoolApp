@@ -1,4 +1,4 @@
-package com.example.school_app
+package brain.schoolify.student
 
 import io.flutter.embedding.android.FlutterActivity
 
