@@ -37,56 +37,74 @@ class HomeScreen extends StatelessWidget {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              child: Container(
-                alignment: Alignment.center,
-                height: 300,
-                width: Get.width,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/school-ph.jpg"),
-                      opacity: .1,
-                      fit: BoxFit.cover),
-                  color: UIColors.primary,
-                  borderRadius: radiusbottomright,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      const Positioned(
-                        top: 10,
-                        child: CircleAvatar(
+            Container(
+              alignment: Alignment.center,
+              height: 300,
+              width: Get.width,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/images/school-ph.jpg"),
+                    opacity: .1,
+                    fit: BoxFit.cover),
+                color: UIColors.primary,
+                borderRadius: radiusbottomright,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Stack(
+                      children: [
+                        const CircleAvatar(
                           radius: 45,
                           backgroundImage: AssetImage(
                             "assets/images/app_icon.jpg",
                           ),
                         ),
-                      ),
-                      Padding(
-                          padding: const EdgeInsets.only(top: 5),
-                          child: ListTile(
-                            title: Text(
-                              MyApp.appUser != null
-                                  ? "${MyApp.appUser!.students[0].firstName} ${MyApp.appUser!.students[0].secondName}"
-                                  : "اسم الطالب",
-                              style: UITextStyle.titleBold,
-                              textAlign: TextAlign.center,
-                            ),
-                            subtitle: Text( MyApp.appUser != null
-                                ?
-                                "${MyApp.appUser!.students[0].classroom}-${MyApp.appUser!.students[0].grade}"
-                                :"اسم الشعبة-اسم الصف",
-                                style: UITextStyle.bodyNormal,
-                                textAlign: TextAlign.center),
-                          ))
-                    ],
-                  ),
+                        Positioned(
+                          top: 0,
+                          right: 0,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: UIColors.secondary,
+                                borderRadius: BorderRadius.circular(25)),
+                            child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.edit,
+                                  color: UIColors.white,
+                                  size: 20,
+                                )),
+                          ),
+                        )
+                      ],
+                    ),
+                    Padding(
+                        padding: const EdgeInsets.only(top: 5),
+                        child: ListTile(
+                          title: Text(
+                            MyApp.appUser != null
+                                ? "${MyApp.appUser!.students[0].firstName} ${MyApp.appUser!.students[0].secondName}"
+                                : "اسم الطالب",
+                            style: UITextStyle.titleBold,
+                            textAlign: TextAlign.center,
+                          ),
+                          subtitle: Text( MyApp.appUser != null
+                              ?
+                              "${MyApp.appUser!.students[0].classroom}-${MyApp.appUser!.students[0].grade}"
+                              :"اسم الشعبة-اسم الصف",
+                              style: UITextStyle.bodyNormal,
+                              textAlign: TextAlign.center),
+                        ))
+                  ],
                 ),
               ),
             ),

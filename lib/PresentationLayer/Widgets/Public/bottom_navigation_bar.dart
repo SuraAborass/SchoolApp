@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:school_app/Constants/colors.dart';
 import 'package:school_app/Constants/text_styles.dart';
+
 import '../../../Constants/get_routes.dart';
 import '../../../main.dart';
-import 'package:get/get.dart';
 
 class SchoolBottomNavigationBar extends StatelessWidget {
   const SchoolBottomNavigationBar({Key? key}) : super(key: key);
@@ -30,29 +31,32 @@ class SchoolBottomNavigationBar extends StatelessWidget {
           default:
         }
       },
-      backgroundColor: UIColors.navBarColor,
-      selectedItemColor: UIColors.navBarSelectedItem,
-      unselectedItemColor:UIColors.iconColor,
+      backgroundColor: UIColors.secondary,
+      selectedItemColor: UIColors.white,
+      unselectedItemColor: UIColors.white.withOpacity(.5),
       selectedFontSize: 16,
       unselectedFontSize: 16,
       type: BottomNavigationBarType.fixed,
       selectedLabelStyle: UITextStyle.boldSmall,
       unselectedLabelStyle: UITextStyle.normalSmall,
-      items: const <BottomNavigationBarItem> [
+      items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(Icons.home,size: 35,),
+          icon: Icon(
+            Icons.home,
+            size: 35,
+          ),
           label: "الرئيسية",
         ),
         BottomNavigationBarItem(
-          icon:  Icon(Icons.notifications,size: 35),
+          icon: Icon(Icons.notifications, size: 35),
           label: "الإشعارات",
         ),
         BottomNavigationBarItem(
-          icon:  Icon(Icons.calendar_view_week,size: 35),
+          icon: Icon(Icons.calendar_view_week, size: 35),
           label: "برنامج الدوام",
         ),
         BottomNavigationBarItem(
-          icon:  Icon(Icons.person,size: 35),
+          icon: Icon(Icons.person, size: 35),
           label: "الملف الشخصي",
         ),
       ],

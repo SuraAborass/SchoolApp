@@ -7,6 +7,7 @@ import '../../DataAccessLayer/Models/complaint.dart';
 import '../../DataAccessLayer/Repositories/complaint_repo.dart';
 import '../../PresentationLayer/Widgets/Public/snackbars.dart';
 
+
 class ComplaintController extends GetxController {
   ComplaintRepo complaintRepo = ComplaintRepo();
   List<Complaint> complaints = [];

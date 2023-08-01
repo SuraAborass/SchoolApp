@@ -46,31 +46,37 @@ class InstallmentScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Positioned(
-                    bottom: 0,
-                    child: Container(
-                      width: Get.width,
-                      height: 84,
-                      color: UIColors.remainingAmount,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "المبلغ الباقي:",
-                            style: UITextStyle.titleBold.copyWith(
-                              fontSize: 22,
-                            ),
+                Expanded(
+                  child: Container(
+                    width: Get.width,
+                    //height: 84,
+                    color: UIColors.remainingAmount,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "المبلغ الباقي:",
+                          style: UITextStyle.titleBold.copyWith(
+                            fontSize: 22,
                           ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Obx(() => Text(
-                                installmentsController.netValue.value.toString(),
-                                style: UITextStyle.titleBold.copyWith(fontSize: 22),
-                              ))
-                        ],
-                      ),
-                    ))
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                      GetBuilder(
+                        init: installmentsController,
+                        builder: (context) {
+                          return Text(
+                                  installmentsController.netValue.value.toString(),
+                                  style: UITextStyle.titleBold.copyWith(fontSize: 22),
+                                );
+                        }
+                      )
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10,)
               ],
             );
           }
