@@ -6,6 +6,7 @@ import 'package:school_app/PresentationLayer/Widgets/Public/SizedBoxWidth.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
 import '../../../Constants/ui_styles.dart';
+import '../../../main.dart';
 import '../../Widgets/Home/Alerts_item.dart';
 import '../../Widgets/Home/Bus_item.dart';
 import '../../Widgets/Home/Complaints_item.dart';
@@ -36,69 +37,56 @@ class HomeScreen extends StatelessWidget {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              alignment: Alignment.center,
-              height: 300,
-              width: Get.width,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage("assets/images/school-ph.jpg"),
-                    opacity: .1,
-                    fit: BoxFit.cover),
-                color: UIColors.primary,
-                borderRadius: radiusbottomright,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(15),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Stack(
-                      children: [
-                        const CircleAvatar(
+            Expanded(
+              child: Container(
+                alignment: Alignment.center,
+                height: 300,
+                width: Get.width,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("assets/images/school-ph.jpg"),
+                      opacity: .1,
+                      fit: BoxFit.cover),
+                  color: UIColors.primary,
+                  borderRadius: radiusbottomright,
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      const Positioned(
+                        top: 10,
+                        child: CircleAvatar(
                           radius: 45,
                           backgroundImage: AssetImage(
                             "assets/images/app_icon.jpg",
                           ),
                         ),
-                        Positioned(
-                          top: 0,
-                          right: 0,
-                          child: Container(
-                            height: 30,
-                            width: 30,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                                color: UIColors.secondary,
-                                borderRadius: BorderRadius.circular(25)),
-                            child: IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  Icons.edit,
-                                  color: UIColors.white,
-                                  size: 20,
-                                )),
-                          ),
-                        )
-                      ],
-                    ),
-                    const Padding(
-                        padding: EdgeInsets.only(top: 5),
-                        child: ListTile(
-                          title: Text(
-                            "اسم الطالب",
-                            style: UITextStyle.titleBold,
-                            textAlign: TextAlign.center,
-                          ),
-                          subtitle: Text("الصف الأول-الشعبة الرابعة",
-                              style: UITextStyle.bodyNormal,
-                              textAlign: TextAlign.center),
-                        ))
-                  ],
+                      ),
+                      Padding(
+                          padding: const EdgeInsets.only(top: 5),
+                          child: ListTile(
+                            title: Text(
+                              MyApp.appUser != null
+                                  ? "${MyApp.appUser!.students[0].firstName} ${MyApp.appUser!.students[0].secondName}"
+                                  : "اسم الطالب",
+                              style: UITextStyle.titleBold,
+                              textAlign: TextAlign.center,
+                            ),
+                            subtitle: Text( MyApp.appUser != null
+                                ?
+                                "${MyApp.appUser!.students[0].classroom}-${MyApp.appUser!.students[0].grade}"
+                                :"اسم الشعبة-اسم الصف",
+                                style: UITextStyle.bodyNormal,
+                                textAlign: TextAlign.center),
+                          ))
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -116,7 +104,9 @@ class HomeScreen extends StatelessWidget {
                               style: UITextStyle.bodyNormal
                                   .copyWith(fontSize: 20)),
                           TextSpan(
-                              text: " اسم الأم ",
+                              text:  MyApp.appUser!= null
+                                  ? MyApp.appUser!.students[0].motherName+""
+                                  :" اسم الأم ",
                               style: UITextStyle.bodyNormal.copyWith(
                                   color: UIColors.primary, fontSize: 20))
                         ]),
@@ -128,7 +118,6 @@ class HomeScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(right: 14.0, left: 14.0),
                       child: SizedBox(
                         child: GridView(
-                          physics: const BouncingScrollPhysics(),
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2,

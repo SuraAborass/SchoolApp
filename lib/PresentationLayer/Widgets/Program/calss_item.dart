@@ -24,7 +24,7 @@ final SubjectClass subjectClass;
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(subjectClass.order, style: UITextStyle.titleBold),
-              const SizedBox(width: 100,),
+              const SizedBox(width: 80,),
               Text(subjectClass.subject, style: UITextStyle.titleBold),
             ],
           ),

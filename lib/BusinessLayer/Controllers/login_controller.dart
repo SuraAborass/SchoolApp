@@ -22,7 +22,7 @@ class LoginController extends GetxController {
     if (user != null) {
       MyApp.appUser = user;
       await userController.saveAuthState(user);
-      SnackBars.showSuccess("مرحباً ${MyApp.appUser!.phone}");
+      SnackBars.showSuccess("مرحباً ${MyApp.appUser!.username}");
     } else {
       SnackBars.showError("الرجاء التأكد من البيانات المدخلة");
     }
