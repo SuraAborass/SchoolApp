@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import '../../../BusinessLayer/Controllers/program_controller.dart';
 import '../../../Constants/text_styles.dart';
 import '../../../DataAccessLayer/Models/program.dart';
@@ -9,7 +10,7 @@ import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
 
 class ClassesScreen extends StatelessWidget {
-   ClassesScreen({Key? key}) : super(key: key);
+  ClassesScreen({Key? key}) : super(key: key);
   final ProgramController programController = Get.find();
   final Program program = Get.arguments[0];
   @override
@@ -18,7 +19,9 @@ class ClassesScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         bottomNavigationBar: const SchoolBottomNavigationBar(),
-        appBar: schoolAppBar(title: Text("يوم ${program.day}",style: UITextStyle.titleBold.copyWith(fontSize: 25))),
+        appBar: schoolAppBar(
+            title: Text("يوم ${program.day}",
+                style: UITextStyle.titleBold.copyWith(fontSize: 25))),
         drawer: SchoolDrawer(),
         body: Padding(
           padding: const EdgeInsets.all(15.0),
@@ -26,16 +29,18 @@ class ClassesScreen extends StatelessWidget {
               init: programController,
               builder: (context) {
                 return SizedBox(
-                  height: Get.height-170,
+                  height: Get.height - 170,
                   child: ListView.builder(
-                    itemCount: programController.days.length,
-                    itemBuilder: (context, i){
-                      return ClassItem(subjectClass: program.classes[i],);
+                    itemCount: program.classes.length,
+                    itemBuilder: (context, i) {
+                      print(program.classes);
+                      return ClassItem(
+                        subjectClass: program.classes[i],
+                      );
                     },
                   ),
                 );
-              }
-          ),
+              }),
         ),
       ),
     );

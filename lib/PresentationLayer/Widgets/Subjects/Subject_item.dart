@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:school_app/Constants/colors.dart';
 import 'package:school_app/Constants/get_routes.dart';
 import 'package:school_app/Constants/text_styles.dart';
-import 'package:get/get.dart';
+
 import '../../../DataAccessLayer/Models/subject.dart';
 
 class SubjectItem extends StatelessWidget {
@@ -23,7 +24,7 @@ class SubjectItem extends StatelessWidget {
             width: 180,
             height: 120,
             child: Image.network(
-              subject.image,
+              "http://school.brain.sy/storage/${subject.image}",
               fit: BoxFit.cover,
               opacity: const AlwaysStoppedAnimation(.10),
             ),

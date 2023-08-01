@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
-import '../../../Constants/colors.dart';
+import 'package:school_app/Constants/text_styles.dart';
 
+import '../../../Constants/colors.dart';
 
 PreferredSizeWidget mainAppBar(BuildContext context) {
   return AppBar(
-    backgroundColor: UIColors.primary,
+    backgroundColor: Colors.transparent,
     elevation: 0.0,
+    title: const Text(
+      "مدرسة بناة الأجيال الخاصة",
+      style: UITextStyle.boldSmall,
+    ),
+    centerTitle: true,
     // flexibleSpace: Container(decoration: const BoxDecoration(
     //     image:DecorationImage(image: AssetImage('assets/images/school-elements.png'),fit: BoxFit.cover,opacity: 205)),),
-    leading:   Builder(builder: (context) {
+    leading: Builder(builder: (context) {
       return IconButton(
           onPressed: () {
             Scaffold.of(context).openDrawer();
@@ -19,8 +25,8 @@ PreferredSizeWidget mainAppBar(BuildContext context) {
             color: UIColors.white,
           ));
     }),
-    actions: [
-    Align(
+    actions: const [
+      /* Align(
         alignment: Alignment.centerLeft,
         child: Padding(
           padding: const EdgeInsets.only(top: 14.0,left: 14),
@@ -28,7 +34,7 @@ PreferredSizeWidget mainAppBar(BuildContext context) {
             'assets/images/logo.png',
           ),
         ),
-      )
+      ) */
     ],
   );
 }

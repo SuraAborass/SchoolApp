@@ -71,7 +71,7 @@ class ProfileController extends GetxController{
   }
 
   void setProfileImagePath(String path) {
-    print("setting image");
+
     profilePicPath.value = path;
     isProfilePicPathSet.value = true;
     update();

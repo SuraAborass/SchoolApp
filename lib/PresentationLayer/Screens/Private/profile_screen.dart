@@ -1,8 +1,10 @@
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'dart:io';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+
 import '../../../BusinessLayer/Controllers/profile_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
@@ -152,6 +154,7 @@ class ProfileScreen extends StatelessWidget {
       ),
     );
   }
+
   Widget bottomSheet(BuildContext context) {
     return Container(
       color: UIColors.primary,
@@ -161,7 +164,7 @@ class ProfileScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const Padding(
-            padding:  EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0),
             child: Text(
               "تعيين صورة الملف الشخصي",
               style: UITextStyle.titleBold,
@@ -181,7 +184,7 @@ class ProfileScreen extends StatelessWidget {
                         },
                         child: const Icon(
                           Icons.camera_alt_outlined,
-                          color:UIColors.white,
+                          color: UIColors.white,
                           size: 40,
                         )),
                     subtitle: const Text(
@@ -195,7 +198,7 @@ class ProfileScreen extends StatelessWidget {
                   child: ListTile(
                     title: InkWell(
                         onTap: () {
-                         profileController.takePhoto(ImageSource.gallery);
+                          profileController.takePhoto(ImageSource.gallery);
                         },
                         child: const Icon(
                           Icons.image,
