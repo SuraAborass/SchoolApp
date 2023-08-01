@@ -14,28 +14,31 @@ class VacationsScreen extends StatelessWidget {
   final VacationController vacationController = Get.find();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        bottomNavigationBar: const SchoolBottomNavigationBar(),
-        appBar: schoolAppBar(
-            title: Text("العطل",
-                style: UITextStyle.titleBold.copyWith(fontSize: 20))),
-        drawer: SchoolDrawer(),
-        body: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Container(
-            color: UIColors.calendar,
-            height: 365,
-            width: 365,
-            child: TableCalendar(
-              locale: "en_US",
-              headerStyle: const HeaderStyle(formatButtonVisible: false,
-              titleCentered: true),
-              rowHeight: 43,
-              focusedDay: DateTime.now(),
-              firstDay: DateTime.utc(2010, 1, 1),
-              lastDay: DateTime.utc(2030, 1, 1),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+          bottomNavigationBar: const SchoolBottomNavigationBar(),
+          appBar: schoolAppBar(
+              title: Text("العطل",
+                  style: UITextStyle.titleBold.copyWith(fontSize: 20))),
+          drawer: SchoolDrawer(),
+          body: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Container(
+              color: UIColors.calendar,
+              height: 365,
+              width: 365,
+              child: TableCalendar(
+                locale: "ar_AR",
+                headerStyle: const HeaderStyle(formatButtonVisible: false,
+                titleCentered: true),
+                rowHeight: 43,
+                focusedDay: DateTime.now(),
+                firstDay: DateTime.utc(2010, 1, 1),
+                lastDay: DateTime.utc(2030, 1, 1),
+              ),
             ),
-          ),
-        ));
+          )),
+    );
   }
 }

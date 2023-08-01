@@ -12,28 +12,31 @@ class SubjectsScreen extends StatelessWidget {
 final SubjectsController subjectsController = Get.find();
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      bottomNavigationBar: const SchoolBottomNavigationBar(),
-      appBar: schoolAppBar(title: Text("المواد",style: UITextStyle.titleBold.copyWith(fontSize: 25))),
-      drawer: SchoolDrawer(),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: GetBuilder(
-          init: subjectsController,
-          builder: (context) {
-            return SizedBox(
-              height: Get.height-250,
-              child: GridView.builder(
-                itemCount: subjectsController.subjects.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,crossAxisSpacing: 20),
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (context, i){
-                  return   SubjectItem(subject: subjectsController.subjects[i],);
-                },
-              ),
-            );
-          }
+    return  Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        bottomNavigationBar: const SchoolBottomNavigationBar(),
+        appBar: schoolAppBar(title: Text("المواد",style: UITextStyle.titleBold.copyWith(fontSize: 25))),
+        drawer: SchoolDrawer(),
+        body: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: GetBuilder(
+            init: subjectsController,
+            builder: (context) {
+              return SizedBox(
+                height: Get.height-250,
+                child: GridView.builder(
+                  itemCount: subjectsController.subjects.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,crossAxisSpacing: 20),
+                  physics: const BouncingScrollPhysics(),
+                  itemBuilder: (context, i){
+                    return   SubjectItem(subject: subjectsController.subjects[i],);
+                  },
+                ),
+              );
+            }
+          ),
         ),
       ),
     );

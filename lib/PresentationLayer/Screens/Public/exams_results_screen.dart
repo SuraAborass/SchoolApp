@@ -13,29 +13,32 @@ class ExamsResultsScreen extends StatelessWidget {
       Get.put(ExamResultsController());
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: const SchoolBottomNavigationBar(),
-      appBar: schoolAppBar(
-          title: Text("نتائج الامتحانات",
-              style: UITextStyle.titleBold.copyWith(fontSize: 20))),
-      drawer: SchoolDrawer(),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: GetBuilder(
-            init: examResultsController,
-            builder: (context) {
-              return SizedBox(
-                height: Get.height - 170,
-                child: ListView.builder(
-                  itemCount: examResultsController.examResults.length,
-                  itemBuilder: (context, i) {
-                    return ExamResultItem(
-                      examResult: examResultsController.examResults[i],
-                    );
-                  },
-                ),
-              );
-            }),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        bottomNavigationBar: const SchoolBottomNavigationBar(),
+        appBar: schoolAppBar(
+            title: Text("نتائج الامتحانات",
+                style: UITextStyle.titleBold.copyWith(fontSize: 20))),
+        drawer: SchoolDrawer(),
+        body: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: GetBuilder(
+              init: examResultsController,
+              builder: (context) {
+                return SizedBox(
+                  height: Get.height - 170,
+                  child: ListView.builder(
+                    itemCount: examResultsController.examResults.length,
+                    itemBuilder: (context, i) {
+                      return ExamResultItem(
+                        examResult: examResultsController.examResults[i],
+                      );
+                    },
+                  ),
+                );
+              }),
+        ),
       ),
     );
   }

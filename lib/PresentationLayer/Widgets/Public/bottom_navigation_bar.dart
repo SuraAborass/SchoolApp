@@ -22,7 +22,7 @@ class SchoolBottomNavigationBar extends StatelessWidget {
             Get.toNamed(AppRoutes.notificationsScreen);
             break;
           case 2:
-            Get.toNamed(AppRoutes.messages);
+            Get.toNamed(AppRoutes.program);
             break;
           case 3:
             Get.toNamed(AppRoutes.profileScreen);
@@ -48,8 +48,8 @@ class SchoolBottomNavigationBar extends StatelessWidget {
           label: "الإشعارات",
         ),
         BottomNavigationBarItem(
-          icon:  Icon(Icons.message,size: 35),
-          label: "الرسائل",
+          icon:  Icon(Icons.calendar_view_week,size: 35),
+          label: "برنامج الدوام",
         ),
         BottomNavigationBarItem(
           icon:  Icon(Icons.person,size: 35),

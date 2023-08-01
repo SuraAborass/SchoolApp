@@ -1,19 +1,20 @@
 import 'dart:convert';
+import 'package:school_app/DataAccessLayer/Models/student.dart';
 
 class User {
   final int id;
   final String phone;
   final String name;
   final String address;
-  final String avatar;
   final String token;
+  final List<Student> students;
   User({
     required this.id,
     required this.phone,
     required this.name,
     required this.address,
-    required this.avatar,
     required this.token,
+    required this.students
   });
 
   Map<String, dynamic> toMap() {
@@ -22,8 +23,8 @@ class User {
       'phone': phone,
       'name': name,
       'address' : address,
-      'avatar': avatar,
-      'token': token
+      'token': token,
+      'students' : students
     };
   }
 
@@ -33,8 +34,13 @@ class User {
       phone: map['user']['phone'] ?? '',
       name: map['user']['name'] ?? '',
       address: map['user']['address'] ?? '',
-      avatar: map['user']['avatar'] ?? '',
+      students: List<Student>.from(
+        (map['students' ] as List<dynamic>).map<Student>(
+              (l) => Student.fromMap(l as Map<String, dynamic>),
+        ),
+      ),
       token: map['token'] ?? '',
+
     );
   }
   factory User.fromBoxMap(Map<String, dynamic> map) {
@@ -42,9 +48,14 @@ class User {
       id: map['id']?.toInt() ?? 0,
       phone: map['phone'] ?? '',
       name: map['name'] ?? '',
+      students: List<Student>.from(
+        (map['students'] ?? []).map<Student>(
+              (l) => Student.fromMap(l as Map<String, dynamic>),
+        ) ,
+      ),
       address: map['address'] ?? '',
-      avatar: map['avatar'] ?? '',
       token: map['token'] ?? '',
+
     );
   }
   String toJson() => json.encode(toMap());

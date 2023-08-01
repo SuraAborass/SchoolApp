@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class UIColors {
 static const primary = Color(0xff403D84);
 static const white = Color(0xffFFFFFF);
+static const black = Color(0xff000000);
 static const lightWhite = Color(0x20FFFFFF);
 static const lightGray = Color(0xffF2F2F2);
 static const gray = Color(0xffC2C2C2);

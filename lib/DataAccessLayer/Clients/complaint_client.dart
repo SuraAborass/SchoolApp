@@ -13,17 +13,17 @@ class ComplaintClient{
       return "";
     }
   }
-
-  Future<dynamic> addComplaint(userId,type,description) async {
+  Future<dynamic> addComplaint(studentId,type,description) async {
     var response = await http.post(Uri.parse(baseLink + newComplaint),
         body: jsonEncode(<String, String>{
-          "user_id": userId.toString(),
-          "type": type.toString(),
-          "description" : description.toString()
+          "student_id": "1",
+          "type": type,
+          "description" : description
         }),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         });
+    print(response.statusCode);
     print(response.body);
     if (response.statusCode == 201) {
       return response.body;

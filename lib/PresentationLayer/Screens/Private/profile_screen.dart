@@ -1,69 +1,90 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'dart:io';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
+import '../../../BusinessLayer/Controllers/profile_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
 import '../../../Constants/ui_styles.dart';
+import '../../../main.dart';
 import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
-
+  ProfileScreen({Key? key}) : super(key: key);
+  final ProfileController profileController = Get.put(ProfileController());
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: UIColors.primary,
-      appBar: schoolAppBar(),
-      drawer: SchoolDrawer(),
-      body: SafeArea(
-        child: SizedBox(
-          width: Get.width,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-            child: Column(
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: UIColors.primary,
+        appBar: schoolAppBar(
+            title: Text("الملف الشخصي",
+                style: UITextStyle.titleBold.copyWith(fontSize: 22))),
+        drawer: SchoolDrawer(),
+        body: SafeArea(
+          child: SizedBox(
+            width: Get.width,
+            child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 12),
-                      child: Text(
-                        'الملف الشخصي',
-                        style: UITextStyle.titleBold,
-                      ),
-                    ),
                     Expanded(
-                      flex: 4,
+                      flex: 2,
                       child: Container(
                         width: Get.width,
                         padding: const EdgeInsets.symmetric(vertical: 15),
-                        child: Column(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
-                              flex: 4,
-                              child: CircleAvatar(
-                                minRadius: 52,
-                                backgroundColor: UIColors.circleAvatarBorder,
-                                child: CircleAvatar(
-                                  minRadius: 50,
-                                  backgroundColor:
-                                  UIColors.circleAvatarBackground,
-                                  child: ClipOval(
-                                    child: Image.asset(
-                                      'assets/images/user-default.png',
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
+                              flex: 1,
+                              child: Stack(children: [
+                                CircleAvatar(
+                                  backgroundColor: UIColors.circleAvatarBorder,
+                                  minRadius: 52,
+                                  child: CircleAvatar(
+                                      backgroundColor:
+                                          UIColors.circleAvatarBackground,
+                                      minRadius: 50,
+                                      backgroundImage: profileController
+                                                  .isProfilePicPathSet.value ==
+                                              true
+                                          ? FileImage(File(profileController
+                                              .profilePicPath
+                                              .value)) as ImageProvider
+                                          : CachedNetworkImageProvider(MyApp
+                                              .appUser!.students[0].image)),
                                 ),
-                              ),
+                                Positioned(
+                                  bottom: 0,
+                                  child: IconButton(
+                                      onPressed: () {
+                                        showModalBottomSheet(
+                                            context: context,
+                                            builder: (context) =>
+                                                bottomSheet(context));
+                                      },
+                                      icon: const Icon(
+                                        Icons.add_a_photo_sharp,
+                                        size: 30,
+                                        color: UIColors.white,
+                                      )),
+                                )
+                              ]),
                             ),
-                            const SizedBox(height: 20),
+                            const SizedBox(width: 20),
                             Expanded(
                               flex: 1,
-                              child: Text("اسم الأم",
+                              child: Text(
+                                MyApp.appUser!.name,
                                 style: UITextStyle.titleBold.copyWith(
-                                  color: UIColors.normalText,fontSize: 20
-                                ),
+                                    color: UIColors.normalText, fontSize: 20),
                               ),
                             ),
                           ],
@@ -81,40 +102,23 @@ class ProfileScreen extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     TextFormField(
-                                      keyboardType: TextInputType.name,
-                                      decoration: profileInputStyle.copyWith(
-                                        hintText: 'أدخل اسمك هنا',
-                                      ),
-                                    ),
+                                        controller: profileController
+                                            .updateAddressController,
+                                        keyboardType: TextInputType.text,
+                                        decoration: profileInputStyle),
                                     const SizedBox(height: 14),
                                     TextFormField(
-                                      keyboardType: TextInputType.emailAddress,
-                                      decoration: profileInputStyle.copyWith(
-                                        hintText: 'أدخل بريدك الإلكتروني'.tr,
-                                      ),
-                                    ),
+                                        controller: profileController
+                                            .updatePhoneController,
+                                        keyboardType: TextInputType.phone,
+                                        decoration: profileInputStyle),
                                     const SizedBox(height: 14),
                                     TextFormField(
-                                      keyboardType:
-                                      TextInputType.visiblePassword,
-                                      decoration: profileInputStyle.copyWith(
-                                        hintText: 'اتركه فارغاً لتجنب المشاكل'.tr,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 14),
-                                    TextFormField(
-                                      keyboardType: TextInputType.streetAddress,
-                                      decoration: profileInputStyle.copyWith(
-                                        hintText: 'أدخل عنوانك هنا',
-                                      ),
-                                    ),
-                                    const SizedBox(height: 14),
-                                    TextFormField(
-                                      keyboardType: TextInputType.phone,
-                                      decoration: profileInputStyle.copyWith(
-                                        hintText: 'أدخل رقم هاتفك'.tr,
-                                      ),
-                                    ),
+                                        controller: profileController
+                                            .updatePasswordController,
+                                        keyboardType:
+                                            TextInputType.visiblePassword,
+                                        decoration: profileInputStyle),
                                   ],
                                 ),
                               ),
@@ -125,11 +129,14 @@ class ProfileScreen extends StatelessWidget {
                               child: SizedBox(
                                 width: Get.width,
                                 child: ElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    profileController.updateInfo();
+                                  },
                                   style: profileButtonStyle,
                                   child: Text(
                                     'تحديث معلوماتك',
-                                    style: UITextStyle.titleBold.copyWith(fontSize: 15),
+                                    style: UITextStyle.titleBold
+                                        .copyWith(fontSize: 15),
                                   ),
                                 ),
                               ),
@@ -139,10 +146,72 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     ),
                   ],
-                )
-            ),
+                )),
           ),
         ),
+      ),
+    );
+  }
+  Widget bottomSheet(BuildContext context) {
+    return Container(
+      color: UIColors.primary,
+      height: 120,
+      width: Get.width,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const Padding(
+            padding:  EdgeInsets.all(10.0),
+            child: Text(
+              "تعيين صورة الملف الشخصي",
+              style: UITextStyle.titleBold,
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                  flex: 1,
+                  child: ListTile(
+                    title: InkWell(
+                        onTap: () {
+                          profileController.takePhoto(ImageSource.camera);
+                        },
+                        child: const Icon(
+                          Icons.camera_alt_outlined,
+                          color:UIColors.white,
+                          size: 40,
+                        )),
+                    subtitle: const Text(
+                      "Camera",
+                      style: UITextStyle.titleBold,
+                      textAlign: TextAlign.center,
+                    ),
+                  )),
+              Expanded(
+                  flex: 1,
+                  child: ListTile(
+                    title: InkWell(
+                        onTap: () {
+                         profileController.takePhoto(ImageSource.gallery);
+                        },
+                        child: const Icon(
+                          Icons.image,
+                          color: UIColors.white,
+                          size: 40,
+                        )),
+                    subtitle: const Text(
+                      "Gallery",
+                      style: UITextStyle.titleBold,
+                      textAlign: TextAlign.center,
+                    ),
+                  )),
+            ],
+          )
+        ],
+      ),
     );
   }
 }

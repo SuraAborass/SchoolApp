@@ -30,63 +30,79 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: UIColors.white,
         appBar: mainAppBar(context),
+        extendBodyBehindAppBar: true,
         drawer: SchoolDrawer(),
         bottomNavigationBar: const SchoolBottomNavigationBar(),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              flex: 1,
-              child: Stack(children: [
-                Container(
-                  height: 150,
-                  width: Get.width,
-                  decoration: const BoxDecoration(
-                    color: UIColors.primary,
-                    borderRadius: radiusbottomright,
-                  ),
-                  //child: Image.asset('assets/images/school-elements.png',fit: BoxFit.cover,opacity: const AlwaysStoppedAnimation(.20),),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Expanded(
-                      flex: 2,
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          top: 20.0,
-                          right: 20,
-                        ),
-                        child: CircleAvatar(
+            Container(
+              alignment: Alignment.center,
+              height: 300,
+              width: Get.width,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/images/school-ph.jpg"),
+                    opacity: .1,
+                    fit: BoxFit.cover),
+                color: UIColors.primary,
+                borderRadius: radiusbottomright,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Stack(
+                      children: [
+                        const CircleAvatar(
                           radius: 45,
                           backgroundImage: AssetImage(
-                            "assets/images/studentschool.png",
+                            "assets/images/app_icon.jpg",
                           ),
                         ),
-                      ),
+                        Positioned(
+                          top: 0,
+                          right: 0,
+                          child: Container(
+                            height: 30,
+                            width: 30,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                                color: UIColors.secondary,
+                                borderRadius: BorderRadius.circular(25)),
+                            child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.edit,
+                                  color: UIColors.white,
+                                  size: 20,
+                                )),
+                          ),
+                        )
+                      ],
                     ),
-                    Expanded(
-                      flex: 3,
-                      child: Padding(
-                          padding: EdgeInsets.only(top: 30.0, left: 8),
-                          child: ListTile(
-                            title: Text(
-                              "اسم الطالب",
-                              style: UITextStyle.titleBold,
-                              textAlign: TextAlign.start,
-                            ),
-                            subtitle: Text("الصف الأول-الشعبة الرابعة",
-                                style: UITextStyle.bodyNormal,
-                                textAlign: TextAlign.start),
-                          )),
-                    )
+                    const Padding(
+                        padding: EdgeInsets.only(top: 5),
+                        child: ListTile(
+                          title: Text(
+                            "اسم الطالب",
+                            style: UITextStyle.titleBold,
+                            textAlign: TextAlign.center,
+                          ),
+                          subtitle: Text("الصف الأول-الشعبة الرابعة",
+                              style: UITextStyle.bodyNormal,
+                              textAlign: TextAlign.center),
+                        ))
                   ],
                 ),
-              ]),
+              ),
             ),
             Expanded(
-              flex: 3,
               child: Column(
                 children: [
                   const SizedBoxHeight(),
@@ -107,7 +123,6 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBoxHeight(),
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.only(right: 14.0, left: 14.0),

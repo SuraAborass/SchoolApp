@@ -14,28 +14,31 @@ final BusController busController =  Get.find();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: const SchoolBottomNavigationBar(),
-      appBar: schoolAppBar(
-          title: Text("الباص",
-              style: UITextStyle.titleBold.copyWith(fontSize: 25))),
-      drawer: SchoolDrawer(),
-      body: GetBuilder(
-          init: busController,
-          builder: (context) {
-            return SizedBox(
-              height: Get.height - 170,
-              child: ListView.builder(
-                itemCount: busController.busInfo.length,
-                itemBuilder: (context, index) {
-                  return BusItem(
-                    busInfo: busController.busInfo[index],
-                    index: index,
-                  );
-                },
-              ),
-            );
-          }),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        bottomNavigationBar: const SchoolBottomNavigationBar(),
+        appBar: schoolAppBar(
+            title: Text("الباص",
+                style: UITextStyle.titleBold.copyWith(fontSize: 25))),
+        drawer: SchoolDrawer(),
+        body: GetBuilder(
+            init: busController,
+            builder: (context) {
+              return SizedBox(
+                height: Get.height - 170,
+                child: ListView.builder(
+                  itemCount: busController.busInfo.length,
+                  itemBuilder: (context, index) {
+                    return BusItem(
+                      busInfo: busController.busInfo[index],
+                      index: index,
+                    );
+                  },
+                ),
+              );
+            }),
+      ),
     );
   }
 }

@@ -103,10 +103,10 @@ class LoginScreen extends StatelessWidget {
                 color: UIColors.studentTime,
                 shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text('تسجيل الدخول', style: UITextStyle.titleBold)
                   ],
                 ),

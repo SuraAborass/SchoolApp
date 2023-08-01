@@ -14,11 +14,11 @@ class ComplaintRepo {
     }
     return [];
   }
-
-  Future<Complaint?> addComplaint(userId,type,description) async {
-    var data = await client.addComplaint(userId,type,description);
+  Future<Complaint?> addComplaint(studentId,type,description) async {
+    var data = await client.addComplaint(studentId,type,description);
     if (data != null) {
       final parsed = json.decode(data);
+      print(parsed);
       return Complaint.fromMap(parsed);
     }
     return null;

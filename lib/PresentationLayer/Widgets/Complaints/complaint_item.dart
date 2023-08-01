@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../../Constants/colors.dart';
+import '../../../Constants/get_routes.dart';
 import '../../../Constants/text_styles.dart';
 import '../../../DataAccessLayer/Models/complaint.dart';
+import 'package:get/get.dart';
+
 
 class ComplaintItem extends StatelessWidget {
   const ComplaintItem({Key? key,required this.complaint}) : super(key: key);
@@ -11,7 +14,7 @@ final Complaint complaint;
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: InkWell(
-        onTap: (){},
+        onTap: ()=> Get.toNamed(AppRoutes.complaint,arguments: [complaint]),
         child: Container(
           width: 373,
           height: 84,
@@ -48,8 +51,16 @@ final Complaint complaint;
                               complaint.type,
                               style: UITextStyle.titleBold,
                             ),
-                            Text(complaint.description,
-                                style: UITextStyle.titleBold),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  child: Text(complaint.description,
+                                      style: UITextStyle.titleBold),
+                                ),
+                              ],
+                            ),
                           ])
                   )),
             ],
