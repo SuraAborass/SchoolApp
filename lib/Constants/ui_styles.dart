@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:school_app/Constants/text_styles.dart';
 
 import 'colors.dart';
 
@@ -41,4 +42,21 @@ final profileButtonStyle = ButtonStyle(
   minimumSize: const MaterialStatePropertyAll<Size>(
     Size(double.infinity, 56),
   ),
+);
+
+final textFieldStyle = InputDecoration(
+  filled: true,
+  fillColor: UIColors.primary,
+  contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.circular(15),
+  ),
+  errorBorder: OutlineInputBorder(
+    borderSide: const BorderSide(
+      width: 1,
+      color: UIColors.primary,
+    ),
+    borderRadius: BorderRadius.circular(15),
+  ),
+  hintStyle: UITextStyle.normalSmall
 );

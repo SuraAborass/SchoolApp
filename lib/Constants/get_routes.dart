@@ -1,6 +1,7 @@
 class AppRoutes {
   static const splashScreen = "/";
   static const loginScreen = "/login";
+  static const registration = "/registration";
   static const homeScreen = "/home";
   static const program = "/home/program";
   static const notificationsScreen = "/home/notificationsScreen";
@@ -18,4 +19,5 @@ class AppRoutes {
   static const complaint = "/home/complaints/complaint";
   static const teacherNotes = "/home/teacherNotes";
   static const classes = "/home/classes";
+
 }

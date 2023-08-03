@@ -35,6 +35,16 @@ class SchoolDrawer extends StatelessWidget {
           ),
           ListTile(
               leading: const Icon(
+                Icons.accessibility,
+                color: UIColors.white,
+                size: 30,
+              ),
+              title: Text('طلب تسجيل طالب جديد',
+                  style:
+                  UITextStyle.titleNormal.copyWith(color: UIColors.white)),
+              onTap: () => Get.toNamed(AppRoutes.registration)),
+          ListTile(
+              leading: const Icon(
                 Icons.auto_stories,
                 color: UIColors.white,
                 size: 30,

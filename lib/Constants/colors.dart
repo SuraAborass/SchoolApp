@@ -66,4 +66,8 @@ class UIColors {
   static const success = Color.fromARGB(255, 99, 184, 91);
   static const warning = Color.fromARGB(255, 233, 196, 73);
   static const error = Color.fromARGB(255, 226, 102, 102);
+
+  //shimmers
+  static const shimmerBaseColor = Color.fromARGB(225,248, 248, 248);
+  static const shimmerHighLightColor = Colors.grey;
 }

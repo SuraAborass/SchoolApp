@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:school_app/Constants/get_routes.dart';
 import 'package:school_app/Constants/text_styles.dart';
 
 import '../../../BusinessLayer/Controllers/login_controller.dart';
 import '../../../Constants/colors.dart';
+import '../../Widgets/Public/loading_item.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -97,23 +99,50 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              MaterialButton(
+              Obx(() {
+                return MaterialButton(
+                  height: 56,
+                  minWidth: Get.width,
+                  color: UIColors.studentTime,
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      if (loginController.sending.value)
+                        const CircularProgressIndicator(
+                          color: UIColors.white,
+                        ),
+                      const Text('تسجيل الدخول', style: UITextStyle.titleBold)
+                    ],
+                  ),
+                  onPressed: () async {
+                    await loginController.login();
+                  },
+                );
+              }),
+              const SizedBox(
+                height: 10,
+              ),
+              Flexible(
+                  child: MaterialButton(
                 height: 56,
                 minWidth: Get.width,
                 color: UIColors.studentTime,
                 shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(20.0))),
-                child:  Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: const [
-                    Text('تسجيل الدخول', style: UITextStyle.titleBold)
+                    Text('طلب تسجيل', style: UITextStyle.titleBold)
                   ],
                 ),
-                onPressed: () async {
-                  await loginController.login();
+                onPressed: () {
+                  Get.toNamed(AppRoutes.registration);
                 },
-              ),
+              ))
             ],
           ),
         ),

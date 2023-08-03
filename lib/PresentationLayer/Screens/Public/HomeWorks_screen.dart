@@ -8,6 +8,7 @@ import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
 import 'package:get/get.dart';
 
+
 class HomeWorkScreen extends StatelessWidget {
   HomeWorkScreen({Key? key}) : super(key: key);
   final HomeworksController homeworksController = Get.find();
@@ -26,28 +27,24 @@ class HomeWorkScreen extends StatelessWidget {
           child: GetBuilder(
               init: homeworksController,
               builder: (context) {
-                return RefreshIndicator(
-                  onRefresh: () async {
-                    homeworksController.getHomeworks();
-                  },
-                  child: homeworksController.homeworks.isEmpty
-                      ? SizedBox(
-                          height: Get.height - 200,
-                          child: Center(
-                            child: ListView(
-                              shrinkWrap: true,
-                              children: [
-                                Text(
-                                  "لايوجد وظائف!",
-                                  style: UITextStyle.titleBold
-                                      .copyWith(fontSize: 16,color: UIColors.lightBlack),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                          ),
-                        )
-                      : SizedBox(
+                return homeworksController.loading.value == true
+                ?SizedBox(
+                  height: Get.height - 200,
+                  child: Center(
+                    child: ListView(
+                      shrinkWrap: true,
+                      children: [
+                        Text(
+                          "لايوجد شكاوى!",
+                          style: UITextStyle.titleBold
+                              .copyWith(fontSize: 16,color: UIColors.lightBlack),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+                    :SizedBox(
                           child: ListView.builder(
                             itemCount: homeworksController.homeworks.length,
                             itemBuilder: (context, i) {
@@ -56,7 +53,6 @@ class HomeWorkScreen extends StatelessWidget {
                               );
                             },
                           ),
-                        ),
                 );
               }),
         ),

@@ -4,6 +4,7 @@ import '../BusinessLayer/Bindings/init_bindings.dart';
 import '../PresentationLayer/Screens/Auth/login_screen.dart';
 import '../PresentationLayer/Screens/Private/complaint_screen.dart';
 import '../PresentationLayer/Screens/Private/complaints_screen.dart';
+import '../PresentationLayer/Screens/Private/registration_screen.dart';
 import '../PresentationLayer/Screens/Public/Bus_screen.dart';
 import '../PresentationLayer/Screens/Public/HomeWorks_screen.dart';
 import '../PresentationLayer/Screens/Public/Subjects_screen.dart';
@@ -32,6 +33,9 @@ List<GetPage<dynamic>> getPages = [
       page: () => LoginScreen(),
       transition: Transition.zoom,
       binding: InitBinding()),
+  GetPage(name: AppRoutes.registration,
+      page: () =>  RegistrationScreen()
+  ),
   GetPage(
       name: AppRoutes.homeScreen,
       page: () => const HomeScreen(),
@@ -40,12 +44,8 @@ List<GetPage<dynamic>> getPages = [
     name: AppRoutes.notificationsScreen,
     page: () => NotificationsScreen(),
   ),
-  GetPage(name: AppRoutes.program,
-      page: () => ProgramScreen()
-  ),
-  GetPage(name: AppRoutes.classes,
-      page: () => ClassesScreen()
-  ),
+  GetPage(name: AppRoutes.program, page: () => ProgramScreen()),
+  GetPage(name: AppRoutes.classes, page: () => ClassesScreen()),
   GetPage(
     name: AppRoutes.subjectsScreen,
     page: () => SubjectsScreen(),
@@ -68,7 +68,7 @@ List<GetPage<dynamic>> getPages = [
   ),
   GetPage(
       name: AppRoutes.profileScreen,
-      page: () =>  ProfileScreen(),
+      page: () => ProfileScreen(),
       transition: Transition.fadeIn),
   GetPage(
       name: AppRoutes.studentTime,

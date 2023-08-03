@@ -85,7 +85,8 @@ class ProfileScreen extends StatelessWidget {
                               flex: 1,
                               child: Text(
                                 MyApp.appUser!.name,
-                                style: UITextStyle.titleBold.copyWith(fontSize: 20),
+                                style: UITextStyle.titleBold
+                                    .copyWith(fontSize: 20),
                               ),
                             ),
                           ],
@@ -129,17 +130,31 @@ class ProfileScreen extends StatelessWidget {
                               flex: 2,
                               child: SizedBox(
                                 width: Get.width,
-                                child: ElevatedButton(
-                                  onPressed: () async{
-                                   await profileController.updateInfo();
-                                  },
-                                  style: profileButtonStyle,
-                                  child: Text(
-                                    'تحديث معلوماتك',
-                                    style: UITextStyle.titleBold
-                                        .copyWith(fontSize: 15),
-                                  ),
-                                ),
+                                child: Obx(() {
+                                  return ElevatedButton(
+                                    onPressed: () async {
+                                      await profileController.updateInfo();
+                                    },
+                                    style: profileButtonStyle,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        if (profileController.loading.value)
+                                          const CircularProgressIndicator(
+                                            color: UIColors.white,
+                                          ),
+                                        Text(
+                                          'تحديث معلوماتك',
+                                          style: UITextStyle.titleBold
+                                              .copyWith(fontSize: 15),
+                                        )
+                                      ],
+                                    ),
+                                  );
+                                }),
                               ),
                             )
                           ],
