@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../BusinessLayer/Controllers/grades_controller.dart';
+import '../../../BusinessLayer/Controllers/registration_controller.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
 import '../../../Constants/ui_styles.dart';
@@ -10,6 +11,7 @@ import '../../Widgets/Public/school_appbar.dart';
 class RegistrationScreen extends StatelessWidget {
   RegistrationScreen({Key? key}) : super(key: key);
   final GradesController gradesController = Get.find();
+  final RegistrationStudentController registrationStudentController = Get.put(RegistrationStudentController());
 
   @override
   Widget build(BuildContext context) {
@@ -25,75 +27,92 @@ class RegistrationScreen extends StatelessWidget {
             child: Column(
               children: [
                 TextFormField(
+                  controller: registrationStudentController.firstnameController,
                     style: UITextStyle.titleBold,
                     keyboardType: TextInputType.text,
                     decoration:
                         textFieldStyle.copyWith(hintText: "اسم الطالب")),
                 const SizedBox(height: 10,),
                 TextFormField(
+                  controller: registrationStudentController.secondnameController,
                     style: UITextStyle.titleBold,
                     keyboardType: TextInputType.text,
                     decoration:
                         textFieldStyle.copyWith(hintText: "اسم العائلة")),
                 const SizedBox(height: 10,),
                 TextFormField(
+                  controller: registrationStudentController.fathernameController,
                     style: UITextStyle.titleBold,
                     keyboardType: TextInputType.text,
                     decoration:
                         textFieldStyle.copyWith(hintText: "اسم الأب")),
                 const SizedBox(height: 10,),
                 TextFormField(
+                  controller: registrationStudentController.mothernameController,
                     style: UITextStyle.titleBold,
                     keyboardType: TextInputType.text,
                     decoration:
                         textFieldStyle.copyWith(hintText: "اسم الأم")),
                 const SizedBox(height: 10,),
-                SchoolDropDownFormField(
-                  items: const [
-                    'الصف الأول',
-                    'الصف الثاني',
-                    'الصف الثالث'
-                  ],
-                  onChanged: (value) {
-                    gradesController.grade;
-                  },
-                ),
+                TextFormField(
+                    controller: registrationStudentController.gradeController,
+                    style: UITextStyle.titleBold,
+                    keyboardType: TextInputType.text,
+                    decoration:
+                    textFieldStyle.copyWith(hintText: "الصف")),
+                // SchoolDropDownFormField(
+                //   value: registrationStudentController.gradeController.value,
+                //   items: const [
+                //     'الصف الأول',
+                //     'الصف الثاني',
+                //     'الصف الثالث'
+                //   ],
+                //   onChanged: (value) {
+                //     gradesController.grade;
+                //   },
+                // ),
                 const SizedBox(height: 10,),
                 SchoolDropDownFormField(
+                  value: registrationStudentController.payType,
                   items: const [
                     'دفع مباشر',
                     'تحويل بنكي',
                   ],
                   onChanged: (value) {
-                    gradesController.grade;
+                    registrationStudentController.payType = value;
                   },
                 ),
                 const SizedBox(height: 10,),
                 TextFormField(
+                  controller: registrationStudentController.birthdateController,
                     style: UITextStyle.titleBold,
                     keyboardType: TextInputType.text,
                     decoration: textFieldStyle.copyWith(
                         hintText: "تاريخ الولادة")),
                 const SizedBox(height: 10,),
                 TextFormField(
+                  controller: registrationStudentController.motherphoneController,
                     style: UITextStyle.titleBold,
                     keyboardType: TextInputType.text,
                     decoration: textFieldStyle.copyWith(
                         hintText: "رقم هاتف للتواصل")),
                 const SizedBox(height: 10,),
                 TextFormField(
+                  controller: registrationStudentController.genderController,
                     style: UITextStyle.titleBold,
                     keyboardType: TextInputType.text,
                     decoration:
                         textFieldStyle.copyWith(hintText: "الجنس")),
                 const SizedBox(height: 10,),
                 TextFormField(
+                  controller: registrationStudentController.nationalityController,
                     style: UITextStyle.titleBold,
                     keyboardType: TextInputType.text,
                     decoration:
                         textFieldStyle.copyWith(hintText: "الجنسية")),
                 const SizedBox(height: 10,),
-                MaterialButton(
+                Obx(() {
+                  return MaterialButton(
                   height: 56,
                   minWidth: Get.width,
                   color: UIColors.primary,
@@ -102,13 +121,20 @@ class RegistrationScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
-                      // CircularProgressIndicator(color: UIColors.white),
-                      Text('حفظ', style: UITextStyle.titleBold)
+                    children:  [
+                      if (registrationStudentController.sending.value)
+                        const CircularProgressIndicator(
+                          color: UIColors.white,
+                        ),
+                      const Text('حفظ', style: UITextStyle.titleBold)
                     ],
                   ),
-                  onPressed: () {},
-                ),
+                  onPressed: () {
+                    registrationStudentController.registerStudent();
+                  },
+
+                );
+  }),
               ],
             ),
           ),

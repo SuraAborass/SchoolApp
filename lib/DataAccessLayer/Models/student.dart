@@ -8,8 +8,11 @@ class Student {
   final String classroom;
   final String grade;
   final String motherName;
+  final String fatherName;
   final String brithDate;
   final String nationality;
+  final String payType;
+  final String gender;
   Student({
     required this.id,
     required this.firstName,
@@ -18,8 +21,11 @@ class Student {
     required this.classroom,
     required this.grade,
     required this.motherName,
+    required this.fatherName,
     required this.brithDate,
-    required this.nationality
+    required this.nationality,
+    required this.payType,
+    required this.gender,
   });
 
   Map<String, dynamic> toMap() {
@@ -29,10 +35,13 @@ class Student {
       'second_name': secondName,
       'image': image,
       'classroom': classroom,
-      'grade' : grade,
+      'grade_id' : grade,
       'mother_name': motherName,
+      'father_name' : fatherName,
       'brith_date': brithDate,
-      'nationality' : nationality
+      'nationality' : nationality,
+      'pay_type' : payType,
+      'gender' : gender
     };
   }
 
@@ -43,10 +52,13 @@ class Student {
       secondName: map['second_name'],
       image: map['image'] ?? '',
       classroom: map['classroom'] ?? '',
-      grade: map['grade'] ?? '',
+      grade: map['grade_id'] ?? '',
       motherName: map['mother_name'] ?? '',
+      fatherName: map['father_name'] ?? '',
       brithDate: map['brith_date'] ?? '',
-        nationality: map['nationality']
+        nationality: map['nationality'],
+      payType: map['pay_type'] ?? '' ,
+      gender:  map['gender'] ?? ''
     );
   }
 

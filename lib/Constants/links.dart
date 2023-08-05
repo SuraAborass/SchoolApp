@@ -15,3 +15,4 @@ const newComplaint = "complaint";
 const complaints = "complaintByStudentId/1";
 const weekProgram = "weekProgram/11";
 const updateProfile = "updateProfile/1";
+const registrationLink = "registerRequest";
