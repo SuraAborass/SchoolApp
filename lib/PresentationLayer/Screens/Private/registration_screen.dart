@@ -7,6 +7,7 @@ import '../../../Constants/text_styles.dart';
 import '../../../Constants/ui_styles.dart';
 import '../../Widgets/Public/dropdown_form_field.dart';
 import '../../Widgets/Public/school_appbar.dart';
+import '../../Widgets/Public/text_form_field.dart';
 
 class RegistrationScreen extends StatelessWidget {
   RegistrationScreen({Key? key}) : super(key: key);
@@ -26,51 +27,46 @@ class RegistrationScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                TextFormField(
-                  controller: registrationStudentController.firstnameController,
-                    style: UITextStyle.titleBold,
-                    keyboardType: TextInputType.text,
-                    decoration:
-                        textFieldStyle.copyWith(hintText: "اسم الطالب")),
+                SchoolTextFormField(controller: registrationStudentController.firstnameController,
+                hintText: 'اسم الطالب',),
                 const SizedBox(height: 10,),
-                TextFormField(
-                  controller: registrationStudentController.secondnameController,
-                    style: UITextStyle.titleBold,
-                    keyboardType: TextInputType.text,
-                    decoration:
-                        textFieldStyle.copyWith(hintText: "اسم العائلة")),
+                SchoolTextFormField(controller: registrationStudentController.secondnameController,
+                  hintText: 'اسم العائلة',),
                 const SizedBox(height: 10,),
-                TextFormField(
-                  controller: registrationStudentController.fathernameController,
-                    style: UITextStyle.titleBold,
-                    keyboardType: TextInputType.text,
-                    decoration:
-                        textFieldStyle.copyWith(hintText: "اسم الأب")),
+                SchoolTextFormField(controller: registrationStudentController.fathernameController,
+                  hintText: 'اسم الأب',),
                 const SizedBox(height: 10,),
-                TextFormField(
-                  controller: registrationStudentController.mothernameController,
-                    style: UITextStyle.titleBold,
-                    keyboardType: TextInputType.text,
-                    decoration:
-                        textFieldStyle.copyWith(hintText: "اسم الأم")),
+                SchoolTextFormField(controller: registrationStudentController.mothernameController,
+                  hintText: 'اسم الأم',),
                 const SizedBox(height: 10,),
-                TextFormField(
-                    controller: registrationStudentController.gradeController,
-                    style: UITextStyle.titleBold,
-                    keyboardType: TextInputType.text,
-                    decoration:
-                    textFieldStyle.copyWith(hintText: "الصف")),
-                // SchoolDropDownFormField(
-                //   value: registrationStudentController.gradeController.value,
-                //   items: const [
-                //     'الصف الأول',
-                //     'الصف الثاني',
-                //     'الصف الثالث'
-                //   ],
-                //   onChanged: (value) {
-                //     gradesController.grade;
-                //   },
-                // ),
+                SchoolTextFormField(controller: registrationStudentController.fathernationalityController,
+                  hintText: 'جنسية الأب',),
+                const SizedBox(height: 10,),
+                SchoolTextFormField(controller: registrationStudentController.mothernationaliyController,
+                  hintText: 'جنسية الأم',),
+                const SizedBox(height: 10,),
+                SchoolTextFormField(controller: registrationStudentController.nationalityController,
+                  hintText: 'جنسية الطالب',),
+                const SizedBox(height: 10,),
+                SchoolTextFormField(controller: registrationStudentController.fatherjobController,
+                  hintText: 'عمل الأب (اختياري)',),
+                const SizedBox(height: 10,),
+                SchoolTextFormField(controller: registrationStudentController.motherjobController,
+                  hintText: 'عمل الأم (اختياري)',),
+                const SizedBox(height: 10,),
+                InkWell(
+                  onTap: (){
+                    registrationStudentController.showBottomSheet();
+                  },
+                  child: SchoolTextFormField(controller: registrationStudentController.gradeIdController,
+                    hintText: 'الصف',),
+                ),
+                const SizedBox(height: 10,),
+                SchoolTextFormField(controller: registrationStudentController.birthdateController,
+                  hintText: 'تاريخ الولادة',),
+                const SizedBox(height: 10,),
+                SchoolTextFormField(controller: registrationStudentController.genderController,
+                  hintText: 'الجنس',),
                 const SizedBox(height: 10,),
                 SchoolDropDownFormField(
                   value: registrationStudentController.payType,
@@ -83,33 +79,8 @@ class RegistrationScreen extends StatelessWidget {
                   },
                 ),
                 const SizedBox(height: 10,),
-                TextFormField(
-                  controller: registrationStudentController.birthdateController,
-                    style: UITextStyle.titleBold,
-                    keyboardType: TextInputType.text,
-                    decoration: textFieldStyle.copyWith(
-                        hintText: "تاريخ الولادة")),
-                const SizedBox(height: 10,),
-                TextFormField(
-                  controller: registrationStudentController.motherphoneController,
-                    style: UITextStyle.titleBold,
-                    keyboardType: TextInputType.text,
-                    decoration: textFieldStyle.copyWith(
-                        hintText: "رقم هاتف للتواصل")),
-                const SizedBox(height: 10,),
-                TextFormField(
-                  controller: registrationStudentController.genderController,
-                    style: UITextStyle.titleBold,
-                    keyboardType: TextInputType.text,
-                    decoration:
-                        textFieldStyle.copyWith(hintText: "الجنس")),
-                const SizedBox(height: 10,),
-                TextFormField(
-                  controller: registrationStudentController.nationalityController,
-                    style: UITextStyle.titleBold,
-                    keyboardType: TextInputType.text,
-                    decoration:
-                        textFieldStyle.copyWith(hintText: "الجنسية")),
+                SchoolTextFormField(controller: registrationStudentController.gradeIdController,
+                  hintText: 'رقم هاتف للتواصل',),
                 const SizedBox(height: 10,),
                 Obx(() {
                   return MaterialButton(

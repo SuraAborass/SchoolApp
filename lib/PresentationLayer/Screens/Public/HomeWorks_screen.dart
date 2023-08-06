@@ -35,7 +35,7 @@ class HomeWorkScreen extends StatelessWidget {
                       shrinkWrap: true,
                       children: [
                         Text(
-                          "لايوجد شكاوى!",
+                          "لايوجد وظائف!",
                           style: UITextStyle.titleBold
                               .copyWith(fontSize: 16,color: UIColors.lightBlack),
                           textAlign: TextAlign.center,

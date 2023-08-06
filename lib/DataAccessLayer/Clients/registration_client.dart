@@ -16,7 +16,7 @@ class RegistrationStudentClient {
           "birth_date": birthdate,
           "nationality": nationality,
           "pay_type" : paytype,
-          "grade_id" : gradeId.toString(),
+          "grade_id" : gradeId,
         }),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',

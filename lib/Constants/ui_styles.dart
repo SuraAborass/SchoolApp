@@ -46,14 +46,14 @@ final profileButtonStyle = ButtonStyle(
 
 final textFieldStyle = InputDecoration(
   filled: true,
-  fillColor: UIColors.primary,
+  fillColor: UIColors.white,
   contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
   border: OutlineInputBorder(
     borderRadius: BorderRadius.circular(15),
   ),
   errorBorder: OutlineInputBorder(
     borderSide: const BorderSide(
-      width: 1,
+      width: 2,
       color: UIColors.primary,
     ),
     borderRadius: BorderRadius.circular(15),

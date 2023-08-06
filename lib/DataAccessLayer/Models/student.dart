@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'grade.dart';
 
 class Student {
   final int id;
@@ -7,9 +8,10 @@ class Student {
   final String secondName;
   final String classroom;
   final String grade;
+  final int gradeId;
   final String motherName;
   final String fatherName;
-  final String brithDate;
+  final String birthDate;
   final String nationality;
   final String payType;
   final String gender;
@@ -22,10 +24,11 @@ class Student {
     required this.grade,
     required this.motherName,
     required this.fatherName,
-    required this.brithDate,
+    required this.birthDate,
     required this.nationality,
     required this.payType,
     required this.gender,
+    required this.gradeId
   });
 
   Map<String, dynamic> toMap() {
@@ -35,10 +38,11 @@ class Student {
       'second_name': secondName,
       'image': image,
       'classroom': classroom,
-      'grade_id' : grade,
+      'grade' : grade,
+      'grade_id' : gradeId,
       'mother_name': motherName,
       'father_name' : fatherName,
-      'brith_date': brithDate,
+      'birth_date': birthDate,
       'nationality' : nationality,
       'pay_type' : payType,
       'gender' : gender
@@ -52,10 +56,11 @@ class Student {
       secondName: map['second_name'],
       image: map['image'] ?? '',
       classroom: map['classroom'] ?? '',
-      grade: map['grade_id'] ?? '',
+      grade: map['grade'] ?? '',
+      gradeId: map['grade_id'] ?? 0,
       motherName: map['mother_name'] ?? '',
       fatherName: map['father_name'] ?? '',
-      brithDate: map['brith_date'] ?? '',
+      birthDate: map['birth_date'] ?? '',
         nationality: map['nationality'],
       payType: map['pay_type'] ?? '' ,
       gender:  map['gender'] ?? ''

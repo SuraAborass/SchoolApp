@@ -45,9 +45,9 @@ final HomeWork homeWork;
                          Row(children: [
                            Text( homeWork.title,
                                style: UITextStyle.titleBold),
-                           const SizedBox(width: 10,),
-                           Text( homeWork.title,
-                               style: UITextStyle.titleBold),
+                           //const SizedBox(width: 10,),
+                           // Text( homeWork.title,
+                           //     style: UITextStyle.titleBold),
                          ],),
                           Text( homeWork.description,
                               style: UITextStyle.titleBold),
