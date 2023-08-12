@@ -12,7 +12,7 @@ class VacationItem extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: Container(
         width: 200,
-        height: 79,
+        height: 65,
         decoration:  BoxDecoration(
             color: UIColors.vacation,
             border: Border.all(color: UIColors.lightBlack,width: 1),

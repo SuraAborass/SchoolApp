@@ -103,16 +103,21 @@ class RegistrationStudentController extends GetxController{
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(40), topRight: Radius.circular(40))),
             child: Center(
-              child: SizedBox(
-                height: Get.height - 170,
-                child: ListView.builder(
-                  itemCount: gradesController.grades.length,
-                  itemBuilder: (context, i) {
-                    return GradesItem(
-                      grade: gradesController.grades[i],
-                    );
-                  },
-                ),
+              child: GetBuilder(
+                init: gradesController,
+                builder: (context) {
+                  return SizedBox(
+                    height: Get.height - 170,
+                    child: ListView.builder(
+                      itemCount: gradesController.grades.length,
+                      itemBuilder: (context, i) {
+                        return GradesItem(
+                          grade: gradesController.grades[i],
+                        );
+                      },
+                    ),
+                  );
+                }
               ),
             ),
 

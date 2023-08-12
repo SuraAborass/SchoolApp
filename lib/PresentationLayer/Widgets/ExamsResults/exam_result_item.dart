@@ -25,27 +25,24 @@ class ExamResultItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25)),
             ),
           ),
-          Positioned(
-            top: 0,
-            right: 12,
-            child: Container(
-              width: 130,
-              height: 28,
-              decoration: BoxDecoration(
-                  color: UIColors.white,
-                  border: Border.all(color: UIColors.primary, width: 1),
-                  borderRadius: BorderRadius.circular(25)),
-              child: Center(
-                  child: Text(
-                examResult.name,
-                style: UITextStyle.bodyNormal
-                    .copyWith(color: UIColors.primary, fontSize: 18),
-              )),
-            ),
-          ),
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              Container(
+                width: 150,
+                height: 28,
+                decoration: BoxDecoration(
+                    color: UIColors.white,
+                    border: Border.all(color: UIColors.primary, width: 1),
+                    borderRadius: BorderRadius.circular(25)),
+                child: Center(
+                    child: Text(
+                      examResult.name,
+                      style: UITextStyle.bodyNormal
+                          .copyWith(color: UIColors.primary, fontSize: 18),
+                    )),
+              ),
+              const SizedBox(height: 15,),
               ListView.builder(
                 padding: const EdgeInsets.all(8.0),
                   shrinkWrap: true,

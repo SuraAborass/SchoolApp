@@ -19,12 +19,10 @@ class HomeworkShimmer extends StatelessWidget {
           height: 56,
           margin: const EdgeInsets.symmetric(vertical: 8),
           //padding: const EdgeInsets.all(15),
-          child: Row(
+          child: Column(
             children: [
-              // const Expanded(flex: 1,
-              //     child: ShimmerWidget.circular(width: 50, height: 50)),
               Expanded(flex: 2,
-                  child: ShimmerWidget.roundedRectangular(width: Get.width, height: 20,)),
+                  child: ShimmerWidget.roundedRectangular(width: Get.width, height: 40,)),
             ],
           ),
         ),

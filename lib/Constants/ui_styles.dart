@@ -51,7 +51,7 @@ final textFieldStyle = InputDecoration(
   border: OutlineInputBorder(
     borderRadius: BorderRadius.circular(15),
   ),
-  errorBorder: OutlineInputBorder(
+  enabledBorder: OutlineInputBorder(
     borderSide: const BorderSide(
       width: 2,
       color: UIColors.primary,
