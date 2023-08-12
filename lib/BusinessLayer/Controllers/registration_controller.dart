@@ -5,6 +5,7 @@ import '../../Constants/colors.dart';
 import '../../DataAccessLayer/Models/grade.dart';
 import '../../DataAccessLayer/Repositories/registration_repo.dart';
 import '../../PresentationLayer/Widgets/Public/snackbars.dart';
+import '../../PresentationLayer/Widgets/grades_item.dart';
 import 'grades_controller.dart';
 
 class RegistrationStudentController extends GetxController{
@@ -102,15 +103,17 @@ class RegistrationStudentController extends GetxController{
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(40), topRight: Radius.circular(40))),
             child: Center(
-              // child: SizedBox(
-              //   height: Get.height - 170,
-              //   child: ListView.builder(
-              //     itemCount: gradesController.grades.length,
-              //     itemBuilder: (context, i) {
-              //       return
-              //     },
-              //   ),
-              // ),
+              child: SizedBox(
+                height: Get.height - 170,
+                child: ListView.builder(
+                  itemCount: gradesController.grades.length,
+                  itemBuilder: (context, i) {
+                    return GradesItem(
+                      grade: gradesController.grades[i],
+                    );
+                  },
+                ),
+              ),
             ),
 
           )),
