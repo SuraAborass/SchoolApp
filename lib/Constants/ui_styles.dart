@@ -44,6 +44,20 @@ final profileButtonStyle = ButtonStyle(
   ),
 );
 
+final gradeButtonStyle = ButtonStyle(
+  elevation: const MaterialStatePropertyAll(0),
+  backgroundColor: const MaterialStatePropertyAll<Color>(UIColors.white),
+  shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
+    RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(17),
+      side: const BorderSide(width: 2, color: UIColors.primary),
+    ),
+  ),
+  minimumSize: const MaterialStatePropertyAll<Size>(
+    Size(double.infinity, 56),
+  ),
+);
+
 final textFieldStyle = InputDecoration(
   filled: true,
   fillColor: UIColors.white,

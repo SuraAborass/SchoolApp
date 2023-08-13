@@ -11,19 +11,14 @@ final Grade grade;
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            Text("الصفوف",style: UITextStyle.titleBold.copyWith(color: UIColors.black),),
-            const SizedBox(width: 10,),
-            Text("الأقساط",style: UITextStyle.titleBold.copyWith(color: UIColors.black)),
-          ],
-        ),
+        const SizedBox(height: 10,),
         Container(
           color: UIColors.gray.withOpacity(.2),
           width: Get.width,
+          height: 30,
           child: Row(
             children: [
-              Text("${grade.name}${grade.fee}",style: UITextStyle.titleBold.copyWith(color: UIColors.primary),),
+              Text(grade.name+ "     "+grade.fee.toString(),style: UITextStyle.titleBold.copyWith(color: UIColors.primary),),
             ],
           ),
         ),

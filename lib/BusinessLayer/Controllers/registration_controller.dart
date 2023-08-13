@@ -1,18 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-
 import '../../Constants/colors.dart';
 import '../../DataAccessLayer/Models/grade.dart';
 import '../../DataAccessLayer/Repositories/registration_repo.dart';
 import '../../PresentationLayer/Widgets/Public/snackbars.dart';
-import '../../PresentationLayer/Widgets/grades_item.dart';
 import 'grades_controller.dart';
 
 class RegistrationStudentController extends GetxController{
-  final GradesController gradesController = Get.find();
   RegistrationStudentRepo repo = RegistrationStudentRepo();
   var sending = false.obs;
-  //List<Grade> grades = [];
   TextEditingController firstnameController = TextEditingController();
   TextEditingController secondnameController = TextEditingController();
   TextEditingController mothernameController = TextEditingController();
@@ -22,7 +18,6 @@ class RegistrationStudentController extends GetxController{
   TextEditingController fatherjobController = TextEditingController();
   TextEditingController fathernameController = TextEditingController();
   TextEditingController genderController = TextEditingController();
-  //String? genderType = 'ذكر' ;
   String? gradeId = "الصف الأول";
   String? payType = "دفع مباشر" ;
   //TextEditingController paytypeController = TextEditingController();
@@ -31,7 +26,8 @@ class RegistrationStudentController extends GetxController{
   TextEditingController nationalityController = TextEditingController();
   TextEditingController gradeIdController = TextEditingController();
 
-
+ int? selectedGradeId ;
+ String? gradeText;
 
   // int convertGenderTypeToNumber(genderType) {
   //   if (genderType == 'ذكر') {
@@ -47,6 +43,12 @@ class RegistrationStudentController extends GetxController{
     } else {
       return 1;
     }
+  }
+  void setGradId(id,text) async{
+    selectedGradeId = id;
+    gradeText = text;
+    print(id);
+    update();
   }
 
   Future<void> registerStudent() async {
@@ -69,7 +71,7 @@ class RegistrationStudentController extends GetxController{
         birthdate.isNotEmpty&&
         nationality.isNotEmpty&&
         gender.isNotEmpty&&
-    gradeId.isNotEmpty) {
+    selectedGradeId != null) {
       var registerStudent = await repo.registrationStudent(
           firstname,
           secondname,
@@ -80,7 +82,7 @@ class RegistrationStudentController extends GetxController{
           convertPayTypeToNumber(payType),
           nationality,
           birthdate,
-          int.parse(gradeId));
+          selectedGradeId.toString());
       if (registerStudent != null) {
         SnackBars.showSuccess('تم إرسال الطلب');
       } else {
@@ -92,37 +94,5 @@ class RegistrationStudentController extends GetxController{
     sending.value = false;
   }
 
-  void showBottomSheet() async{
-    await Get.bottomSheet(Flexible(
-      child: Directionality(textDirection: TextDirection.rtl,
-          child: Container(
-            padding: const EdgeInsets.all(20),
-            //height: 250,
-            decoration: const BoxDecoration(
-                color: UIColors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(40), topRight: Radius.circular(40))),
-            child: Center(
-              child: GetBuilder(
-                init: gradesController,
-                builder: (context) {
-                  return SizedBox(
-                    height: Get.height - 170,
-                    child: ListView.builder(
-                      itemCount: gradesController.grades.length,
-                      itemBuilder: (context, i) {
-                        return GradesItem(
-                          grade: gradesController.grades[i],
-                        );
-                      },
-                    ),
-                  );
-                }
-              ),
-            ),
 
-          )),
-    ));
-
-  }
 }
