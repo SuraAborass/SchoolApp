@@ -7,6 +7,7 @@ import '../../Widgets/Complaints/complaint_item.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';
 import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
+import '../../Widgets/Shimmers/homework_shimmer.dart';
 
 class ComplaintsScreen extends StatelessWidget {
   ComplaintsScreen({Key? key}) : super(key: key);
@@ -27,7 +28,18 @@ class ComplaintsScreen extends StatelessWidget {
           child: GetBuilder(
               init: complaintController,
               builder: (context) {
-                return RefreshIndicator(
+                return complaintController.loading.value == true
+                    ?SizedBox(
+                  height: Get.height - 250,
+                  child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: 8,
+                    itemBuilder: (BuildContext context, int index) {
+                      return const HomeworkShimmer();
+                    },
+                  ),
+                )
+                  :RefreshIndicator(
                   onRefresh: () async {
                     complaintController.getComplaints();
                   },

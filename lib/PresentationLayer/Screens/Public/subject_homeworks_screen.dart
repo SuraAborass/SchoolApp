@@ -7,6 +7,7 @@ import '../../Widgets/HomeWorks/subject_homeworks_item.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';
 import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
+import '../../Widgets/Shimmers/homework_shimmer.dart';
 
 class SubjectHomeworksScreen extends StatelessWidget {
   SubjectHomeworksScreen({Key? key}) : super(key: key);
@@ -27,7 +28,18 @@ class SubjectHomeworksScreen extends StatelessWidget {
           child: GetBuilder(
               init: subjectsController,
               builder: (context) {
-                return RefreshIndicator(
+                return subjectsController.loading.value == true
+                    ? SizedBox(
+                  height: Get.height - 250,
+                  child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: 8,
+                    itemBuilder: (BuildContext context, int index) {
+                      return const HomeworkShimmer();
+                    },
+                  ),
+                )
+                  :RefreshIndicator(
                     onRefresh: () async {
                       subject.homeworks;
                     },

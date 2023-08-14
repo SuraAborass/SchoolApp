@@ -57,7 +57,7 @@ class Student {
       image: map['image'] ?? '',
       classroom: map['classroom'] ?? '',
       grade: map['grade'] ?? '',
-      gradeId: int.parse(map['grade_id'].toString()) ?? 0,
+      gradeId: map['grade_id'] ?? 0,
       motherName: map['mother_name'] ?? '',
       fatherName: map['father_name'] ?? '',
       birthDate: map['birth_date'].toString() ?? '',

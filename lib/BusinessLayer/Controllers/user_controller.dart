@@ -25,7 +25,6 @@ class UserController extends GetxController{
   Future<void> saveAuthState(User user) async {
     await boxClient.setAuthedUser(user);
     user = user;
-
     update();
     Get.offAndToNamed(AppRoutes.homeScreen);
   }

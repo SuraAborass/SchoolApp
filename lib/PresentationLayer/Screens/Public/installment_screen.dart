@@ -7,6 +7,7 @@ import '../../Widgets/Installments/installment_item.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';
 import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
+import '../../Widgets/Shimmers/homework_shimmer.dart';
 
 class InstallmentScreen extends StatelessWidget {
   InstallmentScreen({Key? key}) : super(key: key);
@@ -29,7 +30,18 @@ class InstallmentScreen extends StatelessWidget {
               children: [
                 Positioned(
                   top: 0,
-                  child: RefreshIndicator(
+                  child: installmentsController.installments.isEmpty
+                 ? SizedBox(
+                    height: Get.height - 250,
+                    child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      itemCount: 8,
+                      itemBuilder: (BuildContext context, int index) {
+                        return const HomeworkShimmer();
+                      },
+                    ),
+                  )
+                  :RefreshIndicator(
                     onRefresh: () async{
                       installmentsController.getInstallments();
                     },

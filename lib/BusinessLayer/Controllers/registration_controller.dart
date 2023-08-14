@@ -6,6 +6,8 @@ import '../../DataAccessLayer/Repositories/registration_repo.dart';
 import '../../PresentationLayer/Widgets/Public/snackbars.dart';
 import 'grades_controller.dart';
 
+
+enum PaymentMethod { cashPay, onlinePay }
 class RegistrationStudentController extends GetxController{
   RegistrationStudentRepo repo = RegistrationStudentRepo();
   var sending = false.obs;
@@ -20,6 +22,7 @@ class RegistrationStudentController extends GetxController{
   TextEditingController genderController = TextEditingController();
   String? gradeId = "الصف الأول";
   String? payType = "دفع مباشر" ;
+  String? gender = "ذكر";
   //TextEditingController paytypeController = TextEditingController();
   TextEditingController motherphoneController = TextEditingController();
   TextEditingController birthdateController = TextEditingController();
@@ -28,14 +31,18 @@ class RegistrationStudentController extends GetxController{
 
  int? selectedGradeId ;
  String? gradeText;
+  var paymentMethod = PaymentMethod.cashPay.obs;
 
-  // int convertGenderTypeToNumber(genderType) {
-  //   if (genderType == 'ذكر') {
-  //     return 0;
-  //   } else {
-  //     return 1;
-  //   }
-  // }
+
+  void changePaymentType(PaymentMethod method) {
+    paymentMethod.value = method;
+    update();
+  }
+  void changeGenderType(PaymentMethod method) {
+    paymentMethod.value = method;
+    update();
+  }
+
 
   int convertPayTypeToNumber(payType) {
     if (payType == 'تحويل بنكي') {

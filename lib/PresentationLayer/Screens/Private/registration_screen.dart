@@ -10,12 +10,13 @@ import '../../Widgets/Public/dropdown_form_field.dart';
 import '../../Widgets/Public/school_appbar.dart';
 import '../../Widgets/Public/text_form_field.dart';
 import '../../Widgets/grades_item.dart';
+import '../../Widgets/payment_item.dart';
 
 class RegistrationScreen extends StatelessWidget {
   RegistrationScreen({Key? key}) : super(key: key);
   final GradesController gradesController = Get.find();
   final RegistrationStudentController registrationStudentController = Get.put(RegistrationStudentController());
-  final Grade? grade = Get.arguments;
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -70,9 +71,6 @@ class RegistrationScreen extends StatelessWidget {
                               context: context,
                               builder: (context) =>
                                   bottomSheet(context));
-                          // registrationStudentController.gradeId = 'الصف الأول';
-                          // registrationStudentController
-                          //     .setGradId('الصف الأول');
                         },
                         style: gradeButtonStyle,
                         child: Row(
@@ -93,18 +91,40 @@ class RegistrationScreen extends StatelessWidget {
                     SchoolTextFormField(controller: registrationStudentController.birthdateController,
                       hintText: 'تاريخ الولادة',),
                     const SizedBox(height: 10,),
-                    SchoolTextFormField(controller: registrationStudentController.genderController,
-                      hintText: 'الجنس',),
-                    const SizedBox(height: 10,),
-                    SchoolDropDownFormField(
-                      value: registrationStudentController.payType,
-                      items: const [
-                        'دفع مباشر',
-                        'تحويل بنكي',
-                      ],
-                      onChanged: (value) {
-                        registrationStudentController.payType = value;
-                      },
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Expanded(
+                              child: InkWell(
+                                  onTap: () => registrationStudentController
+                                      .changePaymentType(
+                                      PaymentMethod
+                                          .cashPay),
+                                  child: paymentMethodItem(
+                                      Icon(Icons.money),
+                                      'دفع مباشر',
+                                      registrationStudentController
+                                          .paymentMethod
+                                          .value ==
+                                          PaymentMethod
+                                              .cashPay))),
+                          Expanded(
+                              child: InkWell(
+                                  onTap: () => registrationStudentController
+                                      .changePaymentType(
+                                      PaymentMethod
+                                          .onlinePay),
+                                  child: paymentMethodItem(
+                                      const Icon(Icons.monetization_on),
+                                      'تحويل بنكي',
+                                      registrationStudentController
+                                          .paymentMethod
+                                          .value ==
+                                          PaymentMethod
+                                              .onlinePay)))
+                        ],
+                      ),
                     ),
                     const SizedBox(height: 10,),
                     SchoolTextFormField(controller: registrationStudentController.motherphoneController,

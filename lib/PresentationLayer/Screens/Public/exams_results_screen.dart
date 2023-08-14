@@ -7,6 +7,8 @@ import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
 import 'package:get/get.dart';
 
+import '../../Widgets/Shimmers/homework_shimmer.dart';
+
 class ExamsResultsScreen extends StatelessWidget {
   ExamsResultsScreen({Key? key}) : super(key: key);
   final ExamResultsController examResultsController =
@@ -26,7 +28,18 @@ class ExamsResultsScreen extends StatelessWidget {
           child: GetBuilder(
               init: examResultsController,
               builder: (context) {
-                return SizedBox(
+                return examResultsController.loading.value == true
+                    ? SizedBox(
+                      height: Get.height - 250,
+                      child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                         itemCount: 8,
+                         itemBuilder: (BuildContext context, int index) {
+                              return const HomeworkShimmer();
+                    },
+                  ),
+                )
+                  :SizedBox(
                   height: Get.height - 170,
                   child: ListView.builder(
                     itemCount: examResultsController.examResults.length,

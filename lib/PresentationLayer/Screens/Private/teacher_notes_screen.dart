@@ -6,6 +6,7 @@ import '../../../Constants/text_styles.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';
 import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
+import '../../Widgets/Shimmers/homework_shimmer.dart';
 import '../../Widgets/TeacherNotes/teacher_note_item.dart';
 
 
@@ -28,7 +29,18 @@ class TeacherNotesScreen extends StatelessWidget {
           child: GetBuilder(
               init: teacherNoteController,
               builder: (context) {
-                return RefreshIndicator(
+                return teacherNoteController.loading.value == true
+                    ?SizedBox(
+                  height: Get.height - 250,
+                  child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: 8,
+                    itemBuilder: (BuildContext context, int index) {
+                      return const HomeworkShimmer();
+                    },
+                  ),
+                )
+                  :RefreshIndicator(
                   onRefresh: () async {
                     teacherNoteController.getTeacherNotes();
                   },

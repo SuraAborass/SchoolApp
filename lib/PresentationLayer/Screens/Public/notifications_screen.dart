@@ -7,6 +7,7 @@ import '../../Widgets/Notifications/notification_item.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';
 import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
+import '../../Widgets/Shimmers/homework_shimmer.dart';
 
 class NotificationsScreen extends StatelessWidget {
   NotificationsScreen({Key? key}) : super(key: key);
@@ -32,11 +33,23 @@ class NotificationsScreen extends StatelessWidget {
               child: GetBuilder(
                 init: userNotificationsController,
                 builder: (context) {
-                  return RefreshIndicator(
+                  return userNotificationsController.loading .value == true
+                    ? SizedBox(
+                    height: Get.height - 250,
+                    child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      itemCount: 8,
+                      itemBuilder: (BuildContext context, int index) {
+                        return const HomeworkShimmer();
+                      },
+                    ),
+                  )
+                    :RefreshIndicator(
                     onRefresh: () async {
                       userNotificationsController.getNotifications();
                     },
-                    child: userNotificationsController.userNotifications.isEmpty
+                    child:
+                    userNotificationsController.userNotifications.isEmpty
                         ? SizedBox(
                             height: Get.height - 200,
                             child: Center(

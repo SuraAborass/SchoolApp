@@ -17,13 +17,20 @@ class LoginController extends GetxController {
 
   Future<void> login() async {
     sending.value = true;
-    User? user = await repo.login(
-        phoneTextController.value.text, passwordTextController.value.text);
-    if (user != null) {
-      MyApp.appUser = user;
-      await userController.saveAuthState(user);
-      SnackBars.showSuccess("مرحباً ${MyApp.appUser!.name}");
-    } else {
+    if (phoneTextController.value.text.isNotEmpty &&
+        passwordTextController.value.text.isNotEmpty) {
+      User? user = await repo.login(
+          phoneTextController.value.text, passwordTextController.value.text);
+      if (user != null) {
+        MyApp.appUser = user;
+        await userController.saveAuthState(user);
+        SnackBars.showSuccess("مرحباً ${MyApp.appUser!.name}");
+      }
+      else {
+        SnackBars.showWarning('بياناتك غير مطابقة لسجلاتنا');
+      }
+    }
+    else {
       SnackBars.showError("الرجاء تعبئة الحقول المطلوبة");
     }
     sending.value = false;

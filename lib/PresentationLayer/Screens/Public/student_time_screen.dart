@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../BusinessLayer/Controllers/student_time_controller.dart';
+import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
 import '../../Widgets/Public/bottom_navigation_bar.dart';
 import '../../Widgets/Public/drawer.dart';
@@ -38,7 +39,28 @@ class StudentTimeScreen extends StatelessWidget {
                           },
                         ),
                       )
-                    : SizedBox(
+                    : RefreshIndicator(
+                    onRefresh: () async{
+                      studentTimeController.getAbsences();
+                    },
+                    child: studentTimeController.absences.isEmpty
+                    ?SizedBox(
+                      height: Get.height - 200,
+                      child: Center(
+                        child: ListView(
+                          shrinkWrap: true,
+                          children: [
+                            Text(
+                              "لايوجد غيابات!",
+                              style: UITextStyle.titleBold
+                                  .copyWith(fontSize: 16,color: UIColors.lightBlack),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
+                    )
+                    :SizedBox(
                         height: Get.height - 170,
                         child: ListView.builder(
                           itemCount: studentTimeController.absences.length,
@@ -48,7 +70,7 @@ class StudentTimeScreen extends StatelessWidget {
                             );
                           },
                         ),
-                      );
+                      ));
               }),
         ),
       ),

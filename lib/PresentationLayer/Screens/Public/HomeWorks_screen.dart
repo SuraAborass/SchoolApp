@@ -8,6 +8,8 @@ import '../../Widgets/Public/drawer.dart';
 import '../../Widgets/Public/school_appbar.dart';
 import 'package:get/get.dart';
 
+import '../../Widgets/Shimmers/homework_shimmer.dart';
+
 
 class HomeWorkScreen extends StatelessWidget {
   HomeWorkScreen({Key? key}) : super(key: key);
@@ -27,8 +29,25 @@ class HomeWorkScreen extends StatelessWidget {
           child: GetBuilder(
               init: homeworksController,
               builder: (context) {
-                return homeworksController.loading.value == true
-                ?SizedBox(
+                return
+                  homeworksController.loading.value == true
+                ? SizedBox(
+                    height: Get.height - 250,
+                    child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      itemCount: 8,
+                      itemBuilder: (BuildContext context, int index) {
+                        return const HomeworkShimmer();
+                      },
+                    ),
+                  )
+                  :RefreshIndicator(
+                  onRefresh: () async {
+                    homeworksController.getHomeworks();
+                  },
+                  child:
+                  homeworksController.homeworks.isEmpty
+                  ? SizedBox(
                   height: Get.height - 200,
                   child: Center(
                     child: ListView(
@@ -53,7 +72,7 @@ class HomeWorkScreen extends StatelessWidget {
                               );
                             },
                           ),
-                );
+                ));
               }),
         ),
       ),
