@@ -30,31 +30,31 @@ class SubjectHomeworksScreen extends StatelessWidget {
               builder: (context) {
                 return subjectsController.loading.value == true
                     ? SizedBox(
-                  height: Get.height - 250,
-                  child: ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    itemCount: 8,
-                    itemBuilder: (BuildContext context, int index) {
-                      return const HomeworkShimmer();
-                    },
-                  ),
-                )
-                  :RefreshIndicator(
-                    onRefresh: () async {
-                      subject.homeworks;
-                    },
-                    child: SizedBox(
-                      height: Get.height - 170,
-                      child: ListView.builder(
-                        itemCount: subject.homeworks.length,
-                        physics: const BouncingScrollPhysics(),
-                        itemBuilder: (context, i) {
-                          return SubjectHomeworksItem(
-                            homeWork: subject.homeworks[i],
-                          );
+                        height: Get.height - 250,
+                        child: ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          itemCount: 8,
+                          itemBuilder: (BuildContext context, int index) {
+                            return const HomeworkShimmer();
+                          },
+                        ),
+                      )
+                    : RefreshIndicator(
+                        onRefresh: () async {
+                          subject.homeworks;
                         },
-                      ),
-                    ));
+                        child: SizedBox(
+                          height: Get.height - 170,
+                          child: ListView.builder(
+                            itemCount: subject.homeworks.length,
+                            physics: const BouncingScrollPhysics(),
+                            itemBuilder: (context, i) {
+                              return SubjectHomeworksItem(
+                                homeWork: subject.homeworks[i],
+                              );
+                            },
+                          ),
+                        ));
               }),
         ),
       ),

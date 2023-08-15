@@ -16,7 +16,7 @@ class ComplaintClient{
   Future<dynamic> addComplaint(studentId,type,description) async {
     var response = await http.post(Uri.parse(baseLink + newComplaint),
         body: jsonEncode(<String, String>{
-          "student_id": "1",
+          "student_id": studentId.toString(),
           "type": type,
           "description" : description
         }),

@@ -29,53 +29,56 @@ class ComplaintsScreen extends StatelessWidget {
               init: complaintController,
               builder: (context) {
                 return complaintController.loading.value == true
-                    ?SizedBox(
-                  height: Get.height - 250,
-                  child: ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    itemCount: 8,
-                    itemBuilder: (BuildContext context, int index) {
-                      return const HomeworkShimmer();
-                    },
-                  ),
-                )
-                  :RefreshIndicator(
-                  onRefresh: () async {
-                    complaintController.getComplaints();
-                  },
-                  child: complaintController.complaints.isEmpty
-                      ? SizedBox(
-                          height: Get.height - 200,
-                          child: Center(
-                            child: ListView(
-                              shrinkWrap: true,
-                              children: [
-                                Text(
-                                  "لايوجد شكاوى!",
-                                  style: UITextStyle.titleBold
-                                      .copyWith(fontSize: 16,color: UIColors.lightBlack),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                          ),
-                        )
-                      : SizedBox(
-                          height: Get.height - 170,
-                          child: ListView.builder(
-                            itemCount: complaintController.complaints.length,
-                            itemBuilder: (context, i) {
-                              return ComplaintItem(
-                                complaint: complaintController.complaints[i],
-                              );
-                            },
-                          ),
+                    ? SizedBox(
+                        height: Get.height - 250,
+                        child: ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          itemCount: 8,
+                          itemBuilder: (BuildContext context, int index) {
+                            return const HomeworkShimmer();
+                          },
                         ),
-                );
+                      )
+                    : RefreshIndicator(
+                        onRefresh: () async {
+                          await complaintController.getComplaints();
+                        },
+                        child: complaintController.complaints.isEmpty
+                            ? SizedBox(
+                                height: Get.height - 200,
+                                child: Center(
+                                  child: ListView(
+                                    shrinkWrap: true,
+                                    children: [
+                                      Text(
+                                        "لايوجد شكاوى!",
+                                        style: UITextStyle.titleBold.copyWith(
+                                            fontSize: 16,
+                                            color: UIColors.lightBlack),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              )
+                            : SizedBox(
+                                height: Get.height - 170,
+                                child: ListView.builder(
+                                  itemCount:
+                                      complaintController.complaints.length,
+                                  itemBuilder: (context, i) {
+                                    return ComplaintItem(
+                                      complaint:
+                                          complaintController.complaints[i],
+                                    );
+                                  },
+                                ),
+                              ),
+                      );
               }),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () async{
+          onPressed: () async {
             complaintController.showAddComplaintDialog();
           },
           backgroundColor: UIColors.white,

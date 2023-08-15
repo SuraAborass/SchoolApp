@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:school_app/Constants/text_styles.dart';
 import '../../../Constants/colors.dart';
 import '../../../DataAccessLayer/Models/homework.dart';
+import '../../../DataAccessLayer/Models/subject.dart';
+import 'package:get/get.dart';
 
 class SubjectHomeworksItem extends StatelessWidget {
-   const SubjectHomeworksItem({Key? key,required this.homeWork}) : super(key: key);
+    SubjectHomeworksItem({Key? key,required this.homeWork}) : super(key: key);
  final HomeWork homeWork;
+   final Subject subject = Get.arguments[0];
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,21 +26,22 @@ class SubjectHomeworksItem extends StatelessWidget {
           children: [
             Expanded(
               flex: 1,
-              child: Container(
-                margin: const EdgeInsets.all(10),
-                width: 66,
-                height: 64,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  image: DecorationImage(
-                      image: AssetImage(
-                          'assets/images/school icon.png'),
-                      fit: BoxFit.cover),
+              child: Hero(
+                tag: subject.id.toString() + subject.name ,
+                child: Container(
+                  margin: const EdgeInsets.all(10),
+                  decoration:  BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+                    image: DecorationImage(
+                        image: NetworkImage("http://school.brain.sy/storage/${subject.image}"),
+                        fit: BoxFit.contain,
+                        opacity: .5),
+                  ),
                 ),
               ),
             ),
             Expanded(
-                flex: 3,
+                flex: 4,
                 child: Padding(
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,

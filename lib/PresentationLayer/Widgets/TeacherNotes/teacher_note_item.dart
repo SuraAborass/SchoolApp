@@ -46,7 +46,7 @@ final TeacherNote teacherNote;
                         mainAxisAlignment: MainAxisAlignment.center,
                         children:  [
                           Text(
-                            teacherNote.teacher,
+                            "${teacherNote.teacher}(${teacherNote.subject})",
                             style: UITextStyle.titleBold,
                           ),
                           Text(teacherNote.text,
