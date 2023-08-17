@@ -33,7 +33,7 @@ class ExamsResultsScreen extends StatelessWidget {
                       height: Get.height - 250,
                       child: ListView.builder(
                         scrollDirection: Axis.vertical,
-                         itemCount: 8,
+                         itemCount: 15,
                          itemBuilder: (BuildContext context, int index) {
                               return const HomeworkShimmer();
                     },
@@ -45,7 +45,7 @@ class ExamsResultsScreen extends StatelessWidget {
                     itemCount: examResultsController.examResults.length,
                     itemBuilder: (context, i) {
                       return ExamResultItem(
-                        examResult: examResultsController.examResults[i],
+                        exam: examResultsController.examResults[i],
                       );
                     },
                   ),

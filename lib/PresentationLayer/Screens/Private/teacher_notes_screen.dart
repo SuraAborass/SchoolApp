@@ -34,7 +34,7 @@ class TeacherNotesScreen extends StatelessWidget {
                   height: Get.height - 250,
                   child: ListView.builder(
                     scrollDirection: Axis.vertical,
-                    itemCount: 8,
+                    itemCount: 15,
                     itemBuilder: (BuildContext context, int index) {
                       return const HomeworkShimmer();
                     },

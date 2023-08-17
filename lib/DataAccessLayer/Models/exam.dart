@@ -1,29 +1,22 @@
+import 'exam_result.dart';
 
 class Exam {
   final int id;
-  final String date;
-  final String subject;
-  final String maximum_score;
-  final String minimum_score;
-  final String score;
+  final String name;
+  final List<ExamResult> exams;
 
-  Exam({
-    required this.id,
-    required this.date,
-    required this.subject,
-    required this.maximum_score,
-    required this.minimum_score,
-    required this.score,
-  });
+  Exam({required this.id, required this.name, required this.exams});
 
   factory Exam.fromMap(Map<String, dynamic> map) {
     return Exam(
       id: map['id'] as int,
-      date: map['date'],
-      subject: map['subject'] ,
-      maximum_score:  map['maximum_score'],
-      minimum_score: map['minimum_score'],
-      score: map['score'],
+      name: map['name'] ?? "",
+      exams:   List<ExamResult>.from(
+        (map['exams' ] as List<dynamic>).map<ExamResult>(
+              (l) => ExamResult.fromMap(l as Map<String, dynamic>),
+        ),
+      ),
     );
   }
+
 }

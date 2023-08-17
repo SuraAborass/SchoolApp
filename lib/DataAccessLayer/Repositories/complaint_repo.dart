@@ -14,8 +14,8 @@ class ComplaintRepo {
     }
     return [];
   }
-  Future<Complaint?> addComplaint(studentId,type,description) async {
-    var data = await client.addComplaint(studentId,type,description);
+  Future<Complaint?> addComplaint(userId,studentId,type,description) async {
+    var data = await client.addComplaint(userId,studentId,type,description);
     if (data != null) {
       final parsed = json.decode(data);
       print(parsed);

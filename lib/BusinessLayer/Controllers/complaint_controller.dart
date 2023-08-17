@@ -6,6 +6,7 @@ import '../../Constants/ui_styles.dart';
 import '../../DataAccessLayer/Models/complaint.dart';
 import '../../DataAccessLayer/Repositories/complaint_repo.dart';
 import '../../PresentationLayer/Widgets/Public/snackbars.dart';
+import '../../main.dart';
 
 
 class ComplaintController extends GetxController {
@@ -15,6 +16,7 @@ class ComplaintController extends GetxController {
   var loading = false.obs;
   TextEditingController typeController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
+  TextEditingController studentIdController = TextEditingController();
 
   @override
   void onInit() async {
@@ -31,8 +33,8 @@ class ComplaintController extends GetxController {
 
   Future<void> addComplaint() async {
     adding.value = true;
-      Complaint? complaint = await complaintRepo.addComplaint(
-          1, typeController.value.text, descriptionController.value.text);
+      Complaint? complaint = await complaintRepo.addComplaint(MyApp.appUser!.id,
+          MyApp.appUser!.students[0]!.id,typeController.value.text, descriptionController.value.text);
       if (complaint == null) {
         SnackBars.showError('املأ الحقول المطلوبة');
       }
@@ -47,8 +49,8 @@ class ComplaintController extends GetxController {
 
   Future<void> addBusComplaint() async {
     adding.value = true;
-    Complaint? complaint = await complaintRepo.addComplaint(
-        1, "Bus", descriptionController.value.text);
+    Complaint? complaint = await complaintRepo.addComplaint(MyApp.appUser!.id,
+        MyApp.appUser!.students[0]!.id, "باص", descriptionController.value.text);
     if (complaint == null) {
       SnackBars.showError('الشكوى فارغة!');
     } else {

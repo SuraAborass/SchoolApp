@@ -2,7 +2,7 @@
 //
 // import '../../../Constants/colors.dart';
 // import '../../../Constants/text_styles.dart';
-// import '../../../DataAccessLayer/Models/exam_result.dart';
+// import '../../../DataAccessLayer/Models/exam.dart';
 //
 // class ExamItem extends StatelessWidget {
 //   const ExamItem({Key? key,required this.examName}) : super(key: key);
