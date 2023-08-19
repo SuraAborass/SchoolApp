@@ -48,7 +48,8 @@ final Alert alert;
                             style: UITextStyle.titleBold,
                           ),
                           Text(alert.description,
-                              style: UITextStyle.titleBold),
+                              style: UITextStyle.titleBold,
+                            overflow: TextOverflow.ellipsis,),
                         ])
                 )),
           ],

@@ -50,7 +50,8 @@ final TeacherNote teacherNote;
                             style: UITextStyle.titleBold,
                           ),
                           Text(teacherNote.text,
-                              style: UITextStyle.titleBold),
+                              style: UITextStyle.titleBold,
+                            overflow: TextOverflow.ellipsis,),
                         ])
                 )),
           ],

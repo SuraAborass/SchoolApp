@@ -57,7 +57,8 @@ final Complaint complaint;
                               children: [
                                 Expanded(
                                   child: Text(complaint.description,
-                                      style: UITextStyle.titleBold),
+                                      style: UITextStyle.titleBold,
+                                    overflow: TextOverflow.ellipsis,),
                                 ),
                               ],
                             ),

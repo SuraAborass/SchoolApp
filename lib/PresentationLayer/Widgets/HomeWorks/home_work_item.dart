@@ -3,9 +3,11 @@ import '../../../Constants/colors.dart';
 import '../../../Constants/text_styles.dart';
 import '../../../DataAccessLayer/Models/homework.dart';
 
+
 class HomeWorkItem extends StatelessWidget {
   const HomeWorkItem({Key? key,required this.homeWork}) : super(key: key);
 final HomeWork homeWork;
+
   @override
   Widget build(BuildContext context) {
     return  Padding(
@@ -23,13 +25,13 @@ final HomeWork homeWork;
               flex: 1,
               child: Container(
                 margin: const EdgeInsets.all(10),
-                width: 66,
-                height: 64,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                decoration:  BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+                  image: DecorationImage(
+                      image: NetworkImage("http://school.brain.sy/storage/${homeWork.subjectImage}"),
+                      fit: BoxFit.contain,
+                      opacity: .5),
                 ),
-                child: const Icon(Icons.feed,
-                  color: UIColors.white,size: 50,),
               ),
             ),
             Expanded(
@@ -50,7 +52,8 @@ final HomeWork homeWork;
                            //     style: UITextStyle.titleBold),
                          ],),
                           Text( homeWork.description,
-                              style: UITextStyle.titleBold),
+                              style: UITextStyle.titleBold,
+                            overflow: TextOverflow.ellipsis,),
                         ])
                 )),
           ],
