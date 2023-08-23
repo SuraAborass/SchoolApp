@@ -7,7 +7,6 @@ import '../../PresentationLayer/Widgets/Public/snackbars.dart';
 import 'grades_controller.dart';
 
 
-enum PaymentMethod { cashPay, onlinePay }
 class RegistrationStudentController extends GetxController{
   RegistrationStudentRepo repo = RegistrationStudentRepo();
   var sending = false.obs;
@@ -20,9 +19,9 @@ class RegistrationStudentController extends GetxController{
   TextEditingController fatherjobController = TextEditingController();
   TextEditingController fathernameController = TextEditingController();
   TextEditingController genderController = TextEditingController();
-  String? gradeId = "الصف الأول";
+  //String? gradeId = "الصف الأول";
   String? payType = "دفع مباشر" ;
-  String? gender = "ذكر";
+  //String? gender = "ذكر";
   //TextEditingController paytypeController = TextEditingController();
   TextEditingController motherphoneController = TextEditingController();
   TextEditingController birthdateController = TextEditingController();
@@ -31,17 +30,16 @@ class RegistrationStudentController extends GetxController{
 
  int? selectedGradeId ;
  String? gradeText;
-  var paymentMethod = PaymentMethod.cashPay.obs;
 
 
-  void changePaymentType(PaymentMethod method) {
-    paymentMethod.value = method;
-    update();
+  final Rx<String> selectedMethod = "دفع مباشر".obs;
+
+  void selectPaymentMethod(String method) {
+  selectedMethod.value = method;
   }
-  void changeGenderType(PaymentMethod method) {
-    paymentMethod.value = method;
-    update();
-  }
+
+
+
 
 
   int convertPayTypeToNumber(payType) {

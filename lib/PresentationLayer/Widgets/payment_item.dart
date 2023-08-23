@@ -4,7 +4,8 @@ import 'package:school_app/Constants/text_styles.dart';
 import '../../Constants/colors.dart';
 
 
-Widget paymentMethodItem(Widget icon, String text, bool selected) {
+Widget paymentMethodItem(Widget icon,String text ,String method, String selectedMethod) {
+  final bool selected = method == selectedMethod;
   return Container(
     margin: const EdgeInsets.only(left: 10),
     padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
